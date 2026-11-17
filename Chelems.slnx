@@ -1,0 +1,9 @@
+<Solution>
+  <Folder Name="/src/">
+    <Project Path="src/Chelems.Console/Chelems.Console.csproj" />
+    <Project Path="src/Chelems.Core/Chelems.Core.csproj" />
+  </Folder>
+  <Folder Name="/tests/">
+    <Project Path="tests/Chelems.Core.Tests/Chelems.Core.Tests.csproj" />
+  </Folder>
+</Solution>
