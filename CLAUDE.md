@@ -1,6 +1,6 @@
 # Chelem — jeu de stratégie de tennis (« Tennis Pourcentage »)
 
-Convention des marques : **[Décidé]** = validé par le créateur. **[Proposé]** = proposition à valider avant d'être codée. **[À calibrer]** = valeur numérique à fixer avec les données ATP. **[Suspendu]** = idée mise de côté tant qu'une mesure ne prouve pas son utilité (voir principe 6).
+Convention des marques : **[Décidé]** = validé par le créateur. **[Proposé]** = proposition à valider avant d'être codée. **[À calibrer]** = valeur numérique à fixer avec les données ATP. **[Suspendu]** = idée mise de côté tant qu'une mesure ne prouve pas son utilité (voir principe 6). **[Mesuré]** = valeur ou constat tiré des données ATP (détail dans `docs/mesure_rivalites.md`).
 
 ## 1. But du projet
 
@@ -23,8 +23,12 @@ Le jeu doit à terme s'intégrer à un simulateur de circuit ATP déjà dévelop
 2. **Les stats décrivent des profils, pas seulement un niveau.** Une stat basse n'est pas toujours un défaut (voir Effet, 4.1).
 3. **Les surfaces modifient la physique de la balle, pas les stats du joueur.** Les affinités de surface émergent.
 4. **Un seul moteur de point** pour le jeu et le simulateur de circuit. Le simulateur peut l'appeler en version allégée mais avec les mêmes formules.
-5. **Les statistiques de l'ATP sont la bible du jeu** [Décidé]. Le jeu doit, **absolument à tout instant**, permettre de recréer ces statistiques : à chaque étape du développement, une simulation de masse doit retrouver les chiffres du circuit (premières balles, aces, doubles fautes, points gagnés au service et au retour, **jeux gagnés derrière son service, dont la moyenne du circuit est d'environ 80 %** [À confirmer avec les données ATP], breaks, longueur des échanges, tie-breaks, etc.), à la fois en moyenne et par profil de joueur. Une formule, un paramètre ou une nouvelle mécanique qui éloigne le jeu de ces statistiques est un défaut, quelle que soit son élégance. En cas de conflit entre une intention de design et les statistiques ATP, on ne tranche pas en silence : on le signale au créateur. Aucune valeur ATP n'est inventée (voir section 8).
+5. **Les statistiques de l'ATP sont la bible du jeu** [Décidé]. Le jeu doit, **absolument à tout instant**, permettre de recréer ces statistiques : à chaque étape du développement, une simulation de masse doit retrouver les chiffres du circuit (premières balles, aces, doubles fautes, points gagnés au service et au retour, **jeux gagnés derrière son service, dont la moyenne du circuit est d'environ 80 %** [Mesuré : 80,7 % sur dur, 76,7 % sur terre, 83,9 % sur gazon pour le top 150, 2015-2025], breaks, longueur des échanges, tie-breaks, etc.), à la fois en moyenne et par profil de joueur. Une formule, un paramètre ou une nouvelle mécanique qui éloigne le jeu de ces statistiques est un défaut, quelle que soit son élégance. En cas de conflit entre une intention de design et les statistiques ATP, on ne tranche pas en silence : on le signale au créateur. Aucune valeur ATP n'est inventée (voir section 8).
 6. **Sobriété en variables dynamiques** [Décidé]. On essaiera de se passer, autant que possible, de variables dynamiques du style forme du jour ou confiance. Hypothèse de travail : la construction des probabilités (le point, qui s'agrège en jeu, set et match) produit déjà par elle-même la variance observée dans la réalité, par exemple des favoris sortis par surprise au premier tour. C'est ce qu'a montré le simulateur de circuit, où le taux de break dépend uniquement de l'écart de niveau. Une variable dynamique n'est ajoutée que si une mesure contre les données ATP prouve que la variance émergente est insuffisante (ou mal répartie) **et** qu'aucun mécanisme déjà présent ne peut l'expliquer. Elle est alors bornée, retourne vers sa valeur de base et se justifie par un écart chiffré. Tant que ce test n'a pas été fait, ces variables ne sont pas codées.
+   **Test effectué (2026-11-18, `docs/mesure_rivalites.md`).** La variance émergente des points ne suffit pas.
+   - Environ 80 à 90 % de la dispersion d'un match à l'autre, une fois le niveau retiré (Elo), ne s'explique ni par le duel (environ 5 %), ni par la surface, ni par la semaine, ni par l'élan ou la pression.
+   - Une **forme par match** est donc justifiée et codée (voir 4.6), ainsi que la **Constance**.
+   - La **Confiance alimentée par les résultats** n'est pas confirmée : gagner un match serré ne rend pas meilleur au tournoi suivant.
 
 ## 4. Statistiques
 
@@ -62,9 +66,9 @@ Attributs fixes (ne sont pas des stats) :
 | Stat | Rôle |
 |---|---|
 | Concentration | Évite le relâchement quand le match est facile ou l'adversaire plus faible (Federer vs joueurs hors top 10) |
-| Résilience à la pression | Évite la baisse de stats quand l'enjeu monte : tie-breaks, balles de break, finales (Djokovic, Nadal ; à l'inverse Zverev face aux top 10) |
+| Résilience à la pression | Évite la baisse de stats quand l'enjeu monte : tie-breaks, balles de break, finales (Djokovic, Nadal ; à l'inverse Zverev face aux top 10). [Mesuré] À l'ATP, les meilleurs semblent mieux sauver leurs balles de break, mais le moteur reproduit le même écart sans aucune résilience : c'est un effet mécanique, pas un trait des meilleurs. La Résilience reste à mesurer **joueur par joueur** (balles de break, tie-breaks, points importants). Piste prioritaire : le n°1 de 2015-2025 convertit ses points importants bien mieux que le hasard ne le prévoit |
 | Agressivité | IA : tendance à attaquer et prendre des risques. Humain : zone de confort (voir 6.4) |
-| Constance | [Proposé, **Suspendu** avec la Forme du jour, voir 4.6 et principe 6] Stat de **circuit** : fait plus ou moins varier la forme du joueur selon le moment (forme du jour, saison) |
+| Constance | [Décidé, Mesuré] Amplitude de la forme d'un joueur : multiplie la variance de sa forme par un facteur allant de ×1,5 (Constance 1) à ×0,5 (Constance 99). Trait stable mais modéré (fiabilité 0,35). Il est lié au niveau, puisque les meilleurs sont plus réguliers, mais pas seulement. Il réduit aussi l'aléa du jour dans les tournois à fort enjeu (voir 4.6). Exemples mesurés de joueurs réguliers : Federer, Sinner, Alcaraz, Djokovic |
 | Régularité | [Proposé] Stat **en match** : capacité à réussir plusieurs fois le même coup (réduit la dispersion d'exécution) ; augmente le taux de deuxièmes balles rentrées. À classer entre technique et mental |
 | Créativité | [Décidé] Augmente la réussite (ou la qualité) des coups candidats **moins bien classés** par le score de l'IA, donc plus rarement choisis (amorti, lob, long de ligne à plat, montée surprise…). Il n'existe pas de catégorie de coups « atypiques » : c'est le classement contextuel qui décide. Les coups sûrs ne reçoivent aucun bonus. Un joueur créatif réussit plus souvent les coups non intuitifs et les choisit donc plus souvent (ex. répartition 45-35-20 au lieu de 55-30-15) ; un joueur peu créatif choisit plus souvent le coup sûr, qu'il réussit aussi bien. Le bonus dépend de la stat technique de chaque coup : fort pour un joueur complet (Alcaraz), presque nul pour un joueur à une seule qualité ou aux lacunes techniques importantes. Mécanisme détaillé en 6.6 |
 | **Lecture du jeu** [Décidé] | Qualité de l'anticipation et de l'évaluation des coups (voir 6.5). Remplace l'idée d'une stat « Anticipation » |
@@ -87,9 +91,26 @@ Un indicateur global (OVR) est calculé à partir des stats, avec une pondérati
 
 - **Forme physique** [Décidé, formules À calibrer] : jauge propre à chaque joueur pendant le match. Elle baisse avec les échanges longs, les courses et les balles difficiles à renvoyer (variées, liftées). La vitesse de baisse dépend de l'**Endurance** : un joueur endurant (Nadal et Djokovic à leur pic, Van Assche) perd très peu. Plus la forme est basse, plus des stats sont pénalisées : Déplacements, Puissance, Explosivité, d'autres à décider. Propositions : [Proposé] effet non linéaire (faible jusqu'à un seuil, puis accéléré) ; coût selon la surface et le format (3 ou 5 sets) ; petite récupération entre les points, plus grande aux changements de côté ; la valeur finale du match alimente la fatigue de circuit (limite n°1 du simulateur), avec une vitesse de récupération liée à l'Endurance.
   - Effet émergent attendu [Décidé] : le plan de jeu change avec la forme relative des deux joueurs et avec l'âge (Nadal 2005-2007 cherche l'échange long à Roland-Garros ; Nadal 2019 joue la majorité de ses points en trois coups ou moins). [Proposé] l'IA ajoute dans son évaluation un coût de prolongement de l'échange selon l'écart de forme entre elle et l'adversaire.
-- **Confiance** [Décidé pour le principe, à coder seulement si le test du principe 6 l'exige] : augmente avec les résultats récents et la réussite de coups risqués, baisse avec les échecs. Elle donne un léger bonus de réussite sur les coups risqués, d'autant plus fort que le joueur est jeune (elle permet de combler son potentiel). Pour un joueur créatif, elle dépend de la réussite des coups atypiques : dévastateur en confiance, « trou d'air » quand ça rate (Alcaraz, Bublik). [Proposé] mise à jour pondérée par le risque du coup (un coup risqué réussi pèse plus qu'un coup facile). **Gains** : plus forts chez les jeunes. **Chutes** [Décidé] : d'autant plus fortes que la Résilience et la Constance sont faibles. Exemple : Nadal, mental exceptionnel, n'a jamais eu de trous d'air et accrochait Roddick en Coupe Davis à 17 ans ; Djokovic, mental très haut mais quelques trous d'air (à calibrer).
-- **Forme du jour** [Proposé, **Suspendu**] : tirée au début du match, avec une variance liée à la Constance. Pas affichée directement ; le joueur n'en voit que les symptômes. À ne reconsidérer que si le principe 6 le justifie : la variance entre matchs est d'abord attendue de l'agrégation des probabilités.
-- **Pression** [Proposé] : calculée à partir du contexte (score, enjeu), pas stockée. Atténuée par la Résilience. (Pas une variable dynamique au sens du principe 6 : rien n'est stocké.)
+- **Confiance** [Suspendu, en conflit avec les données] : l'effet d'un résultat sur la performance suivante n'est pas mesurable (−0,2 ± 0,1 point). À ne coder que si une autre mesure la justifie. Le créateur doit trancher ce conflit (principe 5, décision ouverte n°14). Description d'origine, conservée comme référence : augmente avec les résultats récents et la réussite de coups risqués, baisse avec les échecs. Elle donne un léger bonus de réussite sur les coups risqués, d'autant plus fort que le joueur est jeune (elle permet de combler son potentiel). Pour un joueur créatif, elle dépend de la réussite des coups atypiques : dévastateur en confiance, « trou d'air » quand ça rate (Alcaraz, Bublik). [Proposé] mise à jour pondérée par le risque du coup (un coup risqué réussi pèse plus qu'un coup facile). **Gains** : plus forts chez les jeunes. **Chutes** [Décidé] : d'autant plus fortes que la Résilience et la Constance sont faibles. Exemple : Nadal, mental exceptionnel, n'a jamais eu de trous d'air et accrochait Roddick en Coupe Davis à 17 ans ; Djokovic, mental très haut mais quelques trous d'air (à calibrer).
+- **Forme du jour** [Décidé, Mesuré] : deux étages, en probabilité de point au service. Pas affichée directement ; le joueur n'en voit que les symptômes.
+  - Une phase lente (environ 20 % de la variance) persiste d'un match à l'autre (0,9 par match) et s'efface en 1 à 3 mois : ce sont les périodes de grâce ou de creux (Tiafoe).
+  - L'aléa du jour (environ 80 %) est tiré à chaque match.
+  - Une forme du set s'y ajoute (variation pendant le match).
+  - Écart-type calibré : 2,1 points pour le match, 2,1 points pour le set, à Constance 50.
+  - Bornée par construction (retour vers 0). Le simulateur de circuit garde la phase lente de chaque joueur.
+- **Pression** [Décidé, Mesuré sur le Match Charting Project] : calculée à partir du contexte (score, enjeu), pas stockée. (Pas une variable dynamique au sens du principe 6 : rien n'est stocké.) Décalage du serveur selon l'enjeu du point, en moyenne sur le circuit :
+  - balle de set ou de match pour le serveur : −1,1 point ;
+  - tie-break : −1,0 point ;
+  - balle de break : −0,5 point ;
+  - balle de jeu : +0,8 point ;
+  - 30-30 et égalité : +0,6 point.
+
+  La Résilience modulera ces effets joueur par joueur.
+- **Élan** [Décidé, Mesuré, effet faible] :
+  - ±0,5 point sur le point suivant du même jeu ;
+  - ±0,2 point sur un jeu de service selon le précédent ;
+  - ±0,4 de niveau pendant le set qui suit un set gagné ou perdu.
+- **Enjeu du tournoi** [Décidé, Mesuré] : en Grand Chelem, les meilleurs ont environ deux fois moins de mauvais jours. Codé ainsi : l'aléa du jour est réduit jusqu'à moitié selon la Constance. L'effet sur les victoires est faible ; la domination du n°1 relève du Retour et de la Résilience. Le relâchement des meilleurs dans les ATP 250/500 (n°1 : −3,2 points de victoire) relève de la priorisation des tournois, dans le simulateur de circuit (limite n°1).
 
 ## 5. Modificateurs structurels
 
@@ -106,13 +127,17 @@ Un indicateur global (OVR) est calculé à partir des stats, avec une pondérati
 - Gaucher : inverse les rôles coup droit/revers selon le côté, change les zones favorables et l'effet des services.
 - Revers à une main [Décidé, issu de la V1] : favorise les coups d'attaque, pénalise la défense, plus difficile contre le gros lift, mais permet plus d'effet (positif comme négatif).
 
-### 5.3 Surfaces [Proposé]
+### 5.3 Surfaces [Décidé]
 
 La surface agit sur la physique de la balle : conservation de vitesse au rebond, hauteur de rebond, amplification des effets. Les affinités émergent des stats [Décidé] :
 - **Terre** : balle ralentie et effets amplifiés → favorise Effet haut, Déplacements, Endurance (échanges longs, adversaire fatigué plus vite, moins de coups gagnants subis).
 - **Gazon** : balle plus rapide, rebond bas, slice qui glisse → favorise gros serveurs, Puissance, frappe à plat, volée.
 - **Dur** : intermédiaire. Indoor : plus rapide.
 - Pas de stat « affinité de surface » : si les résultats ne correspondent pas à la réalité, ajuster les paramètres physiques de la surface, pas les joueurs.
+- [Mesuré] La surface agit surtout à travers l'**affinité de chaque joueur**. Les contres de styles propres à une surface sont faibles (2 % au plus de la dispersion). Les bascules à la Nadal–Djokovic (terre 18-9, dur 7-20) viennent d'une forte affinité.
+- Dans le moteur actuel, un style caché est projeté sur une direction propre à chaque surface : terre et gazon opposés, dur orthogonal. Ce style sera remplacé par les attributs (taille, effet, déplacements).
+- Centres calibrés : dur 64,1 %, terre 62,0 %, gazon 66,1 %.
+- **Court pace index par tournoi** : pas encore intégré, il manque une source de données (décision ouverte n°16).
 
 ## 6. Gameplay
 
@@ -197,21 +222,31 @@ L'objectif [Décidé] : une « roue » où chaque style a un contre. Hypothèse 
 - Spécialiste de la terre : domine les gros serveurs sur terre, perd son avantage sur gazon.
 - Le Complet n'a pas de contre franc mais il est limité par le budget de points : son niveau total est élevé et c'est ce qui le rend rare.
 - **Règle** : à niveau global égal (même budget de points), un contre bat sa cible de l'ordre de 55-62 % ; aucun profil ne doit être systématiquement dominant ni inutile sur une surface donnée.
+- [Mesuré] Un contre pur entre deux styles a un écart-type d'environ 2 points d'avantage au service, soit environ 57 % de victoires à niveau égal. La cible de 55-62 % correspond donc à des oppositions marquées : ce doit être l'exception, pas la règle.
 
 ## 8. Données et calibrage
 
-**Les statistiques ATP sont la bible du jeu** (principe 5). Les statistiques ATP récentes servent à calibrer immédiatement les stats des vrais joueurs : service (1res balles rentrées, aces, doubles fautes, points gagnés sur 1re et 2e), retour, break, **jeux gagnés derrière son service (moyenne du circuit ≈ 80 %, à confirmer)**, longueur des échanges, tie-breaks, et les indicateurs de **« shot quality »** disponibles pour le service, le retour, le coup droit et le revers. Les données sont à fournir par le créateur ou à récupérer à la demande ; ne jamais inventer de valeur ATP.
+**Les statistiques ATP sont la bible du jeu** (principe 5). Les statistiques ATP récentes servent à calibrer immédiatement les stats des vrais joueurs : service (1res balles rentrées, aces, doubles fautes, points gagnés sur 1re et 2e), retour, break, **jeux gagnés derrière son service (80,7 % sur dur pour le top 150, mesuré)**, longueur des échanges, tie-breaks, et les indicateurs de **« shot quality »** disponibles pour le service, le retour, le coup droit et le revers. Les données sont à fournir par le créateur ou à récupérer à la demande ; ne jamais inventer de valeur ATP.
 
 Repère de cohérence : un taux de jeux gagnés au service d'environ 80 % correspond à environ 63-64 % des points gagnés derrière son service. Le jeu étant simulé au point, le taux de jeux au service est une **conséquence** à contrôler, pas un paramètre à saisir.
 
 **Contrôle permanent** : à chaque jalon de la roadmap, une simulation de masse doit retrouver les statistiques ATP de référence (voir `AGENT_EQUILIBRAGE.txt`, mesures de fidélité) ; l'agent de relecture (`AGENT_RELECTURE.txt`) vérifie que chaque modification du code n'a pas cassé cette fidélité.
+
+Cibles figées par surface : `objectifs_equilibrage/` pour le dur, `terre/` et `gazon/` pour les autres surfaces, construites par `outils/Chelems.Donnees`. Ce portage C# reproduit à l'identique les fichiers sur dur. Familles contrôlées par la simulation de masse :
+- jeux de service tenus et points au service, par tranche de rang ;
+- retour par tranche ;
+- victoires par tranche et par écart de rang ;
+- sets et tie-breaks ;
+- dépendance des sets et dispersion par match.
+
+Bilan à date : `docs/bilan_v0_2.md`.
 
 ## 9. Conventions de code
 
 - C# récent, nullable activé, un projet de bibliothèque `Chelem.Core` (sans moteur) + des projets de tests + un projet d'interface séparé.
 - Toutes les constantes de calibrage (courbes, seuils, coefficients) dans des fichiers de configuration (JSON), jamais dans le code, pour que l'agent d'équilibrage puisse les modifier sans toucher à la logique.
 - Aléatoire injectable (graine fixe) pour tous les tests.
-- Commentaires et noms de domaine en français ou anglais, mais **un seul choix par projet** (à trancher au démarrage).
+- Commentaires et noms de domaine en **français** [Décidé], un seul choix pour tout le projet.
 - Écrire d'abord le cœur testable en console, puis l'interface.
 
 ## 10. Décisions ouvertes
@@ -223,12 +258,15 @@ Repère de cohérence : un taux de jeux gagnés au service d'environ 80 % corres
 5. Smash et lob : ils relèvent de Volée / Puissance / Toucher, mais cela reste à confirmer.
 6. Simulateur de circuit : faut-il simuler chaque échange ou utiliser une version probabiliste allégée du moteur de point ?
 7. Règle de décision repos/tournoi du simulateur (limite n°1).
-8. Langue du code (français ou anglais).
-9. Séparation Régularité (en match) / Constance (circuit) : proposée, à confirmer, noms à valider. Constance dépend de la Forme du jour, suspendue (principe 6).
+8. ~~Langue du code~~ : tranché, français (section 9).
+9. Séparation Régularité (en match) / Constance : la Constance est désormais l'amplitude de la forme (4.3) ; reste à confirmer la Régularité et son nom.
 10. Stats touchées par la Forme physique (point de départ proposé : Déplacements, Puissance, Explosivité ; à tester par simulation).
-11. Formule de la Confiance (gains et chutes) : à écrire seulement si le test du principe 6 l'exige.
-12. Statut final des variables dynamiques (Forme physique, Confiance, Forme du jour) à la lumière du principe 6 : à décider après les premières simulations de masse comparées aux données ATP.
-13. Roadmap par jalons (à valider, voir section 11).
+11. Formule de la Confiance (gains et chutes) : sans objet tant que la décision n°14 n'est pas tranchée.
+12. ~~Statut des variables dynamiques~~ : tranché par le test du principe 6 (forme du jour et Constance codées, confiance suspendue, voir 4.6).
+13. Roadmap par jalons (à valider, voir section 11 et `docs/bilan_v0_2.md`).
+14. Conflit Confiance / données ATP : garder suspendu ou abandonner ?
+15. Population de test : le lien rang ↔ talent du simulateur de circuit est plus « plat » que l'ATP, ce qui fausse les victoires à 0-10 places et à plus de 160 places. Faut-il corriger le simulateur ou seulement la population de test ?
+16. Source de données pour le court pace index par tournoi.
 
 ## 11. Travail avec les agents
 
