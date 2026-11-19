@@ -1,0 +1,7 @@
+sigma_talent,sigma_pts_service,chi2_ajuste,chi2_controles,centre,pente_par_point_de_talent,demi_amplitude,score_bo3_matchs_en_2_sets,score_bo5_matchs_en_3_sets,score_bo5_matchs_en_4_sets,score_bo5_matchs_en_5_sets,score_bo3_sets_au_tiebreak,score_bo5_sets_au_tiebreak,meme12_bo3_0-5,meme12_bo3_21-40,meme12_bo3_161+,vict_bo3_81-160,vict_bo3_161+,vict_bo5_81-160,vict_bo5_161+
+8,40.4,519,500,0.64125,0.0505,0.05112,67.6,51.5,32.7,15.8,17.5,17.5,67.5,67.6,68.1,76.9,86.8,81.7,91.4
+12,25.11,475,2928,0.6425,0.02093,0.0655,73.5,60.4,28.5,11.1,15.5,15.5,72.7,73.2,75.1,73.3,87.3,77.1,90.1
+16,17.76,515,5408,0.643,0.0111,0.07863,76.6,65.2,25.0,9.8,14.2,14.3,74.7,75.9,79.6,70.4,84.9,73.0,85.9
+24,40.14,853,10859,0.64475,0.01673,0.08363,80.8,71.6,21.7,6.7,12.7,12.7,78.6,80.0,83.3,68.0,78.4,69.4,79.3
+sigma_talent,sigma_pts_service,chi2_ajuste,chi2_controles,centre,pente_par_point_de_talent,demi_amplitude,score_bo3_matchs_en_2_sets,score_bo5_matchs_en_3_sets,score_bo5_matchs_en_4_sets,score_bo5_matchs_en_5_sets,score_bo3_sets_au_tiebreak,score_bo5_sets_au_tiebreak,meme12_bo3_0-5,meme12_bo3_21-40,meme12_bo3_161+,vict_bo3_81-160,vict_bo3_161+,vict_bo5_81-160,vict_bo5_161+
+6,14.03,605,65,0.6405,0.02338,0.0455,63.8,45.9,34.4,19.8,18.7,18.7,63.3,63.6,65.0,78.0,85.5,83.4,90.8

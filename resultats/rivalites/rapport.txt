@@ -1,0 +1,61 @@
+Mesure des rivalités — Jeff Sackmann tennis_atp, dur, circuit principal hors Coupe Davis, 2015-2025, matchs complets.
+Niveau du moment : Elo FiveThirtyEight (moyenne global/dur) calculé depuis 2005, Challengers et qualifications compris.
+15788 matchs mesurés.
+
+Bo3 : 13073 matchs ; P(victoire) = logistique(0.85 × écart Elo standard) ; avantage au service = 3.33 pts par 100 points d'Elo ; Brier = 0.2106
+Bo5 : 2715 matchs ; P(victoire) = logistique(1.15 × écart Elo standard) ; avantage au service = 3.56 pts par 100 points d'Elo ; Brier = 0.1741
+
+=== Décomposition de l'avantage au service, Bo3 (13073 matchs, 2366 paires vues au moins deux fois, 6573 couples de matchs)
+  Résidu brut après Elo : écart-type 12.39 pts, dont hasard des points 8.03 pts
+  Au-delà du hasard des points : écart-type 9.43 pts (variance 88.9)
+    propre au duel (fixe pour la paire)  : variance    3.5  (4 % du total)  écart-type 1.88
+      dont joueurs (×2)                  : variance    2.4  (3 %)
+      dont interaction des styles        : variance    1.1  (1 %)
+    change à chaque match                : variance   85.4  (96 %)  écart-type 9.24
+  Victoires : covariance dans la paire 0.0033 (dont joueurs ×2 : -0.0004), à comparer à la variance de Bernoulli 0.2106 (part du duel ≈ 2 % de la variance d'un match)
+
+=== Décomposition de l'avantage au service, Bo5 (2715 matchs, 197 paires vues au moins deux fois, 247 couples de matchs)
+  Résidu brut après Elo : écart-type 10.25 pts, dont hasard des points 6.50 pts
+  Au-delà du hasard des points : écart-type 7.92 pts (variance 62.7)
+    propre au duel (fixe pour la paire)  : variance    4.5  (7 % du total)  écart-type 2.12
+      dont joueurs (×2)                  : variance    4.0  (6 %)
+      dont interaction des styles        : variance    0.5  (1 %)
+    change à chaque match                : variance   58.2  (93 %)  écart-type 7.63
+  Victoires : covariance dans la paire 0.0061 (dont joueurs ×2 : 0.0006), à comparer à la variance de Bernoulli 0.1740 (part du duel ≈ 4 % de la variance d'un match)
+
+=== Décomposition de l'avantage au service, tous formats (15788 matchs, 2997 paires vues au moins deux fois, 9205 couples de matchs)
+  Résidu brut après Elo : écart-type 12.05 pts, dont hasard des points 7.79 pts
+  Au-delà du hasard des points : écart-type 9.19 pts (variance 84.4)
+    propre au duel (fixe pour la paire)  : variance    4.9  (6 % du total)  écart-type 2.21
+      dont joueurs (×2)                  : variance    2.5  (3 %)
+      dont interaction des styles        : variance    2.4  (3 %)
+    change à chaque match                : variance   79.5  (94 %)  écart-type 8.92
+  Victoires : covariance dans la paire 0.0043 (dont joueurs ×2 : -0.0003), à comparer à la variance de Bernoulli 0.2043 (part du duel ≈ 2 % de la variance d'un match)
+
+=== Covariance du résidu de l'avantage entre deux matchs de la même paire, selon le temps qui les sépare
+  moins d'un an  :   3384 couples, covariance avantage   8.6 pts², covariance victoires 0.0033
+  1 à 3 ans      :   3586 couples, covariance avantage   1.8 pts², covariance victoires 0.0053
+  plus de 3 ans  :   2235 couples, covariance avantage   4.3 pts², covariance victoires 0.0044
+
+=== Même joueur, deux adversaires différents : même tournoi ou tournois différents à moins de 60 jours
+  même tournoi        :   26002 couples, covariance avantage   5.2 pts², victoires 0.0008
+  autre tournoi < 60 j :  137273 couples, covariance avantage   3.9 pts², victoires 0.0011
+
+=== Rivalités d'au moins 6 matchs sur dur : 95 paires
+  Part des rivalités équilibrées (le moins victorieux gagne au moins 40 % des matchs) : réel 24.2 %, Elo seul 27.3 %
+  Dispersion des bilans autour de l'Elo : Var(z) = 1.06 (1 = l'Elo explique tout, > 1 = effet propre au duel)
+
+=== Styles proches ou opposés (style = % points gagnés au service − % au retour, joueurs ≥ 20 matchs)
+  styles proches   (écart de style 0.0 à 2.1 pts, 981 paires, 2644 matchs) : au-delà du hasard  85.2, duel   7.9, par match  77.3 pts² ; victoires : duel 0.0076 / Bernoulli 0.2048
+  intermédiaire    (écart de style 2.1 à 5.0 pts, 981 paires, 2749 matchs) : au-delà du hasard  88.5, duel   4.6, par match  83.9 pts² ; victoires : duel 0.0087 / Bernoulli 0.2074
+  styles opposés   (écart de style 5.0 à 23.8 pts, 982 paires, 2606 matchs) : au-delà du hasard  77.2, duel   2.2, par match  75.0 pts² ; victoires : duel -0.0043 / Bernoulli 0.2120
+
+=== Exemples (dur, circuit principal 2015-2025) : P = probabilité de victoire du premier joueur selon l'Elo
+  Daniil Medvedev – Jannik Sinner : 6-8 (attendu par l'Elo 6.9-7.1)
+    2020:V(76) 2021:V(73) 2021:V(71) 2022:V(59) 2023:V(55) 2023:V(57) 2023:D(57) 2023:D(53) 2023:D(44) 2024:D(35) 2024:D(37) 2024:D(25) 2024:D(28) 2024:D(23)
+  Novak Djokovic – Rafael Nadal : 6-0 (attendu par l'Elo 4.2-1.8)
+    2015:V(78) 2015:V(76) 2016:V(77) 2016:V(80) 2019:V(55) 2020:V(50)
+  Novak Djokovic – Roger Federer : 7-4 (attendu par l'Elo 6.5-4.5)
+    2015:D(63) 2015:V(59) 2015:D(62) 2015:V(62) 2015:D(66) 2015:V(63) 2016:V(71) 2018:V(47) 2018:V(50) 2019:D(52) 2020:V(56)
+  Carlos Alcaraz – Jannik Sinner : 6-3 (attendu par l'Elo 4.2-4.8)
+    2021:V(45) 2022:V(59) 2023:V(58) 2023:D(62) 2023:D(63) 2024:V(34) 2024:V(36) 2025:V(30) 2025:D(34)

@@ -1,0 +1,147 @@
+analyse,tranche,niveau,valeur,erreur_type,effectif,unite
+victoire,n°1,G,3.6815,1.3372,362,pts de %
+avantage,n°1,G,0.5944,0.4834,362,pts
+victoire,n°1,M,-0.9508,1.7361,410,pts de %
+avantage,n°1,M,-0.7051,0.5543,410,pts
+victoire,n°1,A,-3.1960,2.3623,224,pts de %
+avantage,n°1,A,-2.0788,0.7927,224,pts
+victoire,n°1,F,8.1098,4.9461,58,pts de %
+avantage,n°1,F,1.9268,1.7082,58,pts
+victoire,2-5,G,1.6059,0.9408,1126,pts de %
+avantage,2-5,G,0.0969,0.2722,1126,pts
+victoire,2-5,M,1.2961,1.0635,1404,pts de %
+avantage,2-5,M,0.6870,0.3258,1404,pts
+victoire,2-5,A,0.4308,1.1096,1202,pts de %
+avantage,2-5,A,-0.4787,0.3372,1202,pts
+victoire,2-5,F,1.7291,3.2439,200,pts de %
+avantage,2-5,F,1.4640,0.8634,200,pts
+victoire,6-10,G,1.6755,1.0978,1096,pts de %
+avantage,6-10,G,0.7910,0.2941,1096,pts
+victoire,6-10,M,-0.2099,1.1570,1506,pts de %
+avantage,6-10,M,0.0941,0.3298,1506,pts
+victoire,6-10,A,2.3408,0.9384,1970,pts de %
+avantage,6-10,A,0.7015,0.2584,1970,pts
+victoire,6-10,F,-4.2057,3.2572,181,pts de %
+avantage,6-10,F,-2.1609,0.9587,181,pts
+victoire,11-20,G,0.2961,0.9977,1676,pts de %
+avantage,11-20,G,0.4052,0.2492,1676,pts
+victoire,11-20,M,0.9229,0.8808,2686,pts de %
+avantage,11-20,M,-0.0329,0.2404,2686,pts
+victoire,11-20,A,0.0587,0.7418,3786,pts de %
+avantage,11-20,A,0.0228,0.1983,3786,pts
+victoire,11-20,O,12.7866,7.1484,28,pts de %
+avantage,11-20,O,4.6548,2.5724,28,pts
+victoire,21-50,G,0.3930,0.7055,3666,pts de %
+avantage,21-50,G,0.2857,0.1697,3666,pts
+victoire,21-50,M,-0.6507,0.6031,5926,pts de %
+avantage,21-50,M,-0.1169,0.1629,5926,pts
+victoire,21-50,A,0.2024,0.4208,12268,pts de %
+avantage,21-50,A,0.1329,0.1125,12268,pts
+victoire,21-50,F,-9.4177,7.0972,44,pts de %
+avantage,21-50,F,-1.7275,1.6344,44,pts
+victoire,21-50,O,-14.3237,8.3279,26,pts de %
+avantage,21-50,O,-4.1741,2.7211,26,pts
+victoire,51-100,G,-0.4797,0.6440,4428,pts de %
+avantage,51-100,G,-0.3587,0.1577,4428,pts
+victoire,51-100,M,-0.2802,0.7058,4429,pts de %
+avantage,51-100,M,-0.1348,0.1894,4429,pts
+victoire,51-100,A,-0.1623,0.3625,16754,pts de %
+avantage,51-100,A,0.0091,0.0994,16754,pts
+victoire,51-100,F,-3.2369,5.8775,63,pts de %
+avantage,51-100,F,-0.7500,1.6509,63,pts
+victoire,51-100,O,1.1153,7.9935,27,pts de %
+avantage,51-100,O,-1.5792,2.6496,27,pts
+victoire,101+,G,-1.4998,0.7419,3194,pts de %
+avantage,101+,G,-0.4162,0.1904,3194,pts
+victoire,101+,M,0.8082,1.0678,1861,pts de %
+avantage,101+,M,0.3014,0.2892,1861,pts
+victoire,101+,A,-0.3867,0.4264,11376,pts de %
+avantage,101+,A,-0.1942,0.1207,11376,pts
+victoire,101+,F,9.4118,6.4541,58,pts de %
+avantage,101+,F,1.9081,1.6422,58,pts
+victoire,101+,O,-8.9934,8.8980,20,pts de %
+avantage,101+,O,-4.3243,3.3968,20,pts
+gc_moins_m1000_ecart_elo_egal_victoire,n°1,G-M,4.9569,2.2787,362,pts de %
+gc_moins_m1000_ecart_elo_egal_avantage,n°1,G-M,1.2772,0.7478,362,pts
+gc_moins_m1000_ecart_elo_egal_victoire,2-5,G-M,0.3624,1.3821,1126,pts de %
+gc_moins_m1000_ecart_elo_egal_avantage,2-5,G-M,-0.5547,0.4279,1126,pts
+gc_moins_m1000_ecart_elo_egal_victoire,6-10,G-M,2.1327,1.6043,1096,pts de %
+gc_moins_m1000_ecart_elo_egal_avantage,6-10,G-M,0.9097,0.4536,1096,pts
+gc_moins_m1000_ecart_elo_egal_victoire,11-20,G-M,-0.4342,1.3443,1676,pts de %
+gc_moins_m1000_ecart_elo_egal_avantage,11-20,G-M,0.5045,0.3608,1676,pts
+gc_moins_m1000_ecart_elo_egal_victoire,21-50,G-M,1.3960,0.9561,3666,pts de %
+gc_moins_m1000_ecart_elo_egal_avantage,21-50,G-M,0.4391,0.2463,3666,pts
+mauvais_jours_top10,1-10,G,8.3204,NaN,2584,%
+bons_jours_top10,1-10,G,9.5975,NaN,2584,%
+variance_top10,1-10,G,44.3546,NaN,2584,pts²
+mauvais_jours_top10,1-10,M,14.3675,NaN,3320,%
+bons_jours_top10,1-10,M,15.6627,NaN,3320,%
+variance_top10,1-10,M,86.3895,NaN,3320,pts²
+mauvais_jours_top10,1-10,A,13.7220,NaN,3396,%
+bons_jours_top10,1-10,A,13.5159,NaN,3396,%
+variance_top10,1-10,A,68.3591,NaN,3396,pts²
+variance_par_tranche,n°1,G,37.9440,NaN,362,pts²
+variance_par_tranche,n°1,M,57.5022,NaN,410,pts²
+variance_par_tranche,n°1,A,71.1464,NaN,224,pts²
+variance_par_tranche,2-5,G,38.8906,NaN,1126,pts²
+variance_par_tranche,2-5,M,81.1730,NaN,1404,pts²
+variance_par_tranche,2-5,A,68.8207,NaN,1202,pts²
+variance_par_tranche,6-10,G,51.9936,NaN,1096,pts²
+variance_par_tranche,6-10,M,98.8561,NaN,1506,pts²
+variance_par_tranche,6-10,A,66.7939,NaN,1970,pts²
+variance_par_tranche,11-20,G,62.6175,NaN,1676,pts²
+variance_par_tranche,11-20,M,90.3899,NaN,2686,pts²
+variance_par_tranche,11-20,A,84.8184,NaN,3786,pts²
+variance_par_tranche,21-50,G,64.3022,NaN,3666,pts²
+variance_par_tranche,21-50,M,91.9133,NaN,5926,pts²
+variance_par_tranche,21-50,A,90.7650,NaN,12268,pts²
+variance_par_tranche,51-100,G,68.2379,NaN,4428,pts²
+variance_par_tranche,51-100,M,93.4067,NaN,4429,pts²
+variance_par_tranche,51-100,A,99.9976,NaN,16754,pts²
+variance_par_tranche,101+,G,73.5905,NaN,3194,pts²
+variance_par_tranche,101+,M,89.8383,NaN,1861,pts²
+variance_par_tranche,101+,A,99.7651,NaN,11376,pts²
+pente_forme_avant_top10,1-10,G,0.1036,0.0381,2186,
+pente_forme_avant_top10,1-10,M,0.1032,0.0416,2975,
+clutch_service,n°1,G,1.9098,1.0844,262,pts
+clutch_retour,n°1,G,3.0101,0.7734,360,pts
+clutch_service,n°1,M,-0.3019,1.2287,263,pts
+clutch_retour,n°1,M,3.2172,0.9089,388,pts
+clutch_service,n°1,A,1.8601,1.6742,141,pts
+clutch_retour,n°1,A,1.8020,1.2615,213,pts
+clutch_service,2-5,G,-1.5122,0.6210,866,pts
+clutch_retour,2-5,G,3.2677,0.4527,1105,pts
+clutch_service,2-5,M,-0.6163,0.6487,935,pts
+clutch_retour,2-5,M,3.6169,0.5224,1282,pts
+clutch_service,2-5,A,0.5272,0.7085,778,pts
+clutch_retour,2-5,A,3.3942,0.5471,1099,pts
+clutch_service,6-10,G,-1.3492,0.6091,881,pts
+clutch_retour,6-10,G,2.4778,0.4810,1043,pts
+clutch_service,6-10,M,-1.0610,0.5830,1112,pts
+clutch_retour,6-10,M,3.1257,0.5441,1287,pts
+clutch_service,6-10,A,0.7906,0.5547,1339,pts
+clutch_retour,6-10,A,2.0594,0.4458,1739,pts
+clutch_service,11-20,G,-1.5274,0.4603,1424,pts
+clutch_retour,11-20,G,2.4174,0.3932,1589,pts
+clutch_service,11-20,M,-1.0746,0.4173,2083,pts
+clutch_retour,11-20,M,2.6754,0.4021,2248,pts
+clutch_service,11-20,A,-1.2048,0.3750,2794,pts
+clutch_retour,11-20,A,2.1579,0.3343,3238,pts
+clutch_service,21-50,G,-2.3116,0.2901,3320,pts
+clutch_retour,21-50,G,2.7461,0.2829,3368,pts
+clutch_service,21-50,M,-2.3584,0.2725,4912,pts
+clutch_retour,21-50,M,1.8344,0.2802,4751,pts
+clutch_service,21-50,A,-1.4334,0.1935,9736,pts
+clutch_retour,21-50,A,2.2769,0.1869,10210,pts
+clutch_service,51-100,G,-2.7150,0.2432,4226,pts
+clutch_retour,51-100,G,1.9205,0.2747,3848,pts
+clutch_service,51-100,M,-2.6022,0.3025,3870,pts
+clutch_retour,51-100,M,1.8740,0.3288,3466,pts
+clutch_service,51-100,A,-2.3533,0.1600,14037,pts
+clutch_retour,51-100,A,1.8045,0.1631,13466,pts
+clutch_service,101+,G,-2.8549,0.2819,3085,pts
+clutch_retour,101+,G,1.5883,0.3326,2751,pts
+clutch_service,101+,M,-3.6276,0.4744,1653,pts
+clutch_retour,101+,M,0.4213,0.4907,1406,pts
+clutch_service,101+,A,-2.5409,0.1854,9814,pts
+clutch_retour,101+,A,1.3063,0.2082,8674,pts

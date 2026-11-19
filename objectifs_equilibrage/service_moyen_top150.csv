@@ -1,0 +1,9 @@
+mesure,valeur_pct,definition
+hold,80.7,1 - (bpFaced - bpSaved) / SvGms
+points_gagnes_service,64.5,(1stWon + 2ndWon) / svpt
+premieres_balles,61.4,1stIn / svpt
+points_gagnes_1re,73.0,1stWon / 1stIn
+points_gagnes_2e,51.0,"2ndWon / (svpt - 1stIn), doubles fautes comptées perdues"
+aces_par_point_service,8.9,ace / svpt
+doubles_fautes_par_point_service,3.8,df / svpt
+balles_de_break_sauvees,61.7,bpSaved / bpFaced

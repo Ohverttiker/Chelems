@@ -1,0 +1,26 @@
+Test point par point — Jeff Sackmann, Match Charting Project (hommes, tous les fichiers charting-m-points).
+7532 matchs lus, 20890 sets ; 20695 sets complets et cohérents (dur 12948, terre 5082, gazon 2665), dont 7341 matchs entièrement notés.
+Écartés : 195 sets incomplets ou incohérents, 3 points illisibles.
+
+=== A. L'avantage au service varie-t-il d'un set à l'autre du même match ?
+  Variance d'un set à l'autre : observé 96.7 pts², référence « niveau constant sur le match » 53.2 ± 2.2
+    → variation réelle du niveau d'un set à l'autre : 43.6 pts² (écart-type 6.60 pts d'avantage au service)
+    → par joueur : écart-type 3.80 pts de % au service d'un set à l'autre
+  Part de la variance d'un match entier due à cette variation (moyenne sur les sets) : 17.2 pts²
+    (à comparer aux ≈ 85 pts² par match, après Elo, sur les matchs ATP sur dur : le reste est un niveau fixe pour tout le match)
+B4. Élan entre sets : avantage du vainqueur d'un set au set suivant − au set précédent : observé +6.53, référence (sets dans un ordre au hasard) +4.82 ± 0.24 → écart +1.71 pts
+
+=== B. Élan dans le set (à niveau du joueur égal dans ce set)
+  point gagné après point gagné − après point perdu        observé  -2.28  indépendance  -3.24  écart  +0.96 ± 0.10 pts de %  (1029718 cas)
+  jeu tenu après jeu de service tenu − après break subi    observé -26.38  indépendance -27.59  écart  +1.21 ± 0.27 pts de %  (159672 cas)
+  jeu tenu juste après avoir breaké − après jeu tenu adverse observé  -0.28  indépendance  -0.15  écart  -0.13 ± 0.18 pts de %  (180279 cas)
+
+=== C. Pression : % de points gagnés au service selon l'enjeu, moins le % du même serveur dans le même set
+  balle de set/match contre le serveur                     observé  +2.94  indépendance  +2.61  écart  +0.33 ± 0.36 pts de %  (16832 cas)
+  balle de set/match pour le serveur                       observé  -4.11  indépendance  -2.99  écart  -1.13 ± 0.36 pts de %  (21418 cas)
+  tie-break (autres points)                                observé  -3.97  indépendance  -2.92  écart  -1.05 ± 0.20 pts de %  (38296 cas)
+  balle de break                                           observé  +3.24  indépendance  +3.73  écart  -0.49 ± 0.17 pts de %  (91163 cas)
+  balle de jeu                                             observé  -0.32  indépendance  -1.09  écart  +0.77 ± 0.07 pts de %  (227538 cas)
+  30-30 et égalité                                         observé  +2.26  indépendance  +1.67  écart  +0.59 ± 0.08 pts de %  (144981 cas)
+  autres points                                            observé  -0.49  indépendance  -0.26  écart  -0.22 ± 0.04 pts de %  (737176 cas)
+

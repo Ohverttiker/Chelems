@@ -1,0 +1,68 @@
+{
+  "_commentaire": "Moteur de match V0.2. Toutes les valeurs sont en probabilité de gagner un point au service. p = borne(centre(surface) + pente × écart de talent + affinités de surface + contre de styles + écart de forme + pression + élan). Valeurs de départ mesurées (docs/mesure_rivalites.md), puis calibrées avec : dotnet run --project src/Chelems.Console -- calibrer",
+  "_commentaire_surfaces": "affinite : direction 2D dans l'espace des styles (écart-type de l'affinité d'un joueur = sa norme) ; terre et gazon opposés, dur orthogonal (covariances mesurées entre surfaces). contre : écart-type du contre pur entre deux styles.",
+  "version": "0.2",
+  "point_service": {
+    "pente_par_point_de_talent": 0.003375,
+    "borne_min": 0.4,
+    "borne_max": 0.9
+  },
+  "surfaces": {
+    "dur": {
+      "centre": 0.641,
+      "affinite": [
+        0,
+        0.0068
+      ],
+      "contre": 0.0077
+    },
+    "terre": {
+      "centre": 0.6195,
+      "affinite": [
+        -0.0092,
+        0
+      ],
+      "contre": 0.0113
+    },
+    "gazon": {
+      "centre": 0.6605,
+      "affinite": [
+        0.0106,
+        0
+      ],
+      "contre": 0.011
+    }
+  },
+  "forme": {
+    "_commentaire": "Pour une Constance de 50. ecart_type_match : forme fixe sur le match (phase lente + aléa du jour) ; part_lente : part de variance qui dure d'un match à l'autre ; persistance_lente : corrélation d'un match au suivant de cette phase ; ecart_type_set : variation d'un set à l'autre.",
+    "ecart_type_match": 0.021,
+    "part_lente": 0.2,
+    "persistance_lente": 0.9,
+    "ecart_type_set": 0.021
+  },
+  "constance": {
+    "_commentaire": "Multiplicateur de la variance de forme = 1 + amplitude × (50 − Constance) / 49.",
+    "amplitude": 0.5
+  },
+  "pression": {
+    "_commentaire": "Décalage du serveur selon l'enjeu (Match Charting Project, moyenne du circuit).",
+    "balle_set_contre": 0.0033,
+    "balle_set_pour": -0.0113,
+    "tie_break": -0.0105,
+    "balle_de_break": -0.0049,
+    "balle_de_jeu": 0.0077,
+    "egalite": 0.0059,
+    "autres": -0.0022
+  },
+  "enjeu": {
+    "_commentaire": "Enjeu du tournoi (codes Sackmann : G Grand Chelem, M Masters 1000, A ATP 250/500, F Masters final, O Jeux olympiques). Variance de l'aléa du jour × (1 − reduction × enjeu × (Constance − 1) / 98). Mesure : seuls les Grands Chelems montrent un effet net.",
+    "reduction": 0.5,
+    "niveaux": { "G": 1.0, "M": 0.0, "A": 0.0, "F": 0.0, "O": 0.0 }
+  },
+  "elan": {
+    "_commentaire": "point : ± sur le point suivant du même jeu ; jeu : ± sur un jeu de service selon le précédent dans le set ; set : ± de niveau après un set gagné ou perdu.",
+    "point": 0.0048,
+    "jeu": 0.0023,
+    "set": 0.0043
+  }
+}

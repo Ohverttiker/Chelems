@@ -1,4 +1,7 @@
 <Solution>
+  <Folder Name="/outils/">
+    <Project Path="outils/Chelems.Donnees/Chelems.Donnees.csproj" />
+  </Folder>
   <Folder Name="/src/">
     <Project Path="src/Chelems.Console/Chelems.Console.csproj" />
     <Project Path="src/Chelems.Core/Chelems.Core.csproj" />

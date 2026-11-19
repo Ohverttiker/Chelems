@@ -1,0 +1,48 @@
+Effet de l'enjeu — Jeff Sackmann tennis_atp, circuit principal hors Coupe Davis, 2010 à mai 2026, matchs complets avec statistiques : 41047 matchs.
+Niveau du moment : Elo FiveThirtyEight (global + surface), calculé depuis 2000 avec Challengers et qualifications ; prédiction calibrée par format.
+
+=== Performance au-delà de l'Elo, par tranche de rang du joueur et niveau de tournoi
+    victoire : points de % de victoire en plus de ce que prédit l'Elo ; avantage : points d'avantage au service.
+tranche                Grand Chelem               Masters 1000                ATP 250/500              Masters final            Jeux olympiques
+n°1       +3.7±1.3 / +0.6±0.5 (362)  -1.0±1.7 / -0.7±0.6 (410)  -3.2±2.4 / -2.1±0.8 (224)   +8.1±4.9 / +1.9±1.7 (58)                          —
+2-5      +1.6±0.9 / +0.1±0.3 (1126) +1.3±1.1 / +0.7±0.3 (1404) +0.4±1.1 / -0.5±0.3 (1202)  +1.7±3.2 / +1.5±0.9 (200)                          —
+6-10     +1.7±1.1 / +0.8±0.3 (1096) -0.2±1.2 / +0.1±0.3 (1506) +2.3±0.9 / +0.7±0.3 (1970)  -4.2±3.3 / -2.2±1.0 (181)                          —
+11-20    +0.3±1.0 / +0.4±0.2 (1676)+0.9±0.9 / -+0.0±0.2 (2686) +0.1±0.7 / +0.0±0.2 (3786)                          —  +12.8±7.1 / +4.7±2.6 (28)
+21-50    +0.4±0.7 / +0.3±0.2 (3666) -0.7±0.6 / -0.1±0.2 (5926)+0.2±0.4 / +0.1±0.1 (12268)   -9.4±7.1 / -1.7±1.6 (44)  -14.3±8.3 / -4.2±2.7 (26)
+51-100   -0.5±0.6 / -0.4±0.2 (4428) -0.3±0.7 / -0.1±0.2 (4429)-0.2±0.4 / +0.0±0.1 (16754)   -3.2±5.9 / -0.8±1.7 (63)   +1.1±8.0 / -1.6±2.6 (27)
+101+     -1.5±0.7 / -0.4±0.2 (3194) +0.8±1.1 / +0.3±0.3 (1861)-0.4±0.4 / -0.2±0.1 (11376)   +9.4±6.5 / +1.9±1.6 (58)   -9.0±8.9 / -4.3±3.4 (20)
+    (lecture : « victoire ± erreur-type / avantage ± erreur-type (matchs) »)
+
+=== Piste 3 : les adversaires. Grand Chelem − Masters 1000, à écart d'Elo égal (tranches d'écart pondérées comme en Grand Chelem)
+  n°1     brut  +4.6 pts de victoire ; à écart d'Elo égal : victoire  +5.0 ± 2.3, avantage  +1.3 ± 0.7 pts ; rang médian des adversaires : GC 32, M1000 25 ; écart d'Elo moyen : GC 379, M1000 372
+  2-5     brut  +0.3 pts de victoire ; à écart d'Elo égal : victoire  +0.4 ± 1.4, avantage  -0.6 ± 0.4 pts ; rang médian des adversaires : GC 41, M1000 27 ; écart d'Elo moyen : GC 291, M1000 240
+  6-10    brut  +1.9 pts de victoire ; à écart d'Elo égal : victoire  +2.1 ± 1.6, avantage  +0.9 ± 0.5 pts ; rang médian des adversaires : GC 53, M1000 30 ; écart d'Elo moyen : GC 191, M1000 130
+  11-20   brut  -0.6 pts de victoire ; à écart d'Elo égal : victoire  -0.4 ± 1.3, avantage  +0.5 ± 0.4 pts ; rang médian des adversaires : GC 62, M1000 35 ; écart d'Elo moyen : GC 122, M1000 66
+  21-50   brut  +1.0 pts de victoire ; à écart d'Elo égal : victoire  +1.4 ± 1.0, avantage  +0.4 ± 0.2 pts ; rang médian des adversaires : GC 55, M1000 34 ; écart d'Elo moyen : GC 16, M1000 -36
+
+=== Piste 1 : forme effacée ? Joueurs du top 10 (rang du jour), Grand Chelem contre Masters 1000
+  Grand Chelem   : très mauvais jours (avantage < −12 pts)  8.3 % ; très bons jours (> +12)  9.6 % ; variance au-delà du hasard  44.4 pts² (2584 matchs)
+  Masters 1000   : très mauvais jours (avantage < −12 pts) 14.4 % ; très bons jours (> +12) 15.7 % ; variance au-delà du hasard  86.4 pts² (3320 matchs)
+  ATP 250/500    : très mauvais jours (avantage < −12 pts) 13.7 % ; très bons jours (> +12) 13.5 % ; variance au-delà du hasard  68.4 pts² (3396 matchs)
+  Contrôle par tranche — variance au-delà du hasard (pts²) et très mauvais jours (%), GC / M1000 / 250-500 :
+    n°1      37.9 /  6.6 %     57.5 / 14.6 %     71.1 / 16.5 %
+    2-5      38.9 /  8.4 %     81.2 / 13.1 %     68.8 / 14.5 %
+    6-10     52.0 /  8.8 %     98.9 / 15.5 %     66.8 / 12.9 %
+    11-20    62.6 / 10.3 %     90.4 / 15.3 %     84.8 / 16.0 %
+    21-50    64.3 / 10.8 %     91.9 / 16.5 %     90.8 / 15.7 %
+    51-100   68.2 / 12.1 %     93.4 / 15.7 %    100.0 / 16.5 %
+    101+     73.6 / 13.3 %     89.8 / 14.5 %     99.8 / 16.5 %
+  Poids de la forme des 45 jours précédents sur un match de Grand Chelem : pente 0.104 ± 0.038 (2186 matchs du top 10)
+  Poids de la forme des 45 jours précédents sur un match de Masters 1000 : pente 0.103 ± 0.042 (2975 matchs du top 10)
+
+=== Piste 2 : balles de break. Au service : % sauvées − % de points gagnés au service du match. Au retour : % converties − % de points gagnés au retour.
+tranche                 Grand Chelem                Masters 1000                 ATP 250/500
+n°1              +1.9±1.1 / +3.0±0.8         -0.3±1.2 / +3.2±0.9         +1.9±1.7 / +1.8±1.3
+2-5              -1.5±0.6 / +3.3±0.5         -0.6±0.6 / +3.6±0.5         +0.5±0.7 / +3.4±0.5
+6-10             -1.3±0.6 / +2.5±0.5         -1.1±0.6 / +3.1±0.5         +0.8±0.6 / +2.1±0.4
+11-20            -1.5±0.5 / +2.4±0.4         -1.1±0.4 / +2.7±0.4         -1.2±0.4 / +2.2±0.3
+21-50            -2.3±0.3 / +2.7±0.3         -2.4±0.3 / +1.8±0.3         -1.4±0.2 / +2.3±0.2
+51-100           -2.7±0.2 / +1.9±0.3         -2.6±0.3 / +1.9±0.3         -2.4±0.2 / +1.8±0.2
+101+             -2.9±0.3 / +1.6±0.3         -3.6±0.5 / +0.4±0.5         -2.5±0.2 / +1.3±0.2
+    (lecture : « au service ± erreur-type / au retour ± erreur-type », en points de % ; matchs avec au moins 3 balles de break)
+

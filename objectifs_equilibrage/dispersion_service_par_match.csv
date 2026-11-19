@@ -1,0 +1,9 @@
+best_of,ecart_places,matchs,avantage_moyen_mieux_classe_pts,ecart_type_observe_pts,ecart_type_bruit_binomial_pts,ecart_type_reel_estime_pts
+3,0-5,1090,1.9,12.9,8.0,10.2
+3,6-20,2868,2.8,13.0,8.0,10.2
+3,21-80,6186,4.7,13.2,8.0,10.5
+3,81+,2764,6.8,13.2,8.1,10.4
+5,0-5,167,1.3,10.6,6.3,8.5
+5,6-20,447,2.5,12.0,6.4,10.2
+5,21-80,1334,6.9,11.3,6.5,9.2
+5,81+,739,9.0,11.1,6.6,9.0

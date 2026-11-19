@@ -1,0 +1,69 @@
+Styles et surfaces — Jeff Sackmann tennis_atp, circuit principal hors Coupe Davis, 2005-2025, matchs complets.
+Niveau du moment : Elo toutes surfaces (aucune information de surface), calculé depuis 1995 avec Challengers et qualifications.
+dur 30154 matchs, terre 16803 matchs, gazon 6033 matchs
+
+--- Calibrage dur
+Bo3 : 25012 matchs ; P(victoire) = logistique(0.86 × écart Elo standard) ; avantage au service = 3.24 pts par 100 points d'Elo ; Brier = 0.2069
+Bo5 : 5142 matchs ; P(victoire) = logistique(1.17 × écart Elo standard) ; avantage au service = 3.61 pts par 100 points d'Elo ; Brier = 0.1692
+
+--- Calibrage terre
+Bo3 : 14220 matchs ; P(victoire) = logistique(0.80 × écart Elo standard) ; avantage au service = 3.18 pts par 100 points d'Elo ; Brier = 0.2150
+Bo5 : 2583 matchs ; P(victoire) = logistique(1.15 × écart Elo standard) ; avantage au service = 3.62 pts par 100 points d'Elo ; Brier = 0.1708
+
+--- Calibrage gazon
+Bo3 : 3589 matchs ; P(victoire) = logistique(0.72 × écart Elo standard) ; avantage au service = 2.66 pts par 100 points d'Elo ; Brier = 0.2173
+Bo5 : 2444 matchs ; P(victoire) = logistique(1.07 × écart Elo standard) ; avantage au service = 3.28 pts par 100 points d'Elo ; Brier = 0.1742
+
+=== Décomposition de l'avantage au service, dur, tous formats (30154 matchs, 5866 paires vues au moins deux fois, 25412 couples de matchs)
+  Résidu brut après Elo : écart-type 12.30 pts, dont hasard des points 7.84 pts
+  Au-delà du hasard des points : écart-type 9.48 pts (variance 89.9)
+    propre au duel (fixe pour la paire)  : variance    5.0  (6 % du total)  écart-type 2.24
+      dont joueurs (×2)                  : variance    2.9  (3 %)
+      dont interaction des styles        : variance    2.1  (2 %)
+    change à chaque match                : variance   84.8  (94 %)  écart-type 9.21
+  Victoires : covariance dans la paire 0.0039 (dont joueurs ×2 : 0.0009), à comparer à la variance de Bernoulli 0.2005 (part du duel ≈ 2 % de la variance d'un match)
+
+=== Décomposition de l'avantage au service, terre, tous formats (16803 matchs, 2754 paires vues au moins deux fois, 8167 couples de matchs)
+  Résidu brut après Elo : écart-type 12.83 pts, dont hasard des points 7.99 pts
+  Au-delà du hasard des points : écart-type 10.04 pts (variance 100.8)
+    propre au duel (fixe pour la paire)  : variance   12.3  (12 % du total)  écart-type 3.51
+      dont joueurs (×2)                  : variance    8.5  (8 %)
+      dont interaction des styles        : variance    3.9  (4 %)
+    change à chaque match                : variance   88.4  (88 %)  écart-type 9.40
+  Victoires : covariance dans la paire 0.0122 (dont joueurs ×2 : 0.0055), à comparer à la variance de Bernoulli 0.2080 (part du duel ≈ 6 % de la variance d'un match)
+
+=== Décomposition de l'avantage au service, gazon, tous formats (6033 matchs, 573 paires vues au moins deux fois, 892 couples de matchs)
+  Résidu brut après Elo : écart-type 11.65 pts, dont hasard des points 7.32 pts
+  Au-delà du hasard des points : écart-type 9.07 pts (variance 82.2)
+    propre au duel (fixe pour la paire)  : variance   12.8  (16 % du total)  écart-type 3.58
+      dont joueurs (×2)                  : variance   10.4  (13 %)
+      dont interaction des styles        : variance    2.3  (3 %)
+    change à chaque match                : variance   69.4  (84 %)  écart-type 8.33
+  Victoires : covariance dans la paire 0.0094 (dont joueurs ×2 : 0.0085), à comparer à la variance de Bernoulli 0.2005 (part du duel ≈ 5 % de la variance d'un match)
+
+=== Même surface ou surfaces différentes (covariance du résidu entre deux matchs)
+  joueur, même surface        :  9818433 couples, avantage   2.2 pts², victoires 0.0011
+  joueur, surfaces différentes : 10628696 couples, avantage  -0.6 pts², victoires -0.0011
+    → affinité de surface d'un joueur : variance 2.8 pts² (écart-type 1.68 pts)
+  paire, même surface         :    34471 couples, avantage   7.0 pts², victoires 0.0060
+  paire, surfaces différentes  :    31555 couples, avantage  -0.5 pts², victoires -0.0014
+    → interaction des styles propre à la surface (paire − 2 × affinités) : variance 1.8 pts²
+
+=== Style serveur/relanceur et surface (pente du résidu sur l'écart de style, joueurs ≥ 20 autres matchs)
+  dur    (28140 matchs) : avantage  +0.09 ± 0.01 pt par point d'écart de style ; victoire   +0.2 ± 0.0 points de % par point d'écart de style
+  terre  (15500 matchs) : avantage  -0.04 ± 0.02 pt par point d'écart de style ; victoire   -0.1 ± 0.1 points de % par point d'écart de style
+  gazon  ( 5550 matchs) : avantage  +0.19 ± 0.03 pt par point d'écart de style ; victoire   +0.6 ± 0.1 points de % par point d'écart de style
+  (écart-type de l'écart de style entre deux adversaires : 5.9 pts)
+
+=== Rivalités vues au moins 3 fois sur deux surfaces : 366 comparaisons
+  (z1 − z2)²/2 moyen = 1.25 (1 = aucun effet de surface sur le bilan, au-delà de l'Elo toutes surfaces) ; part des comparaisons significatives au seuil de 5 % : 8 % (5 % attendus par hasard)
+
+=== Exemples : bilan par surface (attendu par l'Elo toutes surfaces entre parenthèses)
+  Rafael Nadal – Roger Federer : dur 8-11 (8.6-10.4) ; terre 14-2 (7.0-9.0) ; gazon 1-3 (1.9-2.1)
+  Rafael Nadal – Novak Djokovic : dur 7-20 (13.7-13.3) ; terre 18-9 (12.8-14.2) ; gazon 1-2 (1.6-1.4)
+  Novak Djokovic – Roger Federer : dur 20-17 (18.2-18.8) ; terre 4-3 (3.6-3.4) ; gazon 3-1 (2.5-1.5)
+  Rafael Nadal – Dominic Thiem : dur 2-2 (3.2-0.8) ; terre 8-4 (8.9-3.1)
+  Carlos Alcaraz – Jannik Sinner : dur 6-3 (4.5-4.5) ; terre 3-1 (1.6-2.4) ; gazon 0-2 (1.1-0.9)
+  Novak Djokovic – Andy Murray : dur 20-7 (17.7-9.3) ; terre 5-1 (4.4-1.6) ; gazon 0-2 (1.3-0.7)
+  Rafael Nadal – Alexander Zverev : dur 2-2 (3.1-0.9) ; terre 3-2 (3.3-1.7)
+  Daniil Medvedev – Rafael Nadal : dur 1-5 (1.9-4.1)

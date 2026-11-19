@@ -1,0 +1,100 @@
+Forme, confiance et constance — Jeff Sackmann tennis_atp, circuit principal + Challengers + qualifications, hors Coupe Davis,
+dur/terre/gazon, 2010 à mai 2026, matchs complets avec statistiques de service : 168908 matchs. Elo calculé depuis 2000.
+Performance au-delà du hasard des points, par match (les deux joueurs) : R1 122.1 pts², R2 131.9 pts² ; part d'un joueur ≈ 61.1 / 66.0 pts²
+
+=== 1. Persistance de la forme : corrélation de la performance d'un joueur entre deux de ses matchs (adversaires différents)
+    ρ = covariance / variance de la forme d'un joueur. R1 = Elo du moment, R2 = Elo figé en début de saison.
+    1 match(s) d'écart : ρ R1 =  0.126   ρ R2 =  0.170   (330866 couples)
+    2 match(s) d'écart : ρ R1 =  0.122   ρ R2 =  0.226   (326252 couples)
+    3 match(s) d'écart : ρ R1 =  0.109   ρ R2 =  0.224   (322657 couples)
+    5 match(s) d'écart : ρ R1 =  0.080   ρ R2 =  0.185   (316898 couples)
+   10 match(s) d'écart : ρ R1 =  0.040   ρ R2 =  0.119   (305510 couples)
+   20 match(s) d'écart : ρ R1 =  0.031   ρ R2 =  0.080   (286642 couples)
+   50 match(s) d'écart : ρ R1 =  0.032   ρ R2 =  0.042   (244379 couples)
+  100 match(s) d'écart : ρ R1 =  0.010   ρ R2 =  0.017   (192450 couples)
+  même tournoi            : ρ R1 =  0.123   ρ R2 =  0.174   (285058 couples)
+  autre tournoi, < 15 j   : ρ R1 =  0.097   ρ R2 =  0.224   (604426 couples)
+  15 à 45 j               : ρ R1 =  0.062   ρ R2 =  0.184   (1153090 couples)
+  45 à 120 j              : ρ R1 =  0.042   ρ R2 =  0.135   (2851308 couples)
+  120 à 365 j             : ρ R1 =  0.026   ρ R2 =  0.054   (8314481 couples)
+  1 à 2 ans               : ρ R1 =  0.021   ρ R2 =  0.026   (10405310 couples)
+
+=== 2. Confiance : après un match serré (set décisif), effet d'avoir gagné, à qualité de jeu égale dans ce match (référence R2)
+  Tournoi suivant  : performance  -0.86 ± 0.10 pts d'avantage, victoire  -1.6 ± 0.3 pts de %  (102058 cas)
+  Tournoi précédent (placebo) : performance  -0.69 ± 0.07, victoire  -2.5 ± 0.2  (101436 cas)
+  → effet propre du résultat (confiance) : performance -0.17 ± 0.12 pts, victoire +0.8 ± 0.4 pts de %
+
+=== 3. Constance : certains joueurs sont-ils durablement plus irréguliers ? (707 joueurs d'au moins 150 matchs, référence R1)
+  Variance de forme PROPRE au joueur (adversaires et hasard retirés) : moyenne 55.4 pts² (écart-type 7.4 pts d'avantage au service)
+  Fiabilité matchs pairs / impairs : r = 0.35 ± 0.04  (0 = tout le monde pareil, 1 = trait parfaitement stable)
+    → écart-type vrai entre joueurs de cette variance ≈ 15.9 pts²
+  Lien avec le niveau : corrélation variance / Elo moyen = -0.35 ; fiabilité à niveau égal (partielle) r = 0.29
+  Fiabilité pairs / impairs de l'asymétrie (mauvais jours contre très bons jours) : r = 0.18 ± 0.04
+  Joueurs cités (variance basse = régulier ; asymétrie négative = plus de très mauvais jours que de très bons) :
+    Jannik Sinner             474 matchs  variance   14.4 ±  9.1  rang  13/707  asymétrie +0.14
+    Roger Federer             658 matchs  variance   11.2 ±  6.5  rang   7/707  asymétrie +0.04
+    Novak Djokovic            988 matchs  variance   16.8 ±  6.2  rang  18/707  asymétrie -0.12
+    Rafael Nadal              782 matchs  variance   22.6 ±  6.9  rang  35/707  asymétrie -0.10
+    Carlos Alcaraz            414 matchs  variance   14.0 ±  9.1  rang  12/707  asymétrie +0.05
+    Tommy Paul                559 matchs  variance   36.1 ±  8.2  rang 138/707  asymétrie -0.10
+    Quentin Halys             630 matchs  variance   35.0 ±  9.2  rang 132/707  asymétrie +0.06
+    Alexander Zverev          802 matchs  variance   36.5 ±  7.6  rang 141/707  asymétrie -0.14
+    Casper Ruud               580 matchs  variance   60.5 ± 10.4  rang 431/707  asymétrie -0.15
+    Stefanos Tsitsipas        638 matchs  variance   28.2 ±  8.1  rang  64/707  asymétrie -+0.00
+    Daniil Medvedev           699 matchs  variance   43.9 ±  9.2  rang 223/707  asymétrie -0.08
+    Frances Tiafoe            609 matchs  variance   11.5 ±  6.9  rang   8/707  asymétrie -0.16
+    Nick Kyrgios              326 matchs  variance   53.5 ± 13.2  rang 349/707  asymétrie -0.07
+    Alexander Bublik          554 matchs  variance   37.0 ±  9.0  rang 151/707  asymétrie -0.18
+    Benoit Paire              853 matchs  variance   36.7 ±  8.1  rang 143/707  asymétrie +0.01
+    Andrey Rublev             707 matchs  variance   14.9 ±  6.5  rang  15/707  asymétrie -0.01
+    Holger Rune               343 matchs  variance   41.5 ± 14.3  rang 195/707  asymétrie -0.07
+  Les 8 plus réguliers :
+    Juncheng Shang            190 matchs  variance   -3.2 ± 10.3  rang   1/707  asymétrie -0.18
+    Santiago Fa Rodriguez Taverna  275 matchs  variance   -2.2 ± 10.9  rang   2/707  asymétrie -0.04
+    Aleksandar Kovacevic      356 matchs  variance    5.5 ±  9.2  rang   3/707  asymétrie -0.20
+    Aidan Mayo                163 matchs  variance    7.1 ± 12.4  rang   4/707  asymétrie +0.14
+    Ivo Karlovic              477 matchs  variance    9.0 ±  7.7  rang   5/707  asymétrie -0.08
+    Giovanni Mpetshi Perricard  240 matchs  variance   10.7 ± 10.4  rang   6/707  asymétrie +0.17
+    Roger Federer             658 matchs  variance   11.2 ±  6.5  rang   7/707  asymétrie +0.04
+    Frances Tiafoe            609 matchs  variance   11.5 ±  6.9  rang   8/707  asymétrie -0.16
+  Les 8 plus irréguliers :
+    Hyeon Chung               326 matchs  variance  119.3 ± 19.4  rang 700/707  asymétrie -0.09
+    Ugo Blanchet              199 matchs  variance  120.3 ± 27.9  rang 701/707  asymétrie +0.23
+    Frederico Gil             217 matchs  variance  120.6 ± 26.1  rang 702/707  asymétrie +0.13
+    Elliot Benchetrit         243 matchs  variance  126.4 ± 23.7  rang 703/707  asymétrie +0.03
+    Filip Peliwo              272 matchs  variance  127.3 ± 24.3  rang 704/707  asymétrie -0.05
+    Shuichi Sekiguchi         184 matchs  variance  129.9 ± 26.9  rang 705/707  asymétrie +0.05
+    Fernando Romboli          150 matchs  variance  130.0 ± 32.7  rang 706/707  asymétrie +0.54
+    Attila Balazs             210 matchs  variance  159.9 ± 28.7  rang 707/707  asymétrie +0.07
+
+=== Exemples : derniers matchs (circuit principal et Challengers), performance R1 / R2 en pts d'avantage au service
+  Daniil Medvedev :
+    20260304  2026-2026-0404 V contre Alex Michelsen             R1   +7.6  R2   +7.1
+    20260304  2026-2026-0404 V contre Jack Draper                R1  +20.5  R2  +20.8
+    20260304  2026-2026-0404 V contre Carlos Alcaraz             R1  +12.8  R2  +10.5
+    20260304  2026-2026-0404 D contre Jannik Sinner              R1   +1.0  R2   +1.0
+    20260318  2026-2026-0403 V contre Rei Sakamoto               R1   -2.4  R2   +0.9
+    20260318  2026-2026-0403 D contre Francisco Cerundolo        R1  -13.1  R2  -10.6
+    20260405  2026-2026-0410 D contre Matteo Berrettini          R1  -51.1  R2  -47.5
+    20260422  2026-2026-1536 V contre Fabian Marozsan            R1   +7.9  R2   +9.3
+    20260422  2026-2026-1536 V contre Nicolai Budkov Kjaer       R1   +7.3  R2   +9.5
+    20260422  2026-2026-1536 D contre Flavio Cobolli             R1   -6.8  R2   -6.3
+    20260506  2026-2026-0416 V contre Pablo Llamas Ruiz          R1   -0.6  R2   -1.1
+    20260506  2026-2026-0416 V contre Thiago Agustin Tirante     R1   +5.4  R2   +3.9
+    20260506  2026-2026-0416 V contre Martin Landaluce           R1   -7.0  R2   -7.9
+    20260506  2026-2026-0416 D contre Jannik Sinner              R1   +0.7  R2   -3.0
+  Frances Tiafoe :
+    20260304  2026-2026-0404 V contre Jenson Brooksby            R1  +16.6  R2  +18.0
+    20260304  2026-2026-0404 V contre Flavio Cobolli             R1  +23.4  R2  +24.1
+    20260304  2026-2026-0404 D contre Alexander Zverev           R1   +0.2  R2   +0.0
+    20260318  2026-2026-0403 V contre Arthur Cazaux              R1  +11.4  R2  +12.5
+    20260318  2026-2026-0403 V contre Jakub Mensik               R1   -1.6  R2   -2.7
+    20260318  2026-2026-0403 V contre Terence Atmane             R1   -7.5  R2   -5.2
+    20260318  2026-2026-0403 D contre Jannik Sinner              R1  -12.2  R2  -13.5
+    20260330  2026-2026-0717 V contre Rinky Hijikata             R1   -4.9  R2   -3.4
+    20260330  2026-2026-0717 V contre Alexei Popyrin             R1   -2.9  R2   -1.0
+    20260330  2026-2026-0717 D contre Tommy Paul                 R1   +2.4  R2   +2.4
+    20260506  2026-2026-0416 V contre Ignacio Buse               R1   +5.8  R2   +7.7
+    20260506  2026-2026-0416 D contre Andrea Pellegrino          R1  -17.8  R2  -15.7
+    20260517  2026-2026-0414 V contre Diego Dedura Palomero      R1   -7.7  R2   -7.0
+    20260517  2026-2026-0414 D contre Camilo Ugo Carabelli       R1   -5.2  R2   -4.4

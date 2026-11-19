@@ -1,0 +1,8 @@
+{
+  "_commentaire": "Probabilité de tenir son jeu de service (surface : dur). hold = clamp(centre + pente * (talent_servant - talent_relanceur), centre - demi_amplitude, centre + demi_amplitude). Ajusté sur ATP 2015-2025, dur, top 150 (voir ajuster_hold.py).",
+  "hold": {
+    "centre": 0.80,
+    "pente_par_point_de_talent": 0.0075,
+    "demi_amplitude": 0.08
+  }
+}

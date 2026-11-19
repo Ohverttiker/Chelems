@@ -1,0 +1,367 @@
+joueur_a,joueur_b,surface_1,matchs_1,victoires_a_1,attendues_a_1,surface_2,matchs_2,victoires_a_2,attendues_a_2,ecart_z
+"Roger Federer","David Ferrer",Hard,10,10,7.78,Clay,5,5,3.95,0.56
+"Filippo Volandri","Feliciano Lopez",Hard,4,0,1.83,Clay,3,1,1.40,-1.37
+"Ivo Karlovic","Nikolay Davydenko",Hard,5,0,1.67,Clay,3,1,1.13,-1.46
+"Mikhail Youzhny","Rafael Nadal",Hard,10,3,2.32,Clay,4,0,0.75,1.55
+"Fernando Verdasco","Rafael Nadal",Hard,10,2,1.74,Clay,9,1,1.62,0.76
+"Ivan Ljubicic","Rafael Nadal",Hard,4,2,1.48,Clay,4,0,0.56,1.39
+"Fernando Verdasco","Tomas Berdych",Hard,9,1,4.15,Clay,5,2,2.27,-1.88
+"David Nalbandian","David Ferrer",Hard,7,4,3.89,Clay,3,0,1.09,1.43
+"Lleyton Hewitt","Rafael Nadal",Hard,3,1,1.04,Clay,5,0,0.73,0.88
+"Robin Soderling","Tomas Berdych",Hard,5,3,2.67,Clay,4,3,2.32,-0.38
+"Nikolay Davydenko","Fernando Verdasco",Hard,4,3,2.29,Clay,3,2,1.70,0.38
+"Guillermo Garcia Lopez","Juan Monaco",Hard,3,1,0.87,Clay,5,1,1.97,1.08
+"Roger Federer","Stan Wawrinka",Hard,17,17,13.60,Clay,8,5,6.20,3.11
+"Tommy Robredo","Tomas Berdych",Hard,7,2,2.80,Clay,3,2,1.21,-1.59
+"Roger Federer","Mikhail Youzhny",Hard,7,7,6.33,Grass,4,4,3.41,0.03
+"Lleyton Hewitt","Roger Federer",Hard,8,1,1.34,Grass,3,1,0.61,-0.88
+"David Ferrer","Philipp Kohlschreiber",Hard,8,6,5.18,Clay,4,3,2.60,0.20
+"Igor Andreev","Nicolas Almagro",Hard,3,2,1.68,Clay,5,2,2.55,0.95
+"Juan Carlos Ferrero","David Ferrer",Hard,4,1,1.82,Clay,4,1,2.01,0.15
+"David Ferrer","Rafael Nadal",Hard,8,4,1.94,Clay,21,1,5.91,4.14
+"Roger Federer","Rafael Nadal",Hard,19,11,10.38,Clay,16,2,9.00,3.92
+"Roger Federer","Rafael Nadal",Hard,19,11,10.38,Grass,4,3,2.12,-0.59
+"Roger Federer","Rafael Nadal",Clay,16,2,9.00,Grass,4,3,2.12,-4.52
+"Julien Benneteau","David Ferrer",Hard,7,4,1.53,Clay,3,0,0.75,3.29
+"Juan Carlos Ferrero","Rafael Nadal",Hard,3,1,0.53,Clay,6,1,1.48,1.18
+"Guillermo Garcia Lopez","Rafael Nadal",Hard,3,1,0.23,Clay,3,0,0.32,2.30
+"David Ferrer","Igor Andreev",Hard,4,3,2.81,Clay,3,1,1.92,1.33
+"Fernando Gonzalez","Fernando Verdasco",Hard,3,1,1.67,Clay,3,2,1.77,-1.06
+"Rafael Nadal","Gael Monfils",Hard,9,7,7.32,Clay,6,6,4.53,-1.68
+"David Ferrer","Andreas Seppi",Hard,3,3,2.34,Clay,5,5,3.95,-0.24
+"Fernando Gonzalez","Roger Federer",Hard,5,1,0.69,Clay,4,0,0.47,1.13
+"Roger Federer","Richard Gasquet",Hard,10,10,8.25,Clay,5,3,4.24,3.04
+"Roger Federer","Richard Gasquet",Hard,10,10,8.25,Grass,4,4,3.64,0.85
+"Roger Federer","Richard Gasquet",Clay,5,3,4.24,Grass,4,4,3.64,-2.19
+"Rafael Nadal","Richard Gasquet",Hard,10,10,8.43,Clay,6,6,4.91,0.22
+"Guillermo Garcia Lopez","Stan Wawrinka",Hard,4,0,0.72,Clay,6,4,1.52,-3.36
+"David Ferrer","Fernando Verdasco",Hard,6,5,4.12,Clay,13,8,8.33,0.98
+"Stan Wawrinka","Tomas Berdych",Hard,11,8,5.10,Clay,3,3,1.31,-0.20
+"David Ferrer","Tomas Berdych",Hard,7,4,3.79,Clay,5,2,2.51,0.62
+"Roger Federer","Tomas Berdych",Hard,16,12,12.48,Clay,4,4,3.21,-1.34
+"Roger Federer","Tomas Berdych",Hard,16,12,12.48,Grass,4,3,3.30,0.11
+"Roger Federer","Tomas Berdych",Clay,4,4,3.21,Grass,4,3,3.30,1.45
+"Andreas Seppi","Richard Gasquet",Hard,3,0,1.00,Clay,5,1,1.66,-0.59
+"David Ferrer","Florian Mayer",Hard,4,3,3.16,Clay,3,2,2.06,-0.12
+"Philipp Kohlschreiber","Nicolas Almagro",Hard,4,2,2.27,Clay,6,1,2.78,1.25
+"Fernando Verdasco","Robin Soderling",Hard,3,1,1.40,Clay,4,1,1.47,0.03
+"Roger Federer","Robin Soderling",Hard,6,6,4.53,Clay,5,4,3.80,1.22
+"Roger Federer","Robin Soderling",Hard,6,6,4.53,Grass,3,3,2.53,0.68
+"Roger Federer","Robin Soderling",Clay,5,4,3.80,Grass,3,3,2.53,-0.54
+"Mikhail Youzhny","Florian Mayer",Hard,3,1,1.94,Clay,3,0,1.70,0.91
+"Roger Federer","Philipp Kohlschreiber",Hard,8,8,6.94,Grass,5,5,4.22,0.14
+"Tommy Haas","Roger Federer",Hard,6,0,0.96,Grass,6,2,1.06,-2.10
+"Tommy Robredo","Fernando Verdasco",Hard,3,0,1.30,Clay,3,3,1.33,-3.51
+"David Ferrer","Guillermo Garcia Lopez",Hard,3,3,2.32,Clay,6,6,4.49,-0.48
+"Radek Stepanek","Andy Murray",Hard,4,1,0.99,Clay,3,0,0.44,0.76
+"Tim Henman","Dmitry Tursunov",Hard,3,1,1.56,Grass,3,1,1.88,0.44
+"Guillermo Garcia Lopez","Novak Djokovic",Hard,3,0,0.30,Clay,3,0,0.33,0.02
+"Nicolas Almagro","Tomas Berdych",Hard,6,2,2.31,Clay,5,2,2.02,-0.25
+"Tomas Berdych","Rafael Nadal",Hard,14,4,2.77,Clay,6,0,1.71,2.40
+"Tommy Robredo","Andreas Seppi",Hard,6,5,3.69,Clay,4,2,2.21,1.33
+"Fernando Verdasco","Andreas Seppi",Hard,4,4,2.61,Clay,3,2,1.64,1.06
+"Jurgen Melzer","Fernando Verdasco",Hard,3,0,1.10,Clay,4,1,1.65,-0.65
+"Albert Montanes","Victor Hanescu",Hard,3,1,1.56,Clay,5,2,2.51,-0.19
+"Carlos Moya","Rafael Nadal",Hard,3,1,0.61,Clay,3,0,0.44,1.29
+"Tommy Robredo","Jose Acasuso",Hard,3,0,1.91,Clay,5,3,3.19,-2.13
+"Mikhail Youzhny","Tomas Berdych",Hard,8,5,3.14,Clay,3,1,1.43,1.86
+"Feliciano Lopez","David Ferrer",Hard,11,7,3.27,Clay,8,1,2.34,3.55
+"Fernando Verdasco","Novak Djokovic",Hard,9,1,1.63,Clay,6,3,1.68,-1.89
+"Igor Andreev","Andreas Seppi",Hard,4,2,1.90,Clay,4,2,2.21,0.33
+"Roger Federer","Andy Murray",Hard,22,12,13.54,Grass,3,2,1.89,-0.82
+"Richard Gasquet","Gael Monfils",Hard,12,5,6.08,Grass,3,1,1.54,-0.02
+"Tomas Berdych","Andy Murray",Hard,11,3,3.58,Clay,4,3,1.33,-2.16
+"Roger Federer","Gael Monfils",Hard,6,4,4.84,Clay,7,6,5.70,-1.17
+"Igor Andreev","Richard Gasquet",Hard,4,2,1.37,Clay,3,1,1.09,0.77
+"Fernando Verdasco","Juan Monaco",Hard,3,1,1.67,Clay,6,3,3.50,-0.38
+"Juan Ignacio Chela","Andy Murray",Hard,3,1,0.92,Clay,4,0,0.51,0.88
+"Andy Roddick","Andy Murray",Hard,7,2,3.36,Grass,3,1,1.56,-0.37
+"Andreas Seppi","Novak Djokovic",Hard,8,0,1.13,Clay,4,0,0.40,-0.56
+"Philipp Kohlschreiber","Fernando Verdasco",Hard,5,4,2.23,Clay,4,2,1.52,1.10
+"Marat Safin","Nikolay Davydenko",Hard,4,4,1.53,Clay,3,0,1.17,4.15
+"Mardy Fish","Rafael Nadal",Hard,6,1,0.95,Grass,3,0,0.29,0.64
+"Stan Wawrinka","Andy Murray",Hard,13,4,4.08,Clay,6,5,1.88,-2.83
+"Stan Wawrinka","Andy Murray",Hard,13,4,4.08,Grass,3,0,0.71,0.93
+"Stan Wawrinka","Andy Murray",Clay,6,5,1.88,Grass,3,0,0.71,3.76
+"Feliciano Lopez","Guillermo Garcia Lopez",Hard,5,4,2.83,Clay,4,2,2.19,1.26
+"Guillermo Garcia Lopez","Fernando Verdasco",Hard,5,2,1.77,Clay,5,0,1.90,2.00
+"Roger Federer","Novak Djokovic",Hard,37,17,18.76,Clay,7,3,3.41,-0.28
+"Roger Federer","Novak Djokovic",Hard,37,17,18.76,Grass,4,1,1.51,-0.07
+"Roger Federer","Novak Djokovic",Clay,7,3,3.41,Grass,4,1,1.51,0.21
+"Gilles Simon","Teymuraz Gabashvili",Hard,3,2,2.20,Clay,3,2,1.97,-0.30
+"Nikolay Davydenko","Robin Soderling",Hard,6,3,3.35,Clay,3,0,1.67,1.65
+"Marcel Granollers","Andy Murray",Hard,4,0,0.23,Clay,3,0,0.37,0.15
+"Feliciano Lopez","Rafael Nadal",Hard,7,2,0.69,Clay,4,0,0.48,2.42
+"Nicolas Almagro","Gael Monfils",Hard,3,0,0.92,Clay,3,3,1.29,-3.27
+"David Ferrer","Andy Murray",Hard,14,2,5.13,Clay,5,4,2.07,-3.55
+"David Ferrer","Stan Wawrinka",Hard,5,2,3.03,Clay,6,3,3.76,-0.31
+"Nicolas Almagro","Rafael Nadal",Hard,3,0,0.33,Clay,11,1,1.79,0.02
+"Tommy Robredo","Stan Wawrinka",Hard,5,2,2.15,Clay,3,3,1.27,-2.21
+"Mikhail Youzhny","Andreas Seppi",Hard,5,4,2.99,Clay,3,1,1.65,1.70
+"Radek Stepanek","Jarkko Nieminen",Hard,3,2,1.75,Clay,3,2,1.67,-0.10
+"Radek Stepanek","Roger Federer",Hard,8,0,1.14,Clay,5,1,0.87,-1.31
+"Andy Roddick","Gael Monfils",Hard,4,2,2.39,Clay,3,0,2.23,2.55
+"Fernando Gonzalez","Rafael Nadal",Hard,4,1,0.64,Clay,4,0,0.95,1.64
+"Mikhail Youzhny","Guillermo Garcia Lopez",Hard,3,1,2.00,Clay,4,0,2.79,1.82
+"Gael Monfils","Andy Murray",Hard,3,1,1.03,Clay,3,1,1.44,0.50
+"Feliciano Lopez","Tomas Berdych",Hard,8,4,2.59,Clay,3,1,0.77,0.77
+"Feliciano Lopez","Tomas Berdych",Hard,8,4,2.59,Grass,3,3,0.95,-1.49
+"Feliciano Lopez","Tomas Berdych",Clay,3,1,0.77,Grass,3,3,0.95,-2.26
+"Roger Federer","Alejandro Falla",Clay,3,3,2.94,Grass,4,4,3.62,-0.39
+"Julien Benneteau","Marcos Baghdatis",Hard,4,3,1.57,Clay,3,2,1.07,0.36
+"David Ferrer","Jeremy Chardy",Hard,4,2,3.01,Clay,4,4,3.23,-2.18
+"Tommy Haas","Novak Djokovic",Hard,4,1,0.66,Grass,3,2,0.59,-1.60
+"Benjamin Becker","Tomas Berdych",Hard,3,1,0.47,Grass,3,0,0.43,1.56
+"Tommy Haas","Andreas Seppi",Clay,3,3,1.97,Grass,3,1,1.98,2.45
+"Andreas Seppi","Andy Murray",Hard,4,0,0.46,Grass,3,1,0.70,-1.16
+"Marcos Baghdatis","Andy Murray",Hard,4,2,1.04,Grass,3,1,0.93,1.03
+"Tommy Robredo","Gilles Simon",Hard,3,2,1.85,Clay,3,3,1.86,-1.19
+"Andy Murray","Sam Querrey",Hard,5,4,4.19,Grass,4,3,3.01,-0.22
+"David Ferrer","Robin Soderling",Hard,5,2,2.28,Clay,6,2,2.99,0.56
+"Feliciano Lopez","Marin Cilic",Clay,3,2,1.21,Grass,3,1,1.17,1.22
+"Jurgen Melzer","Juan Monaco",Hard,3,1,1.62,Clay,5,0,2.46,1.47
+"Stan Wawrinka","Marin Cilic",Hard,9,7,4.92,Clay,6,6,3.71,-0.52
+"Nikolay Davydenko","Florian Mayer",Hard,4,3,2.48,Clay,3,2,1.67,0.16
+"Fernando Verdasco","Richard Gasquet",Hard,6,4,2.68,Clay,7,3,3.16,1.24
+"Tomas Berdych","Richard Gasquet",Hard,12,7,6.92,Clay,4,2,2.30,0.35
+"Richard Gasquet","Andy Murray",Hard,7,3,2.27,Clay,4,1,0.92,0.50
+"Jarkko Nieminen","Novak Djokovic",Hard,3,1,0.74,Clay,3,0,0.32,0.99
+"David Ferrer","Nicolas Almagro",Hard,6,6,4.17,Clay,10,9,6.44,-0.06
+"Stan Wawrinka","Nicolas Almagro",Hard,5,3,2.84,Clay,3,2,1.40,-0.55
+"Lleyton Hewitt","Novak Djokovic",Hard,3,1,0.95,Grass,4,0,1.01,1.25
+"Jarkko Nieminen","Juan Monaco",Hard,3,3,1.55,Clay,4,0,1.75,3.52
+"Stan Wawrinka","Novak Djokovic",Hard,15,3,2.64,Clay,7,1,1.42,0.65
+"Jarkko Nieminen","Feliciano Lopez",Hard,4,3,2.12,Clay,3,1,1.54,1.55
+"Richard Gasquet","Novak Djokovic",Hard,10,1,2.14,Clay,3,0,0.53,-0.05
+"Andy Murray","Novak Djokovic",Hard,27,7,9.35,Clay,6,1,1.63,-0.39
+"Nikolay Davydenko","Rafael Nadal",Hard,6,5,1.76,Clay,4,0,0.89,4.01
+"Florian Mayer","Richard Gasquet",Hard,3,0,1.01,Grass,3,2,0.85,-2.72
+"Tommy Robredo","Philipp Kohlschreiber",Hard,3,2,1.71,Clay,4,3,2.14,-0.52
+"Philipp Kohlschreiber","Rafael Nadal",Hard,8,0,0.99,Clay,6,0,1.05,0.06
+"Radek Stepanek","David Ferrer",Hard,4,0,1.38,Clay,3,1,1.01,-1.47
+"Stan Wawrinka","Rafael Nadal",Hard,13,2,2.88,Clay,9,1,2.17,0.32
+"Rafael Nadal","Andy Murray",Hard,11,7,7.38,Clay,9,7,5.55,-1.28
+"Rafael Nadal","Andy Murray",Hard,11,7,7.38,Grass,3,3,2.26,-1.25
+"Rafael Nadal","Andy Murray",Clay,9,7,5.55,Grass,3,3,2.26,0.02
+"Philipp Kohlschreiber","Gilles Simon",Hard,6,1,3.15,Clay,3,3,1.67,-3.32
+"Mikhail Youzhny","Robin Haase",Clay,4,2,2.68,Grass,3,2,1.85,-0.91
+"Jurgen Melzer","Julien Benneteau",Hard,4,1,2.34,Clay,3,1,1.39,-0.92
+"Nicolas Mahut","Andy Murray",Hard,3,0,0.47,Grass,3,1,0.37,-1.87
+"David Ferrer","Novak Djokovic",Hard,15,2,4.04,Clay,4,1,0.99,-1.21
+"Rafael Nadal","Novak Djokovic",Hard,27,7,13.69,Clay,27,18,12.77,-4.78
+"Rafael Nadal","Novak Djokovic",Hard,27,7,13.69,Grass,3,1,1.58,-2.02
+"Rafael Nadal","Novak Djokovic",Clay,27,18,12.77,Grass,3,1,1.58,2.76
+"Rafael Nadal","Juan Martin del Potro",Hard,10,5,7.08,Grass,3,3,2.22,-2.50
+"David Ferrer","Gilles Simon",Hard,5,3,3.64,Clay,4,4,2.73,-2.01
+"Roger Federer","Andreas Seppi",Hard,10,9,9.09,Clay,4,4,3.60,-0.76
+"Mikhail Youzhny","Philipp Kohlschreiber",Hard,4,1,2.21,Clay,3,0,1.71,0.77
+"Gilles Simon","Andy Murray",Hard,11,2,2.40,Clay,6,1,1.57,0.24
+"Guillermo Garcia Lopez","Tomas Berdych",Hard,5,1,1.26,Clay,3,2,0.60,-2.29
+"Roger Federer","Juan Martin del Potro",Hard,20,13,13.61,Clay,3,3,2.05,-1.48
+"Juan Monaco","Ernests Gulbis",Hard,3,2,1.54,Clay,3,3,1.79,-0.92
+"Gilles Simon","Viktor Troicki",Hard,3,3,1.49,Clay,4,3,2.53,1.25
+"Andy Murray","Fabio Fognini",Hard,4,2,3.23,Clay,3,1,2.49,0.79
+"Gilles Simon","Juan Martin del Potro",Hard,4,3,1.33,Grass,4,0,1.00,2.98
+"Novak Djokovic","Juan Martin del Potro",Hard,13,11,9.54,Clay,4,4,2.74,-0.44
+"Jurgen Melzer","Andreas Seppi",Hard,3,3,1.74,Clay,4,1,2.47,3.00
+"Guillermo Garcia Lopez","Gilles Simon",Hard,4,0,1.21,Clay,3,0,0.92,-0.19
+"Olivier Rochus","Richard Gasquet",Hard,4,1,1.05,Clay,3,0,1.12,1.28
+"Philipp Kohlschreiber","Jo-Wilfried Tsonga",Hard,7,0,2.55,Clay,3,1,0.98,-2.04
+"Jo-Wilfried Tsonga","Andy Murray",Hard,10,2,3.20,Grass,5,0,1.66,0.78
+"Philipp Kohlschreiber","Marin Cilic",Hard,7,5,3.14,Clay,3,2,1.31,0.64
+"Andreas Seppi","Sam Querrey",Hard,3,2,1.48,Clay,3,2,1.37,-0.14
+"Mikhail Youzhny","Marin Cilic",Hard,7,3,3.30,Clay,3,2,1.42,-0.91
+"Ivo Karlovic","Dudi Sela",Hard,4,4,2.81,Grass,3,2,1.95,1.26
+"Ivo Karlovic","Mikhail Youzhny",Hard,3,0,1.47,Grass,3,2,1.61,-2.15
+"Jo-Wilfried Tsonga","Novak Djokovic",Hard,15,6,3.73,Clay,3,0,0.47,2.16
+"Jo-Wilfried Tsonga","Novak Djokovic",Hard,15,6,3.73,Grass,3,0,0.49,2.19
+"Jo-Wilfried Tsonga","Novak Djokovic",Clay,3,0,0.47,Grass,3,0,0.49,0.03
+"Simone Bolelli","Richard Gasquet",Hard,3,0,0.87,Grass,3,0,0.91,0.09
+"Feliciano Lopez","Gilles Simon",Hard,3,0,1.50,Grass,5,5,2.24,-4.24
+"Andreas Seppi","Rafael Nadal",Hard,4,1,0.41,Clay,3,0,0.33,1.58
+"Janko Tipsarevic","Gilles Simon",Hard,6,1,3.13,Clay,3,1,1.47,-1.21
+"Tomas Berdych","Gael Monfils",Hard,3,3,1.75,Clay,3,2,1.88,1.32
+"Novak Djokovic","Marin Cilic",Hard,15,14,12.19,Grass,3,2,2.56,2.16
+"Philipp Kohlschreiber","Novak Djokovic",Hard,7,1,0.80,Clay,5,1,0.59,-0.32
+"Kevin Anderson","Novak Djokovic",Hard,6,1,1.05,Grass,4,0,0.35,0.57
+"Paul Henri Mathieu","Marin Cilic",Clay,3,1,1.43,Grass,4,1,2.08,0.64
+"Guillermo Garcia Lopez","Gael Monfils",Hard,3,2,0.69,Clay,4,1,1.09,1.91
+"Rafael Nadal","Kei Nishikori",Hard,6,4,4.21,Clay,5,5,3.72,-1.58
+"Juan Monaco","Marcel Granollers",Hard,3,0,1.88,Clay,3,2,1.72,-2.61
+"David Ferrer","Juan Martin del Potro",Hard,8,2,2.92,Grass,3,2,1.74,-1.00
+"Florent Serra","Fernando Verdasco",Hard,3,1,0.63,Clay,3,0,0.48,1.30
+"David Ferrer","Kei Nishikori",Hard,9,4,5.27,Clay,4,0,1.45,0.64
+"Tomas Berdych","Novak Djokovic",Hard,17,0,3.16,Clay,4,1,0.77,-2.28
+"Andreas Seppi","Adrian Mannarino",Hard,6,3,3.19,Grass,4,1,1.92,0.76
+"Richard Gasquet","Kei Nishikori",Hard,6,5,2.66,Clay,3,1,0.95,1.91
+"Philipp Kohlschreiber","Gael Monfils",Hard,9,0,3.45,Clay,3,1,1.12,-2.23
+"Gael Monfils","Fabio Fognini",Hard,3,2,2.03,Clay,5,2,3.11,1.02
+"Andy Murray","Marin Cilic",Hard,10,7,7.64,Grass,3,3,2.27,-1.47
+"Roger Federer","Jo-Wilfried Tsonga",Hard,12,9,8.92,Clay,4,2,3.03,1.27
+"Fernando Verdasco","Bernard Tomic",Hard,4,1,2.65,Grass,3,0,1.52,-0.10
+"Victor Hanescu","Mikhail Youzhny",Hard,4,2,1.51,Clay,3,2,0.94,-0.81
+"Richard Gasquet","Jeremy Chardy",Hard,4,3,2.80,Clay,3,1,1.89,1.29
+"Jeremy Chardy","Novak Djokovic",Hard,8,0,0.90,Clay,3,0,0.27,-0.47
+"Jeremy Chardy","Novak Djokovic",Hard,8,0,0.90,Grass,3,0,0.24,-0.51
+"Jeremy Chardy","Novak Djokovic",Clay,3,0,0.27,Grass,3,0,0.24,-0.03
+"David Ferrer","Marin Cilic",Hard,3,2,1.44,Clay,3,2,1.77,0.38
+"Juan Martin del Potro","Marin Cilic",Hard,7,5,5.01,Clay,4,4,2.92,-1.23
+"Simone Bolelli","Rafael Nadal",Hard,3,0,0.23,Clay,3,0,0.19,-0.03
+"Jurgen Melzer","David Ferrer",Hard,3,1,0.87,Clay,3,1,1.01,0.19
+"Rafael Nadal","Grigor Dimitrov",Hard,9,8,7.37,Clay,6,6,4.67,-0.75
+"Gilles Simon","Grigor Dimitrov",Hard,3,1,1.99,Clay,3,2,1.41,-2.08
+"Gilles Simon","Grigor Dimitrov",Hard,3,1,1.99,Grass,3,2,1.89,-1.49
+"Gilles Simon","Grigor Dimitrov",Clay,3,2,1.41,Grass,3,2,1.89,0.59
+"Marcel Granollers","Fabio Fognini",Hard,3,1,1.30,Clay,5,3,2.28,-1.03
+"Daniel Gimeno Traver","Nicolas Almagro",Hard,3,1,0.58,Clay,5,1,1.25,0.89
+"Stan Wawrinka","Viktor Troicki",Hard,6,6,4.75,Clay,3,3,2.01,-0.01
+"Mikhail Youzhny","Viktor Troicki",Hard,3,1,1.45,Clay,3,2,1.63,-0.97
+"David Ferrer","Mikhail Kukushkin",Hard,4,3,3.46,Clay,4,4,3.20,-1.69
+"Stan Wawrinka","Jeremy Chardy",Hard,3,3,2.02,Clay,3,3,2.15,0.10
+"Denis Istomin","Sam Querrey",Hard,5,2,1.88,Grass,3,2,1.18,-0.86
+"David Ferrer","Fabio Fognini",Hard,5,5,3.70,Clay,5,5,3.93,0.14
+"John Isner","Tomas Berdych",Hard,5,2,2.05,Clay,4,0,1.46,1.48
+"Jeremy Chardy","Andy Murray",Hard,7,1,0.89,Clay,3,0,0.32,0.73
+"Jo-Wilfried Tsonga","Viktor Troicki",Hard,3,1,2.16,Clay,3,3,2.28,-2.49
+"Viktor Troicki","Fabio Fognini",Hard,3,1,1.80,Clay,3,1,1.96,0.25
+"Philipp Kohlschreiber","Thomaz Bellucci",Hard,3,2,1.83,Clay,3,2,1.57,-0.30
+"Jo-Wilfried Tsonga","Nicolas Almagro",Hard,3,3,1.91,Clay,4,3,2.48,0.79
+"John Isner","Ryan Harrison",Hard,6,3,4.55,Clay,3,3,2.10,-2.65
+"David Ferrer","Thomaz Bellucci",Hard,4,4,3.22,Clay,4,3,2.83,0.81
+"John Isner","Rafael Nadal",Hard,3,0,0.54,Clay,5,0,0.84,0.21
+"Santiago Giraldo","Kei Nishikori",Hard,3,1,1.04,Clay,3,0,0.84,1.08
+"Novak Djokovic","Kei Nishikori",Hard,11,9,9.01,Clay,6,6,4.61,-1.38
+"Feliciano Lopez","Grigor Dimitrov",Hard,3,0,1.24,Grass,3,2,1.53,-2.06
+"Andreas Seppi","Marcel Granollers",Hard,3,2,1.86,Clay,3,1,1.65,0.93
+"David Ferrer","Alexandr Dolgopolov",Hard,7,6,5.40,Clay,5,2,3.28,1.77
+"Viktor Troicki","Kei Nishikori",Hard,3,1,0.81,Clay,3,0,0.65,1.17
+"Gilles Simon","Stan Wawrinka",Hard,5,3,1.73,Clay,3,0,1.14,2.58
+"Fabio Fognini","Alexandr Dolgopolov",Hard,3,1,1.57,Clay,3,0,1.69,1.37
+"Nicolas Almagro","Santiago Giraldo",Hard,3,3,1.98,Clay,3,2,2.02,1.28
+"Marcel Granollers","Benoit Paire",Hard,3,2,1.61,Clay,3,1,1.54,1.12
+"Victor Hanescu","Kevin Anderson",Hard,3,1,0.95,Clay,3,2,1.02,-1.15
+"Andreas Seppi","Denis Istomin",Hard,5,4,2.77,Clay,3,2,1.67,0.73
+"Andreas Seppi","Denis Istomin",Hard,5,4,2.77,Grass,3,1,1.90,2.19
+"Andreas Seppi","Denis Istomin",Clay,3,2,1.67,Grass,3,1,1.90,1.46
+"Stan Wawrinka","Grigor Dimitrov",Hard,6,4,3.84,Clay,5,2,2.74,0.80
+"Fabio Fognini","Albert Ramos",Hard,5,4,2.90,Clay,6,4,3.57,0.64
+"Carlos Berlocq","Alexandr Dolgopolov",Hard,3,1,1.12,Clay,3,0,1.09,1.17
+"Jeremy Chardy","Kei Nishikori",Hard,5,0,1.13,Clay,4,2,0.82,-2.77
+"Benoit Paire","Pablo Carreno Busta",Hard,6,3,2.73,Clay,5,3,2.47,-0.26
+"Feliciano Lopez","Kei Nishikori",Hard,4,2,1.31,Clay,3,1,0.96,0.69
+"Pablo Cuevas","Thomaz Bellucci",Hard,3,0,1.84,Clay,3,3,1.75,-3.67
+"Fernando Verdasco","Kevin Anderson",Hard,4,2,1.54,Clay,3,3,1.60,-1.15
+"Kevin Anderson","Grigor Dimitrov",Hard,5,2,2.21,Grass,3,0,1.80,1.93
+"Albert Ramos","Adrian Mannarino",Hard,5,0,2.43,Clay,5,5,2.45,-4.50
+"Gael Monfils","Albert Ramos",Hard,4,3,3.00,Clay,3,2,2.22,0.30
+"Jo-Wilfried Tsonga","Fabio Fognini",Hard,3,2,2.24,Clay,3,2,1.97,-0.37
+"Novak Djokovic","Alexandr Dolgopolov",Hard,3,3,2.82,Clay,3,3,2.67,-0.17
+"Jo-Wilfried Tsonga","Tomas Berdych",Hard,10,3,4.85,Clay,3,2,1.26,-2.05
+"Albert Ramos","Marin Cilic",Hard,8,2,2.21,Clay,3,1,0.97,-0.20
+"Lukas Rosol","Viktor Troicki",Hard,3,0,1.09,Clay,3,2,1.33,-2.10
+"Stan Wawrinka","Benoit Paire",Hard,8,6,6.25,Clay,4,3,3.06,-0.15
+"Tomas Berdych","Kevin Anderson",Hard,6,6,4.51,Clay,5,5,3.55,-0.02
+"Carlos Berlocq","Santiago Giraldo",Hard,3,3,1.60,Clay,3,1,1.58,2.31
+"Rafael Nadal","Leonardo Mayer",Hard,3,3,2.84,Clay,3,3,2.81,-0.04
+"Roger Federer","Milos Raonic",Hard,8,6,6.01,Grass,5,4,3.67,-0.34
+"John Isner","Matthew Ebden",Hard,3,2,2.30,Grass,3,3,2.32,-1.35
+"Nicolas Almagro","David Goffin",Hard,3,2,1.82,Clay,3,1,1.26,0.59
+"Andy Murray","Milos Raonic",Hard,8,5,5.68,Clay,3,2,1.94,-0.60
+"Albert Ramos","Joao Sousa",Hard,3,2,1.75,Clay,5,4,2.79,-0.82
+"Philipp Kohlschreiber","Fabio Fognini",Hard,4,3,2.25,Clay,6,4,3.31,0.19
+"John Isner","Jack Sock",Hard,5,4,3.24,Clay,3,2,2.00,0.76
+"Richard Gasquet","Robin Haase",Hard,4,4,3.16,Grass,3,2,2.12,1.19
+"Philipp Kohlschreiber","Benoit Paire",Hard,4,2,2.64,Clay,3,2,1.84,-0.87
+"Fabio Fognini","Roberto Bautista Agut",Hard,5,3,2.35,Clay,5,4,2.58,-0.69
+"Richard Gasquet","Bernard Tomic",Hard,5,4,3.50,Grass,4,3,2.78,0.25
+"Novak Djokovic","Grigor Dimitrov",Hard,9,9,7.63,Clay,3,2,2.66,2.52
+"Benoit Paire","Kei Nishikori",Hard,5,2,0.91,Clay,4,0,0.92,2.39
+"Fabio Fognini","Grigor Dimitrov",Hard,4,1,1.53,Clay,3,1,0.92,-0.65
+"Fernando Verdasco","David Goffin",Hard,3,2,1.41,Clay,3,1,1.21,0.98
+"Richard Gasquet","Benoit Paire",Hard,7,6,4.64,Clay,3,2,2.02,1.13
+"Rafael Nadal","Diego Schwartzman",Hard,4,4,3.64,Clay,7,6,6.14,0.80
+"Novak Djokovic","Roberto Bautista Agut",Hard,7,4,6.22,Clay,4,4,3.61,-3.38
+"Robin Haase","David Goffin",Hard,5,0,1.32,Clay,3,1,0.61,-1.93
+"Albert Ramos","Jan Lennard Struff",Hard,3,1,1.52,Clay,3,1,1.29,-0.23
+"Tommy Robredo","Milos Raonic",Hard,3,0,0.90,Clay,3,0,1.05,0.13
+"Fabio Fognini","Pablo Carreno Busta",Hard,5,1,2.23,Clay,5,1,2.66,0.42
+"Rafael Nadal","Fabio Fognini",Hard,9,8,7.83,Clay,9,6,7.72,1.83
+"Fernando Verdasco","Grigor Dimitrov",Hard,3,1,0.84,Clay,4,2,1.43,-0.40
+"Alexander Zverev","Roberto Bautista Agut",Hard,3,2,1.48,Clay,4,3,2.10,-0.35
+"Jeremy Chardy","Pablo Carreno Busta",Hard,3,1,1.55,Clay,3,3,1.53,-2.37
+"Pablo Cuevas","Fabio Fognini",Hard,3,1,1.39,Clay,3,1,1.05,-0.39
+"Fabio Fognini","Joao Sousa",Hard,3,3,1.79,Clay,3,2,1.95,1.37
+"Novak Djokovic","Milos Raonic",Hard,8,8,6.63,Clay,3,3,2.55,0.56
+"Rafael Nadal","Dominic Thiem",Hard,4,2,3.23,Clay,12,8,8.93,-0.95
+"David Goffin","Dominic Thiem",Hard,4,4,2.33,Clay,4,2,1.96,1.66
+"Philipp Kohlschreiber","Pierre Hugues Herbert",Hard,4,4,2.42,Grass,3,2,2.23,1.97
+"John Isner","Steve Johnson",Hard,7,2,4.55,Clay,4,3,2.61,-2.45
+"Andy Murray","Nick Kyrgios",Hard,3,3,2.50,Grass,3,2,1.95,0.72
+"Novak Djokovic","Diego Schwartzman",Hard,3,3,2.75,Clay,4,4,3.54,-0.19
+"Novak Djokovic","Dominic Thiem",Hard,6,4,4.91,Clay,6,3,4.82,0.91
+"Fernando Verdasco","Dusan Lajovic",Hard,3,1,1.96,Clay,3,2,1.70,-1.53
+"Rafael Nadal","Pablo Carreno Busta",Hard,3,3,2.69,Clay,4,4,3.44,-0.23
+"Pablo Cuevas","Rafael Nadal",Hard,3,0,0.33,Clay,3,1,0.52,-1.36
+"Diego Schwartzman","Dominic Thiem",Hard,4,1,1.36,Clay,5,2,1.54,-0.83
+"Fabio Fognini","Andrey Rublev",Hard,5,2,1.96,Clay,4,2,2.19,0.24
+"Damir Dzumhur","Andrey Rublev",Hard,3,0,1.59,Clay,3,0,0.87,-0.67
+"Gael Monfils","Adrian Mannarino",Hard,3,3,1.93,Grass,4,2,2.90,2.33
+"Roberto Bautista Agut","Borna Coric",Hard,4,1,2.46,Clay,3,3,1.90,-2.83
+"Gael Monfils","Dominic Thiem",Hard,3,0,1.41,Clay,3,0,1.68,0.39
+"Pablo Carreno Busta","Dominic Thiem",Hard,4,1,1.57,Clay,3,0,1.09,0.71
+"Alexander Zverev","Marin Cilic",Hard,5,4,2.11,Clay,3,3,1.91,0.44
+"Roberto Bautista Agut","Andrey Rublev",Hard,4,4,2.19,Clay,3,0,1.19,3.43
+"Jiri Vesely","Borna Coric",Hard,3,0,1.09,Clay,3,1,1.32,-0.99
+"Alexander Zverev","Rafael Nadal",Hard,4,2,0.87,Clay,5,2,1.68,1.07
+"Marin Cilic","David Goffin",Hard,6,3,3.21,Clay,3,2,1.40,-0.86
+"Roberto Bautista Agut","Karen Khachanov",Hard,5,4,2.62,Clay,4,0,2.14,3.63
+"Alexander Zverev","Dominic Thiem",Hard,5,1,2.10,Clay,6,2,2.67,-0.45
+"Adrian Mannarino","Daniil Medvedev",Hard,3,1,0.75,Grass,6,3,1.63,-1.05
+"Jan Lennard Struff","Daniil Medvedev",Hard,4,0,1.38,Grass,3,1,0.59,-2.06
+"Alexander Zverev","Taylor Fritz",Hard,9,2,6.06,Grass,4,2,2.95,-1.82
+"Roberto Bautista Agut","Taylor Fritz",Hard,3,2,1.96,Clay,3,2,1.99,0.03
+"Roberto Bautista Agut","Daniil Medvedev",Hard,4,3,1.62,Grass,3,2,0.81,-0.07
+"Pablo Carreno Busta","Karen Khachanov",Hard,5,1,2.77,Clay,3,2,1.82,-1.82
+"Alexander Zverev","Novak Djokovic",Hard,9,2,2.39,Clay,3,1,0.68,-0.74
+"Adrian Mannarino","Jordan Thompson",Hard,6,3,2.47,Grass,5,4,2.67,-0.74
+"Jan Lennard Struff","Borna Coric",Hard,4,3,1.98,Clay,3,2,1.18,0.05
+"Diego Schwartzman","Stefanos Tsitsipas",Hard,3,2,1.20,Clay,3,0,1.14,2.50
+"Dominic Thiem","Stefanos Tsitsipas",Hard,7,4,3.84,Clay,3,1,1.70,1.04
+"Diego Schwartzman","Casper Ruud",Hard,5,3,2.55,Clay,3,1,1.74,1.35
+"Daniil Medvedev","Stefanos Tsitsipas",Hard,11,8,6.44,Clay,3,2,1.64,0.55
+"Rafael Nadal","Stefanos Tsitsipas",Hard,5,4,3.93,Clay,4,3,2.93,-0.01
+"Novak Djokovic","Karen Khachanov",Hard,5,4,4.21,Clay,3,3,2.65,-0.89
+"Casper Ruud","Jaume Munar",Hard,3,2,2.28,Clay,3,3,1.80,-1.90
+"Andrey Rublev","Felix Auger Aliassime",Hard,6,4,3.40,Clay,3,3,1.82,-0.89
+"Alexander Zverev","Stefanos Tsitsipas",Hard,10,5,5.51,Clay,6,1,3.18,1.47
+"Novak Djokovic","Stefanos Tsitsipas",Hard,8,6,6.06,Clay,6,6,4.31,-1.60
+"Stefanos Tsitsipas","Alex De Minaur",Hard,9,8,5.73,Clay,3,3,1.84,0.19
+"Andrey Rublev","Stefanos Tsitsipas",Hard,7,4,2.88,Clay,4,1,1.97,1.85
+"Jan Lennard Struff","Stefanos Tsitsipas",Hard,5,1,1.54,Clay,4,2,1.24,-1.35
+"Yoshihito Nishioka","Felix Auger Aliassime",Hard,4,2,1.69,Clay,3,1,1.13,0.48
+"Casper Ruud","Felix Auger Aliassime",Hard,4,2,2.07,Clay,3,1,1.79,0.87
+"Novak Djokovic","Taylor Fritz",Hard,8,8,6.69,Clay,3,3,2.66,0.66
+"Stefanos Tsitsipas","Jannik Sinner",Hard,4,2,1.97,Clay,5,4,2.92,-1.08
+"Novak Djokovic","Hubert Hurkacz",Hard,3,3,2.47,Clay,3,3,2.46,-0.04
+"Matteo Berrettini","Casper Ruud",Hard,4,2,2.32,Clay,4,1,2.57,1.33
+"Andrey Rublev","Casper Ruud",Hard,3,0,1.54,Clay,4,4,2.50,-3.35
+"Alexander Bublik","Casper Ruud",Hard,4,0,1.35,Clay,3,0,1.03,-0.18
+"Grigor Dimitrov","Stefanos Tsitsipas",Hard,4,2,1.44,Clay,4,0,1.23,1.93
+"Rafael Nadal","Cameron Norrie",Hard,3,2,2.54,Clay,3,3,2.59,-1.58
+"Karen Khachanov","Cameron Norrie",Hard,3,2,1.59,Clay,5,3,2.62,0.13
+"Mackenzie Mcdonald","Karen Khachanov",Hard,3,0,1.02,Grass,3,0,0.93,-0.07
+"Alexander Zverev","Carlos Alcaraz",Hard,8,5,3.41,Clay,4,1,1.34,1.59
+"Laslo Djere","Lorenzo Musetti",Hard,3,1,1.41,Clay,4,4,1.68,-2.83
+"Roberto Bautista Agut","Tommy Paul",Hard,3,1,1.68,Clay,3,2,1.70,-1.18
+"Novak Djokovic","Jannik Sinner",Hard,4,1,2.32,Grass,3,2,1.83,-1.57
+"Felix Auger Aliassime","Lorenzo Musetti",Hard,3,2,1.53,Clay,4,1,2.34,1.95
+"Andrey Rublev","Jannik Sinner",Hard,5,1,1.45,Clay,3,0,1.10,1.05
+"Daniil Medvedev","Carlos Alcaraz",Hard,5,1,2.08,Grass,3,1,1.56,-0.27
+"Lorenzo Sonego","Ugo Humbert",Hard,4,0,1.61,Clay,4,3,1.54,-3.23
+"Cameron Norrie","Carlos Alcaraz",Hard,4,2,1.33,Clay,3,1,0.95,0.69
+"Jannik Sinner","Carlos Alcaraz",Hard,9,3,4.48,Clay,4,1,2.38,0.44
+"Novak Djokovic","Lorenzo Musetti",Hard,4,4,3.33,Clay,4,3,3.52,1.73
+"Casper Ruud","Francisco Cerundolo",Hard,4,1,2.56,Clay,5,3,3.18,-1.49
+"Novak Djokovic","Carlos Alcaraz",Hard,4,3,2.13,Clay,3,2,1.60,0.43
+"Lorenzo Musetti","Carlos Alcaraz",Hard,3,0,0.44,Clay,4,1,0.90,-0.84
+"Hubert Hurkacz","Jack Draper",Hard,3,1,1.79,Clay,3,3,1.72,-2.42

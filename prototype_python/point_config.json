@@ -1,0 +1,8 @@
+{
+  "_commentaire": "Probabilité de gagner un point au service (surface : dur). p = clamp(centre + pente * (talent_servant - talent_relanceur), centre - demi_amplitude, centre + demi_amplitude). Valeurs de départ, à remplacer par l'ajustement (ajuster_point.py).",
+  "point_service": {
+    "centre": 0.645,
+    "pente_par_point_de_talent": 0.003,
+    "demi_amplitude": 0.08
+  }
+}

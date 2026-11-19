@@ -1,0 +1,7 @@
+{
+  "_commentaire": "Hypothèses de la POPULATION DE TEST (pas du moteur), tirées des mesures de docs/mesure_rivalites.md (forme, constance) : Constance ~ N(moyenne + pente × (talent − référence), écart-type), bornée 1-99. Avec un multiplicateur de variance de forme 1 ± 0,5, un écart-type de 28 donne la dispersion mesurée entre joueurs (≈ 0,29 de la variance moyenne), et la pente une corrélation constance / niveau d'environ 0,35.",
+  "constance_moyenne": 50,
+  "constance_pente_talent": 1.5,
+  "talent_reference": 72,
+  "constance_ecart_type": 28
+}

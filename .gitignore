@@ -480,3 +480,7 @@ $RECYCLE.BIN/
 
 # Vim temporary swap files
 *.swp
+
+# Données brutes tierces (Jeff Sackmann), lues sur place par outils/Chelems.Donnees : trop lourdes pour le dépôt
+tennis_atp-master/
+tennis_MatchChartingProject-master/

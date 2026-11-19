@@ -1,6 +1,6 @@
 # Chelem — jeu de stratégie de tennis (« Tennis Pourcentage »)
 
-Convention des marques : **[Décidé]** = validé par le créateur. **[Proposé]** = proposition à valider avant d'être codée. **[À calibrer]** = valeur numérique à fixer avec les données ATP.
+Convention des marques : **[Décidé]** = validé par le créateur. **[Proposé]** = proposition à valider avant d'être codée. **[À calibrer]** = valeur numérique à fixer avec les données ATP. **[Suspendu]** = idée mise de côté tant qu'une mesure ne prouve pas son utilité (voir principe 6).
 
 ## 1. But du projet
 
@@ -23,7 +23,8 @@ Le jeu doit à terme s'intégrer à un simulateur de circuit ATP déjà dévelop
 2. **Les stats décrivent des profils, pas seulement un niveau.** Une stat basse n'est pas toujours un défaut (voir Effet, 4.1).
 3. **Les surfaces modifient la physique de la balle, pas les stats du joueur.** Les affinités de surface émergent.
 4. **Un seul moteur de point** pour le jeu et le simulateur de circuit. Le simulateur peut l'appeler en version allégée mais avec les mêmes formules.
-5. **Calibrage sur les données ATP** (section 8), jamais à l'intuition seule.
+5. **Les statistiques de l'ATP sont la bible du jeu** [Décidé]. Le jeu doit, **absolument à tout instant**, permettre de recréer ces statistiques : à chaque étape du développement, une simulation de masse doit retrouver les chiffres du circuit (premières balles, aces, doubles fautes, points gagnés au service et au retour, **jeux gagnés derrière son service, dont la moyenne du circuit est d'environ 80 %** [À confirmer avec les données ATP], breaks, longueur des échanges, tie-breaks, etc.), à la fois en moyenne et par profil de joueur. Une formule, un paramètre ou une nouvelle mécanique qui éloigne le jeu de ces statistiques est un défaut, quelle que soit son élégance. En cas de conflit entre une intention de design et les statistiques ATP, on ne tranche pas en silence : on le signale au créateur. Aucune valeur ATP n'est inventée (voir section 8).
+6. **Sobriété en variables dynamiques** [Décidé]. On essaiera de se passer, autant que possible, de variables dynamiques du style forme du jour ou confiance. Hypothèse de travail : la construction des probabilités (le point, qui s'agrège en jeu, set et match) produit déjà par elle-même la variance observée dans la réalité, par exemple des favoris sortis par surprise au premier tour. C'est ce qu'a montré le simulateur de circuit, où le taux de break dépend uniquement de l'écart de niveau. Une variable dynamique n'est ajoutée que si une mesure contre les données ATP prouve que la variance émergente est insuffisante (ou mal répartie) **et** qu'aucun mécanisme déjà présent ne peut l'expliquer. Elle est alors bornée, retourne vers sa valeur de base et se justifie par un écart chiffré. Tant que ce test n'a pas été fait, ces variables ne sont pas codées.
 
 ## 4. Statistiques
 
@@ -63,7 +64,7 @@ Attributs fixes (ne sont pas des stats) :
 | Concentration | Évite le relâchement quand le match est facile ou l'adversaire plus faible (Federer vs joueurs hors top 10) |
 | Résilience à la pression | Évite la baisse de stats quand l'enjeu monte : tie-breaks, balles de break, finales (Djokovic, Nadal ; à l'inverse Zverev face aux top 10) |
 | Agressivité | IA : tendance à attaquer et prendre des risques. Humain : zone de confort (voir 6.4) |
-| Constance | [Proposé] Stat de **circuit** : fait plus ou moins varier la forme du joueur selon le moment (forme du jour, saison) |
+| Constance | [Proposé, **Suspendu** avec la Forme du jour, voir 4.6 et principe 6] Stat de **circuit** : fait plus ou moins varier la forme du joueur selon le moment (forme du jour, saison) |
 | Régularité | [Proposé] Stat **en match** : capacité à réussir plusieurs fois le même coup (réduit la dispersion d'exécution) ; augmente le taux de deuxièmes balles rentrées. À classer entre technique et mental |
 | Créativité | [Décidé] Augmente la réussite (ou la qualité) des coups candidats **moins bien classés** par le score de l'IA, donc plus rarement choisis (amorti, lob, long de ligne à plat, montée surprise…). Il n'existe pas de catégorie de coups « atypiques » : c'est le classement contextuel qui décide. Les coups sûrs ne reçoivent aucun bonus. Un joueur créatif réussit plus souvent les coups non intuitifs et les choisit donc plus souvent (ex. répartition 45-35-20 au lieu de 55-30-15) ; un joueur peu créatif choisit plus souvent le coup sûr, qu'il réussit aussi bien. Le bonus dépend de la stat technique de chaque coup : fort pour un joueur complet (Alcaraz), presque nul pour un joueur à une seule qualité ou aux lacunes techniques importantes. Mécanisme détaillé en 6.6 |
 | **Lecture du jeu** [Décidé] | Qualité de l'anticipation et de l'évaluation des coups (voir 6.5). Remplace l'idée d'une stat « Anticipation » |
@@ -82,13 +83,13 @@ Un indicateur global (OVR) est calculé à partir des stats, avec une pondérati
 
 ### 4.6 Variables dynamiques
 
-Variables qui évoluent pendant le match ou entre les matchs. Toutes sont **bornées** et reviennent progressivement vers une valeur de base (pas d'effet boule de neige incontrôlé).
+**Soumises au principe 6 (sobriété).** Variables qui évoluent pendant le match ou entre les matchs. Toutes sont **bornées** et reviennent progressivement vers une valeur de base (pas d'effet boule de neige incontrôlé). Avant de coder l'une d'elles, on vérifie par simulation que la variance émergente des probabilités ne suffit pas déjà à reproduire les statistiques ATP (favoris battus, séquences de points, tie-breaks, etc.). Les descriptions ci-dessous restent la **référence si le test échoue**, pas un programme de développement.
 
 - **Forme physique** [Décidé, formules À calibrer] : jauge propre à chaque joueur pendant le match. Elle baisse avec les échanges longs, les courses et les balles difficiles à renvoyer (variées, liftées). La vitesse de baisse dépend de l'**Endurance** : un joueur endurant (Nadal et Djokovic à leur pic, Van Assche) perd très peu. Plus la forme est basse, plus des stats sont pénalisées : Déplacements, Puissance, Explosivité, d'autres à décider. Propositions : [Proposé] effet non linéaire (faible jusqu'à un seuil, puis accéléré) ; coût selon la surface et le format (3 ou 5 sets) ; petite récupération entre les points, plus grande aux changements de côté ; la valeur finale du match alimente la fatigue de circuit (limite n°1 du simulateur), avec une vitesse de récupération liée à l'Endurance.
   - Effet émergent attendu [Décidé] : le plan de jeu change avec la forme relative des deux joueurs et avec l'âge (Nadal 2005-2007 cherche l'échange long à Roland-Garros ; Nadal 2019 joue la majorité de ses points en trois coups ou moins). [Proposé] l'IA ajoute dans son évaluation un coût de prolongement de l'échange selon l'écart de forme entre elle et l'adversaire.
-- **Confiance** [Décidé pour le principe] : augmente avec les résultats récents et la réussite de coups risqués, baisse avec les échecs. Elle donne un léger bonus de réussite sur les coups risqués, d'autant plus fort que le joueur est jeune (elle permet de combler son potentiel). Pour un joueur créatif, elle dépend de la réussite des coups atypiques : dévastateur en confiance, « trou d'air » quand ça rate (Alcaraz, Bublik). [Proposé] mise à jour pondérée par le risque du coup (un coup risqué réussi pèse plus qu'un coup facile). **Gains** : plus forts chez les jeunes. **Chutes** [Décidé] : d'autant plus fortes que la Résilience et la Constance sont faibles. Exemple : Nadal, mental exceptionnel, n'a jamais eu de trous d'air et accrochait Roddick en Coupe Davis à 17 ans ; Djokovic, mental très haut mais quelques trous d'air (à calibrer).
-- **Forme du jour** [Proposé] : tirée au début du match, avec une variance liée à la Constance. Pas affichée directement ; le joueur n'en voit que les symptômes.
-- **Pression** [Proposé] : calculée à partir du contexte (score, enjeu), pas stockée. Atténuée par la Résilience.
+- **Confiance** [Décidé pour le principe, à coder seulement si le test du principe 6 l'exige] : augmente avec les résultats récents et la réussite de coups risqués, baisse avec les échecs. Elle donne un léger bonus de réussite sur les coups risqués, d'autant plus fort que le joueur est jeune (elle permet de combler son potentiel). Pour un joueur créatif, elle dépend de la réussite des coups atypiques : dévastateur en confiance, « trou d'air » quand ça rate (Alcaraz, Bublik). [Proposé] mise à jour pondérée par le risque du coup (un coup risqué réussi pèse plus qu'un coup facile). **Gains** : plus forts chez les jeunes. **Chutes** [Décidé] : d'autant plus fortes que la Résilience et la Constance sont faibles. Exemple : Nadal, mental exceptionnel, n'a jamais eu de trous d'air et accrochait Roddick en Coupe Davis à 17 ans ; Djokovic, mental très haut mais quelques trous d'air (à calibrer).
+- **Forme du jour** [Proposé, **Suspendu**] : tirée au début du match, avec une variance liée à la Constance. Pas affichée directement ; le joueur n'en voit que les symptômes. À ne reconsidérer que si le principe 6 le justifie : la variance entre matchs est d'abord attendue de l'agrégation des probabilités.
+- **Pression** [Proposé] : calculée à partir du contexte (score, enjeu), pas stockée. Atténuée par la Résilience. (Pas une variable dynamique au sens du principe 6 : rien n'est stocké.)
 
 ## 5. Modificateurs structurels
 
@@ -143,7 +144,7 @@ Brouillon de la V1 : la 1re balle dépend de Agressivité, Taille, Service, Puis
 
 **Cible de pourcentage de premières** [Décidé] : chaque joueur vise un pourcentage de premières balles selon son Agressivité (ex. un joueur très agressif comme Sinner s'approche de 60 %, un joueur très prudent comme Zverev de 70 %). La Pression et la Confiance modifient la capacité réelle.
 
-**Jour sans** [Décidé] : un joueur dans un mauvais jour peut faire un match entier à 50 % de premières sans recalibrer, car il est habitué à un certain niveau de risque. [Proposé] l'IA choisit sa jauge d'après sa capacité **perçue** (ses stats habituelles), pas sa capacité réelle du moment, et ne la réestime qu'avec retard ; la vitesse d'ajustement dépend de la Lecture du jeu et de la Concentration. Le joueur humain voit ses pourcentages réels sur le tableau de bord et peut recalibrer lui-même, ce qui est une partie du jeu.
+**Jour sans** [Décidé] : un joueur dans un mauvais jour peut faire un match entier à 50 % de premières sans recalibrer, car il est habitué à un certain niveau de risque. [Proposé] l'IA choisit sa jauge d'après sa capacité **perçue** (ses stats habituelles), pas sa capacité réelle du moment, et ne la réestime qu'avec retard ; la vitesse d'ajustement dépend de la Lecture du jeu et de la Concentration. Le joueur humain voit ses pourcentages réels sur le tableau de bord et peut recalibrer lui-même, ce qui est une partie du jeu. (Attention au principe 6 : un « jour sans » ne doit pas devenir une variable de forme cachée ; à réexaminer après les premières mesures.)
 
 ### 6.4 Résolution d'un coup [Proposé]
 
@@ -199,7 +200,11 @@ L'objectif [Décidé] : une « roue » où chaque style a un contre. Hypothèse 
 
 ## 8. Données et calibrage
 
-Les statistiques ATP récentes servent à calibrer immédiatement les stats des vrais joueurs : service (1res balles rentrées, aces, doubles fautes, points gagnés sur 1re et 2e), retour, break, longueur des échanges, et les indicateurs de **« shot quality »** disponibles pour le service, le retour, le coup droit et le revers. Les données sont à fournir par le créateur ou à récupérer à la demande ; ne jamais inventer de valeur ATP.
+**Les statistiques ATP sont la bible du jeu** (principe 5). Les statistiques ATP récentes servent à calibrer immédiatement les stats des vrais joueurs : service (1res balles rentrées, aces, doubles fautes, points gagnés sur 1re et 2e), retour, break, **jeux gagnés derrière son service (moyenne du circuit ≈ 80 %, à confirmer)**, longueur des échanges, tie-breaks, et les indicateurs de **« shot quality »** disponibles pour le service, le retour, le coup droit et le revers. Les données sont à fournir par le créateur ou à récupérer à la demande ; ne jamais inventer de valeur ATP.
+
+Repère de cohérence : un taux de jeux gagnés au service d'environ 80 % correspond à environ 63-64 % des points gagnés derrière son service. Le jeu étant simulé au point, le taux de jeux au service est une **conséquence** à contrôler, pas un paramètre à saisir.
+
+**Contrôle permanent** : à chaque jalon de la roadmap, une simulation de masse doit retrouver les statistiques ATP de référence (voir `AGENT_EQUILIBRAGE.txt`, mesures de fidélité) ; l'agent de relecture (`AGENT_RELECTURE.txt`) vérifie que chaque modification du code n'a pas cassé cette fidélité.
 
 ## 9. Conventions de code
 
@@ -219,10 +224,14 @@ Les statistiques ATP récentes servent à calibrer immédiatement les stats des 
 6. Simulateur de circuit : faut-il simuler chaque échange ou utiliser une version probabiliste allégée du moteur de point ?
 7. Règle de décision repos/tournoi du simulateur (limite n°1).
 8. Langue du code (français ou anglais).
-9. Séparation Régularité (en match) / Constance (circuit) : proposée, à confirmer, noms à valider.
+9. Séparation Régularité (en match) / Constance (circuit) : proposée, à confirmer, noms à valider. Constance dépend de la Forme du jour, suspendue (principe 6).
 10. Stats touchées par la Forme physique (point de départ proposé : Déplacements, Puissance, Explosivité ; à tester par simulation).
-11. Formule de la Confiance (gains et chutes) : à écrire.
+11. Formule de la Confiance (gains et chutes) : à écrire seulement si le test du principe 6 l'exige.
+12. Statut final des variables dynamiques (Forme physique, Confiance, Forme du jour) à la lumière du principe 6 : à décider après les premières simulations de masse comparées aux données ATP.
+13. Roadmap par jalons (à valider, voir section 11).
 
-## 11. Travail avec l'agent d'équilibrage
+## 11. Travail avec les agents
 
-Le brief de l'agent est dans `AGENT_EQUILIBRAGE.txt`. Il lit ce fichier comme source de vérité des intentions de design. Toute modification de design importante se fait ici d'abord.
+- **Agent d'équilibrage** : brief dans `AGENT_EQUILIBRAGE.txt`. Il lit ce fichier comme source de vérité des intentions de design. Toute modification de design importante se fait ici d'abord.
+- **Agent de relecture** : brief dans `AGENT_RELECTURE.txt`. Il relit le code (qualité, bugs, conformité aux conventions de la section 9) et vérifie à chaque étape que les simulations restent fidèles aux statistiques ATP (principe 5).
+- Les deux agents considèrent les statistiques de l'ATP comme la bible du jeu.

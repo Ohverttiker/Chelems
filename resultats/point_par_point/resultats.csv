@@ -1,0 +1,15 @@
+test,mesure,observe,reference,ecart,erreur_type,unite
+A,"variance_intra_match_entre_sets",96.747,53.184,43.563,2.174,pts²
+A,"contribution_a_la_variance_match",17.151,NaN,NaN,NaN,pts²
+A,"ecart_type_set_a_set_par_joueur",3.798,NaN,NaN,NaN,pts de %
+B4,"elan_entre_sets",6.533,4.821,1.712,0.238,pts
+B1,"point gagné après point gagné − après point perdu",-2.280,-3.243,0.963,0.099,pts de %
+B2,"jeu tenu après jeu de service tenu − après break subi",-26.383,-27.591,1.208,0.270,pts de %
+B3,"jeu tenu juste après avoir breaké − après jeu tenu adverse",-0.275,-0.147,-0.128,0.180,pts de %
+C,"balle de set/match contre le serveur",2.942,2.609,0.333,0.360,pts de %
+C,"balle de set/match pour le serveur",-4.114,-2.987,-1.127,0.357,pts de %
+C,"tie-break (autres points)",-3.969,-2.920,-1.050,0.203,pts de %
+C,"balle de break",3.239,3.729,-0.490,0.167,pts de %
+C,"balle de jeu",-0.315,-1.086,0.771,0.067,pts de %
+C,"30-30 et égalité",2.256,1.667,0.589,0.076,pts de %
+C,"autres points",-0.488,-0.264,-0.224,0.044,pts de %
