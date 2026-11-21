@@ -6,8 +6,7 @@ namespace Chelems.Core.Fidelite;
 public sealed record Banc(Surface Surface, PopulationAtp Population, CiblesAtp Cibles)
 {
     public static Banc Construire(CheminsDepot chemins, Surface s, int tiragesParJoueur, int graine) =>
-        new(s, PopulationAtp.Construire(chemins.Classements, chemins.Adversaires(s), ConfigPopulation.Charger(chemins.ConfigPopulation),
-                                        tiragesParJoueur, graine),
+        new(s, PopulationAtp.Construire(chemins.Classements, chemins.Adversaires(s), tiragesParJoueur, graine),
             CiblesAtp.Charger(chemins.Objectifs(s)));
 
     public Mesures Mesurer(ConfigMoteur cfg, int graine) =>
@@ -15,23 +14,27 @@ public sealed record Banc(Surface Surface, PopulationAtp Population, CiblesAtp C
 }
 
 /// <summary>Un paramètre de calibrage : lecture, écriture (copie de la config) et pas de départ.</summary>
-public sealed record Parametre(string Nom, Func<ConfigMoteur, double> Lire, Func<ConfigMoteur, double, ConfigMoteur> Ecrire, double Pas)
+public sealed record Parametre(string Nom, Func<ConfigMoteur, double> Lire, Func<ConfigMoteur, double, ConfigMoteur> Ecrire, double Pas,
+                               bool Negatif = false)
 {
-    public static Parametre Centre(Surface s) => new($"centre {ConfigMoteur.SurfaceCle(s)}",
-        c => c.Surface(s).Centre,
-        (c, v) => c with { Surfaces = new(c.Surfaces) { [ConfigMoteur.SurfaceCle(s)] = c.Surface(s) with { Centre = v } } }, 0.004);
+    public static Parametre Vitesse(Surface s) => new($"vitesse {ConfigMoteur.SurfaceCle(s)}",
+        c => c.Surface(s).Vitesse,
+        (c, v) => c with { Surfaces = new(c.Surfaces) { [ConfigMoteur.SurfaceCle(s)] = c.Surface(s) with { Vitesse = v } } }, 0.05, Negatif: true);
 
-    public static readonly Parametre Pente = new("pente_par_point_de_talent",
-        c => c.PointService.PenteParPointDeTalent, (c, v) => c with { PointService = c.PointService with { PenteParPointDeTalent = v } }, 0.001);
+    public static readonly Parametre PenteService = new("service.pente",
+        c => c.Service.Pente, (c, v) => c with { Service = c.Service with { Pente = v } }, 0.004);
 
-    public static readonly Parametre FormeMatch = new("forme.ecart_type_match",
-        c => c.Forme.EcartTypeMatch, (c, v) => c with { Forme = c.Forme with { EcartTypeMatch = v } }, 0.004);
+    public static readonly Parametre PenteEchange = new("echange.pente",
+        c => c.Echange.Pente, (c, v) => c with { Echange = c.Echange with { Pente = v } }, 0.004);
 
-    public static readonly Parametre Enjeu = new("enjeu.reduction",
-        c => c.Enjeu?.Reduction ?? 0, (c, v) => c with { Enjeu = (c.Enjeu ?? new ConfigEnjeu(0, new() { ["G"] = 1 })) with { Reduction = Math.Min(v, 1) } }, 0.2);
-
-    public static readonly Parametre FormeSet = new("forme.ecart_type_set",
-        c => c.Forme.EcartTypeSet, (c, v) => c with { Forme = c.Forme with { EcartTypeSet = v } }, 0.004);
+    /// <summary>Les deux pentes multipliées par un même facteur (garde le partage entre service et échange).</summary>
+    public static readonly Parametre Pentes = new("pentes (service, échange)",
+        c => c.Service.Pente,
+        (c, v) => c with
+        {
+            Service = c.Service with { Pente = v },
+            Echange = c.Echange with { Pente = c.Service.Pente == 0 ? c.Echange.Pente : Math.Round(c.Echange.Pente * v / c.Service.Pente, 6) },
+        }, 0.004);
 }
 
 /// <summary>
@@ -79,7 +82,7 @@ public static class Calibreur
     private static ConfigMoteur? Essai(ConfigMoteur cfg, Parametre p, double delta)
     {
         double v = Math.Round(p.Lire(cfg) + delta, 6); // pas de bruit d'arrondi binaire dans le JSON
-        if (v < 0) return null;
+        if (v < 0 && !p.Negatif) return null;
         var c = p.Ecrire(cfg, v);
         try { c.Valider(); } catch (InvalidDataException) { return null; }
         return c;

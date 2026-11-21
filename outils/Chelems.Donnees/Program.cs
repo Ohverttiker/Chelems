@@ -35,6 +35,16 @@ if (args.FirstOrDefault() == "points")
     PointParPoint.Executer(Path.Combine(racine, "tennis_MatchChartingProject-master"), Path.Combine(racine, "resultats", "point_par_point"));
     return;
 }
+if (args.FirstOrDefault() == "echanges")
+{
+    string surf = args.Length > 1 ? args[1] : "Hard";
+    int anMin = args.Length > 2 ? int.Parse(args[2], CultureInfo.InvariantCulture) : 2015;
+    int anMax = args.Length > 3 ? int.Parse(args[3], CultureInfo.InvariantCulture) : 2025;
+    Echanges.Executer(Path.Combine(racine, "tennis_MatchChartingProject-master"), surf, anMin, anMax,
+                      surf == "Hard" ? Path.Combine(racine, "objectifs_equilibrage", "echanges_mcp.csv")
+                                     : Path.Combine(racine, "objectifs_equilibrage", Objectifs.Nom(surf), "echanges_mcp.csv"));
+    return;
+}
 if (args.FirstOrDefault() == "surfaces")
 {
     int depuis = args.Length > 1 && int.TryParse(args[1], out int d) ? d : 2015;

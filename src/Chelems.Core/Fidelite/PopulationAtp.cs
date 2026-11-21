@@ -20,7 +20,7 @@ public sealed record ConfigPopulation(double ConstanceMoyenne, double ConstanceP
 /// Population de test (règles d'usage de objectifs_equilibrage/README.md) :
 /// - joueurs et talents des 17 saisons du simulateur de circuit (<c>donnees/sim_classements.csv</c>) : classement aux points, bruité (règle 3) ;
 /// - adversaires tirés dans la répartition ATP réelle de la surface, avec le format (<c>adversaires_*.csv</c>, règle 2) ;
-/// - chaque joueur a un style caché et une Constance, tirés une fois pour toutes : ce sont les mêmes joueurs sur toutes les surfaces.
+/// - V0.3 : les trois stats (Service, Retour, Échange) valent le talent du simulateur ; ce sont les mêmes joueurs sur toutes les surfaces.
 /// </summary>
 public sealed class PopulationAtp
 {
@@ -37,8 +37,7 @@ public sealed class PopulationAtp
     public Joueur Joueur(int annee, int rang) => _joueurs[(annee, rang)];
     public IEnumerable<Joueur> Joueurs => _joueurs.Values;
 
-    public static PopulationAtp Construire(string cheminClassements, string cheminAdversaires, ConfigPopulation cfg,
-                                           int tiragesParJoueur, int graine)
+    public static PopulationAtp Construire(string cheminClassements, string cheminAdversaires, int tiragesParJoueur, int graine)
     {
         var talents = new SortedDictionary<int, SortedDictionary<int, double>>();
         foreach (var l in Csv.Lire(cheminClassements))
@@ -56,17 +55,10 @@ public sealed class PopulationAtp
             if (k >= 0) pool[k].Add((l.Entier("rang_adversaire"), l.Entier("best_of"), l.GetValueOrDefault("niveau_tournoi") ?? "A"));
         }
 
-        // Attributs cachés : un tirage par joueur, dans un ordre fixe (saison puis rang), indépendant de la surface.
-        var rngStyles = new Random(Graines.Deriver(graine, 0));
         var joueurs = new Dictionary<(int, int), Joueur>();
         foreach (var (an, table) in talents)
             foreach (var (rang, talent) in table)
-            {
-                var style = Style.Tirer(rngStyles);
-                double constance = Math.Clamp(cfg.ConstanceMoyenne + cfg.ConstancePenteTalent * (talent - cfg.TalentReference)
-                                              + cfg.ConstanceEcartType * Aleatoire.Gauss(rngStyles), 1, 99);
-                joueurs[(an, rang)] = new Joueur($"{an}#{rang}", talent, style, constance);
-            }
+                joueurs[(an, rang)] = new Joueur($"{an}#{rang}", talent);
 
         var rngTirage = new Random(Graines.Deriver(graine, 1));
         var rencontres = new List<Rencontre>();

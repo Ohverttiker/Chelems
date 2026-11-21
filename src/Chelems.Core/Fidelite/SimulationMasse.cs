@@ -21,29 +21,112 @@ public static class SimulationMasse
     private readonly record struct Bilan(
         int PtsJoA, int PtsGaA, int JeuxA, int TenusA, int BbA, int BbSauvA,
         int PtsJoB, int PtsGaB, int JeuxB, int TenusB, int BbB, int BbSauvB,
-        bool AGagne, int Sets, int TieBreaks, bool Meme12);
+        bool AGagne, int Sets, int TieBreaks, bool Meme12,
+        int PremA, int Gagne1A, int Gagne2A, int AcesA, int DfA);
+
+    /// <summary>Compteurs sur tous les points de tous les matchs (deux joueurs) : longueur des échanges, issues du service, conversion.</summary>
+    private sealed class Global
+    {
+        public readonly long[] Points = new long[4], ServeurGagne = new long[4];
+        public readonly long[][] Fins = [new long[3], new long[3], new long[3], new long[3]];
+        public readonly long[][] Issues = [new long[7], new long[7]];
+        public long FautesRetour, Svpt, Aces, Df, PremIn, Gagne1, Gagne2, Attaques, AttaquesGagnees;
+
+        public void Ajouter(ResultatMatch r)
+        {
+            lock (this)
+            {
+                for (int t = 0; t < 4; t++)
+                {
+                    Points[t] += r.Longueurs.Points[t];
+                    ServeurGagne[t] += r.Longueurs.ServeurGagne[t];
+                    for (int k = 0; k < 3; k++) Fins[t][k] += r.Longueurs.Fins[t][k];
+                }
+                for (int i = 0; i < 2; i++)
+                {
+                    var s = r.Service[i];
+                    for (int b = 0; b < 2; b++) for (int k = 0; k < 7; k++) Issues[b][k] += s.Issues[b][k];
+                    Svpt += s.PointsJoues; Aces += s.Aces; Df += s.DoublesFautes; PremIn += s.PremieresRentrees;
+                    Gagne1 += s.GagnesPremiere; Gagne2 += s.GagnesSeconde;
+                    Attaques += r.Echange[i].Attaques; AttaquesGagnees += r.Echange[i].AttaquesGagnees;
+                    FautesRetour += r.Echange[i].FautesDirectesRetour;
+                }
+            }
+        }
+    }
 
     public static Mesures Executer(MoteurMatch moteur, PopulationAtp population, Surface surface, int graine)
     {
         var rencontres = population.Rencontres;
         var bilans = new Bilan[rencontres.Count];
+        var global = new Global();
         Parallel.For(0, rencontres.Count, i =>
         {
             var r = rencontres[i];
             var rng = new Random(Graines.Deriver(graine, i + 1000));
             var res = moteur.Jouer(population.Joueur(r.Annee, r.Rang), population.Joueur(r.Annee, r.RangAdversaire),
-                                   FormatMatch.DepuisBestOf(r.BestOf), surface, rng, enjeu: moteur.Modele.Config.Enjeu?.Valeur(r.Niveau) ?? 0);
+                                   FormatMatch.DepuisBestOf(r.BestOf), surface, rng);
+            global.Ajouter(res);
             var a = res.Service[0];
             var b = res.Service[1];
             bilans[i] = new Bilan(a.PointsJoues, a.PointsGagnes, a.Jeux, a.JeuxTenus, a.BallesDeBreakSubies, a.BallesDeBreakSauvees,
                                   b.PointsJoues, b.PointsGagnes, b.Jeux, b.JeuxTenus, b.BallesDeBreakSubies, b.BallesDeBreakSauvees,
                                   res.Vainqueur == 0, res.Sets.Count, res.NombreTieBreaks,
-                                  res.Sets[0].Gagnant == res.Sets[1].Gagnant);
+                                  res.Sets[0].Gagnant == res.Sets[1].Gagnant,
+                                  a.PremieresRentrees, a.GagnesPremiere, a.GagnesSeconde, a.Aces, a.DoublesFautes);
         });
-        return Agreger(rencontres, bilans);
+        return Agreger(rencontres, bilans, global);
     }
 
-    private static Mesures Agreger(IReadOnlyList<Rencontre> rencontres, Bilan[] bilans)
+    /// <summary>Familles « mcp » (Match Charting Project, tous les points) et « efficacite » (chiffres du créateur), mêmes définitions que les fichiers cibles.</summary>
+    private static void AjouterGlobal(Global g, Action<CleMesure, double, double> ajouter)
+    {
+        long total = g.Points.Sum();
+        string[] noms = AnalysePoint.NomsTranches;
+        for (int t = 0; t < 4; t++)
+        {
+            ajouter(new("mcp", 0, $"part_{noms[t]}"), g.Points[t], total);
+            ajouter(new("mcp", 0, $"serveur_{noms[t]}"), g.ServeurGagne[t], g.Points[t]);
+        }
+        string[] fins = ["gagnants", "provoquees", "directes"];
+        for (int k = 0; k < 3; k++)
+        {
+            for (int t = 0; t < 4; t++) ajouter(new("mcp", 0, $"{fins[k]}_{noms[t]}"), g.Fins[t][k], g.Points[t]);
+            ajouter(new("mcp", 0, $"{fins[k]}_total"), g.Fins.Sum(f => f[k]), total);
+        }
+        ajouter(new("mcp", 0, "aces"), g.Aces, g.Svpt);
+        ajouter(new("mcp", 0, "doubles_fautes"), g.Df, g.Svpt);
+        ajouter(new("mcp", 0, "premieres_balles"), g.PremIn, g.Svpt);
+        ajouter(new("mcp", 0, "points_gagnes_1re"), g.Gagne1, g.PremIn);
+        ajouter(new("mcp", 0, "points_gagnes_2e"), g.Gagne2, g.Svpt - g.PremIn);
+        ajouter(new("mcp", 0, "points_gagnes_service"), g.Gagne1 + g.Gagne2, g.Svpt);
+
+        // Issues du service mesurées par le MCP, et fins de point hors service (aces, services gagnants, doubles fautes exclus).
+        long n1 = g.Issues[0].Sum(), n2 = g.Issues[1].Sum();
+        ajouter(new("mcp", 0, "premiere_ace"), g.Issues[0][0], n1);
+        ajouter(new("mcp", 0, "premiere_gagnant"), g.Issues[0][1], n1);
+        ajouter(new("mcp", 0, "seconde_ace"), g.Issues[1][0], n2);
+        ajouter(new("mcp", 0, "seconde_gagnant"), g.Issues[1][1], n2);
+        ajouter(new("mcp", 0, "seconde_double_faute"), g.Issues[1][6], n2);
+        long servicesGagnants = g.Issues[0][1] + g.Issues[1][1];
+        double horsService = total - g.Aces - servicesGagnants - g.Df;
+        ajouter(new("mcp", 0, "gagnants_hors_service"), g.Fins.Sum(f => f[0]) - g.Aces, horsService);
+        ajouter(new("mcp", 0, "provoquees_hors_service"), g.Fins.Sum(f => f[1]) - (servicesGagnants - g.FautesRetour), horsService);
+        ajouter(new("mcp", 0, "directes_hors_service"), g.Fins.Sum(f => f[2]) - g.FautesRetour, horsService);
+
+        string[] issues = ["ace", "gagnant", "attaque", "neutre", "defense", "retour_gagnant", "double_faute"];
+        for (int b = 0; b < 2; b++)
+        {
+            long n = g.Issues[b].Sum();
+            for (int k = 0; k < (b == 0 ? 6 : 7); k++)
+                ajouter(new("efficacite", 0, $"{(b == 0 ? "premiere" : "seconde")}_{issues[k]}"), g.Issues[b][k], n);
+        }
+        ajouter(new("efficacite", 0, "premieres_balles"), g.PremIn, g.Svpt);
+        ajouter(new("efficacite", 0, "conversion"), g.AttaquesGagnees, g.Attaques);
+        ajouter(new("efficacite", 0, "steal"), g.Attaques - g.AttaquesGagnees, g.Attaques);
+    }
+
+    private static Mesures Agreger(IReadOnlyList<Rencontre> rencontres, Bilan[] bilans, Global g)
     {
         var ratios = new Dictionary<CleMesure, (double Num, double Den)>();
         var disp = new Dictionary<CleMesure, (double S, double S2, int N)>();
@@ -69,6 +152,11 @@ public static class SimulationMasse
             Ajouter(new("moyen", 0, "hold"), b.TenusA, b.JeuxA);
             Ajouter(new("moyen", 0, "points_gagnes_service"), b.PtsGaA, b.PtsJoA);
             Ajouter(new("moyen", 0, "balles_de_break_sauvees"), b.BbSauvA, b.BbA);
+            Ajouter(new("moyen", 0, "premieres_balles"), b.PremA, b.PtsJoA);
+            Ajouter(new("moyen", 0, "points_gagnes_1re"), b.Gagne1A, b.PremA);
+            Ajouter(new("moyen", 0, "points_gagnes_2e"), b.Gagne2A, b.PtsJoA - b.PremA);
+            Ajouter(new("moyen", 0, "aces_par_point_service"), b.AcesA, b.PtsJoA);
+            Ajouter(new("moyen", 0, "doubles_fautes_par_point_service"), b.DfA, b.PtsJoA);
             Ajouter(new("gagne", bo, tranche), b.AGagne ? 1 : 0, 1);
             Ajouter(new("retour", bo, tranche), b.JeuxB - b.TenusB, b.JeuxB);
             Ajouter(new("pts_retour", bo, tranche), b.PtsJoB - b.PtsGaB, b.PtsJoB);
@@ -97,6 +185,8 @@ public static class SimulationMasse
             disp.TryGetValue(cle, out var d);
             disp[cle] = (d.S + avantage, d.S2 + avantage * avantage, d.N + 1);
         }
+
+        AjouterGlobal(g, Ajouter);
 
         var valeurs = ratios.Where(kv => kv.Value.Den > 0).ToDictionary(kv => kv.Key, kv => kv.Value.Num / kv.Value.Den);
         foreach (var (cle, (s, s2, n)) in disp)

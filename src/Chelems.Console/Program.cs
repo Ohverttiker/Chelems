@@ -19,15 +19,21 @@ switch (args.FirstOrDefault())
     case "fidelite": Fidelite(); break;
     case "calibrer": Calibrer(); break;
     case "bareme": Bareme(); break;
+    case "point": AnalyserPoint(); break;
+    case "caler-echange": CalerEchange(); break;
     default:
         Console.WriteLine("""
-            Chelem — moteur de match V0.2 (point par point : talent, style caché, surface, forme, Constance, pression, élan)
+            Chelem — moteur de match V0.3 (point en deux phases : duel au service, puis échange ; stats Service, Retour, Échange)
 
-              match     --a 85 --b 78 [--bo 3|5] [--surface dur|terre|gazon] [--constance-a 50] [--constance-b 50] [--graine 1] [--detail]
+              match     --a 85 --b 78 [--service-a ..] [--retour-a ..] [--echange-a ..] (idem -b) [--bo 3|5] [--surface dur] [--graine 1] [--detail]
+              point     [--a 75 --b 75 et stats détaillées comme pour match] [--surface dur] : résultats exacts d'un point (sans simulation)
+              caler-echange [--surface dur] [--rappel 1] [--ecart-service 1.5] [--echange] [--pente 0.003375] [--part-service 0.6667] [--ecrire]
+                        lois du service de la surface ; sur dur (ou avec --echange) lois de l'échange et pentes, ailleurs vitesse
+                        Cale les lois de l'échange (Match Charting Project, Conversion%) puis les pentes, sans simulation.
               fidelite  [--surface dur|terre|gazon|toutes] [--tirages 40] [--graine 1] [--csv]
                         Simulation de masse comparée aux cibles ATP de objectifs_equilibrage/ (dur à la racine, terre/ et gazon/).
-              calibrer  [--surface toutes] [--tirages 20] [--graine 1] [--tours 4] [--parametres centres,pente] [--ecrire]
-                        Paramètres possibles : centres, pente, forme_match, forme_set, enjeu.
+              calibrer  [--surface toutes] [--tirages 20] [--graine 1] [--tours 4] [--parametres pentes] [--ecrire]
+                        Paramètres possibles : pentes (les deux à rapport fixe), pente_service, pente_echange, vitesse.
 
               Option commune : --config <chemin> (défaut config/moteur.json).
             """);
@@ -46,22 +52,90 @@ static Surface LireSurface(string s) => s switch
     _ => throw new ArgumentException($"Surface inconnue : {s} (dur, terre ou gazon)"),
 };
 
+Joueur LireJoueur(string nom, double defaut)
+{
+    string k = nom.ToLowerInvariant();
+    double t = options.Reel(k, defaut);
+    return new Joueur(nom, options.Reel($"service-{k}", t), options.Reel($"retour-{k}", t), options.Reel($"echange-{k}", t));
+}
+
 void JouerMatch()
 {
     int graine = options.Entier("graine", 1);
     var rng = new Random(graine);
     var surface = LireSurface(options.Texte("surface", "dur"));
-    var a = new Joueur("A", options.Reel("a", 80), Style.Tirer(rng), options.Reel("constance-a", 50));
-    var b = new Joueur("B", options.Reel("b", 75), Style.Tirer(rng), options.Reel("constance-b", 50));
+    var a = LireJoueur("A", 80);
+    var b = LireJoueur("B", 75);
     var moteur = new MoteurMatch(new ModelePoint(config));
-    Console.WriteLine($"p de base (sans forme) : A au service {moteur.Modele.ProbaBase(a, b, surface):P1}, B au service {moteur.Modele.ProbaBase(b, a, surface):P1}");
+    var pa = AnalysePoint.Calculer(moteur.Modele.Preparer(a, b, surface));
+    var pb = AnalysePoint.Calculer(moteur.Modele.Preparer(b, a, surface));
+    Console.WriteLine($"Points au service (exact) : A {pa.Serveur:P1}, B {pb.Serveur:P1}");
     Action<PointJoue>? obs = options.Contient("detail")
         ? p => Console.WriteLine($"  set {p.Set + 1} {p.JeuxA}-{p.JeuxB} {(p.TieBreak ? "TB " : "")}{p.PointsServeur}-{p.PointsRelanceur} " +
-                                 $"serveur {(p.Serveur == 0 ? "A" : "B")} p={p.Probabilite:P1} {p.Type} → {(p.Gagnant == 0 ? "A" : "B")}")
+                                 $"serveur {(p.Serveur == 0 ? "A" : "B")} {(p.Deroulement.PremiereRentree ? "1re" : "2e")} " +
+                                 $"{p.Deroulement.EtatApresService?.ToString() ?? "-"} {p.Deroulement.Fin} en {p.Deroulement.Coups} coups → {(p.Gagnant == 0 ? "A" : "B")}")
         : null;
     var res = moteur.Jouer(a, b, FormatMatch.DepuisBestOf(options.Entier("bo", 3)), surface, rng, observateur: obs);
-    Console.WriteLine($"Forme du jour : A {100 * res.FormeDuMatch[0]:+0.0;-0.0} pts, B {100 * res.FormeDuMatch[1]:+0.0;-0.0} pts");
     Console.WriteLine(res);
+}
+
+// Résultats exacts d'un point entre A (au service) et B, comparés aux cibles du dur quand les deux joueurs sont égaux.
+void AnalyserPoint()
+{
+    var surface = LireSurface(options.Texte("surface", "dur"));
+    var a = LireJoueur("A", 75);
+    var b = LireJoueur("B", 75);
+    var an = AnalysePoint.Calculer(new ModelePoint(config).Preparer(a, b, surface));
+    var cibles = CiblesAtp.Charger(chemins.Objectifs(surface));
+    string C(string famille, string mesure) =>
+        cibles.Valeurs.TryGetValue(new CleMesure(famille, 0, mesure), out var c) ? $"{100 * c.Valeur,6:F1}" : "     -";
+    Console.WriteLine($"{a.Nom} (S {a.Service} R {a.Retour} E {a.Echange}) au service contre {b.Nom} (S {b.Service} R {b.Retour} E {b.Echange}), {ConfigMoteur.SurfaceCle(surface)}");
+    Console.WriteLine($"{"mesure",-28}{"moteur",8}{"cible",8}   (cible : ATP top 150 « moyen », Match Charting Project « mcp », créateur « efficacite »)");
+    void L(string nom, double v, string famille, string mesure) => Console.WriteLine($"{nom,-28}{100 * v,8:F1}  {C(famille, mesure)}");
+    L("points gagnés au service", an.Serveur, "moyen", "points_gagnes_service");
+    L("gagnés sur 1re", an.GagnesPremiere, "moyen", "points_gagnes_1re");
+    L("gagnés sur 2e", an.GagnesSeconde, "moyen", "points_gagnes_2e");
+    L("aces / point", an.Aces, "moyen", "aces_par_point_service");
+    L("doubles fautes / point", an.DoublesFautes, "moyen", "doubles_fautes_par_point_service");
+    L("conversion (serveur, rel.)", an.Conversion, "efficacite", "conversion");
+    Console.WriteLine($"{"",-28}{100 * an.ConversionServeur,8:F1}{100 * an.ConversionRelanceur,8:F1}   part des points avec déséquilibre {100 * an.PartDesequilibre:F1} %");
+    string[] fins = ["gagnants", "provoquees", "directes"];
+    for (int t = 0; t < 4; t++)
+    {
+        string n = AnalysePoint.NomsTranches[t];
+        L($"part {n} coups", an.Part[t], "mcp", $"part_{n}");
+        L($"  serveur gagne", an.ServeurParTranche[t], "mcp", $"serveur_{n}");
+        for (int k = 0; k < 3; k++) L($"  {fins[k]}", an.Fins[t][k], "mcp", $"{fins[k]}_{n}");
+    }
+    for (int k = 0; k < 3; k++) L($"{fins[k]} (tous les points)", an.Fins[4][k], "mcp", $"{fins[k]}_total");
+    Console.WriteLine($"Longueur moyenne : {an.LongueurMoyenne:F2} coups");
+    Console.WriteLine("Probabilité de gagner le point selon l'état du frappeur (attaque / neutre / défense) : " +
+                      $"serveur {string.Join(" / ", an.Valeur[0].Select(v => $"{100 * v:F1}"))}, relanceur {string.Join(" / ", an.Valeur[1].Select(v => $"{100 * v:F1}"))}");
+}
+
+void CalerEchange()
+{
+    var surface = LireSurface(options.Texte("surface", "dur"));
+    var cibles = CiblesAtp.Charger(chemins.Objectifs(surface));
+    // Le dur est la surface de référence : on y cale les lois de l'échange ; ailleurs, seulement la vitesse (et partout le service).
+    bool echangeLibre = surface == Surface.Dur || options.Contient("echange");
+    var cfg = CaleurEchange.Caler(config, cibles, surface, echangeLibre, options.Reel("rappel", 1), options.Reel("ecart-service", 1.5) / 100, Console.WriteLine);
+    if (echangeLibre) cfg = CaleurEchange.CalerPentes(cfg, surface, options.Reel("pente", 0.003375), options.Reel("part-service", 2.0 / 3));
+    foreach (var (nom, l) in new[] { ("attaque", cfg.Echange.Attaque), ("neutre", cfg.Echange.Neutre), ("defense", cfg.Echange.Defense) })
+        Console.WriteLine($"{nom,-8} gagnant {l.Gagnant:F4}  adv_defense {l.AdvDefense:F4}  neutre {l.Neutre:F4}  adv_attaque {l.AdvAttaque:F4}  faute {l.Faute:F4}");
+    var (pr, l1, l2) = cfg.LoisService(surface);
+    Console.WriteLine($"service ({ConfigMoteur.SurfaceCle(surface)}) : premières {pr:F4} ; vitesse {cfg.Surface(surface).Vitesse}");
+    foreach (var (nom, l) in new[] { ("premiere", l1), ("seconde", l2) })
+        Console.WriteLine($"{nom,-8} ace {l.Ace:F4}  gagnant {l.Gagnant:F4}  attaque {l.Attaque:F4}  neutre {l.Neutre:F4}  defense {l.Defense:F4}  retour_gagnant {l.RetourGagnant:F4}  double_faute {l.DoubleFaute:F4}");
+    Console.WriteLine($"pentes : service {cfg.Service.Pente}, échange {cfg.Echange.Pente}");
+    foreach (var t in CaleurEchange.Termes())
+        if (cibles.Valeurs.TryGetValue(t.Cle, out var c))
+            Console.WriteLine($"  {t.Cle,-34}{100 * c.Valeur,7:F1}{100 * t.Lire(CaleurEchange.Analyser(cfg, surface)),7:F1}");
+    if (options.Contient("ecrire"))
+    {
+        cfg.Sauver(configChemin);
+        Console.WriteLine($"Écrit : {configChemin}");
+    }
 }
 
 void Fidelite()
@@ -96,18 +170,16 @@ void Fidelite()
 }
 
 // Barème : victoire du meilleur et jeux de service tenus selon l'écart de talent, à plusieurs niveaux.
-// Styles tirés au hasard à chaque match ; Constance tirée comme dans la population de test (liée au talent), ou fixée à 50.
+// Les trois stats de chaque joueur valent son talent.
 void Bareme()
 {
     int n = options.Entier("matchs", 20000), graine = options.Entier("graine", 1);
     var surface = LireSurface(options.Texte("surface", "dur"));
     var format = FormatMatch.DepuisBestOf(options.Entier("bo", 3));
-    bool constanceFixe = options.Contient("constance-fixe");
-    var pop = ConfigPopulation.Charger(chemins.ConfigPopulation);
     var moteur = new MoteurMatch(new ModelePoint(config));
     int[] niveaux = [95, 85, 75, 65];
     int[] ecarts = [0, 1, 2, 3, 5, 7, 10, 15, 20];
-    Console.WriteLine($"Barème {ConfigMoteur.SurfaceCle(surface)}, Bo{format.BestOf}, {n} matchs par case, Constance {(constanceFixe ? "fixée à 50" : "tirée comme la population de test")}");
+    Console.WriteLine($"Barème {ConfigMoteur.SurfaceCle(surface)}, Bo{format.BestOf}, {n} matchs par case");
     Console.WriteLine("Victoire du meilleur (%) et, entre parenthèses, jeux de service tenus par le meilleur / par l'autre (%)\n");
     Console.WriteLine($"{"écart",6}" + string.Concat(niveaux.Select(t => $"{$"meilleur à {t}",24}")));
     foreach (int d in ecarts)
@@ -120,10 +192,8 @@ void Bareme()
             Parallel.For(0, n, () => (V: 0, JA: 0L, TA: 0L, JB: 0L, TB: 0L), (i, _, acc) =>
             {
                 var rng = new Random(Graines.Deriver(graine, (long)t * 1_000_000 + d * 100_000 + i));
-                double Constance(double talent) => constanceFixe ? 50 : Math.Clamp(
-                    pop.ConstanceMoyenne + pop.ConstancePenteTalent * (talent - pop.TalentReference) + pop.ConstanceEcartType * Aleatoire.Gauss(rng), 1, 99);
-                var a = new Joueur("A", t, Style.Tirer(rng), Constance(t));
-                var b = new Joueur("B", t - d, Style.Tirer(rng), Constance(t - d));
+                var a = new Joueur("A", t);
+                var b = new Joueur("B", t - d);
                 var r = moteur.Jouer(a, b, format, surface, rng);
                 return (acc.V + (r.Vainqueur == 0 ? 1 : 0), acc.JA + r.Service[0].Jeux, acc.TA + r.Service[0].JeuxTenus,
                         acc.JB + r.Service[1].Jeux, acc.TB + r.Service[1].JeuxTenus);
@@ -154,14 +224,13 @@ void Calibrer()
     var surfaces = SurfacesDemandees();
     var bancs = surfaces.Select(s => Banc.Construire(chemins, s, tirages, graine)).ToList();
     var parametres = new List<Parametre>();
-    foreach (var nom in options.Texte("parametres", "centres,pente").Split(','))
+    foreach (var nom in options.Texte("parametres", "pentes").Split(','))
         switch (nom.Trim())
         {
-            case "centres": parametres.AddRange(surfaces.Select(Parametre.Centre)); break;
-            case "pente": parametres.Add(Parametre.Pente); break;
-            case "forme_match": parametres.Add(Parametre.FormeMatch); break;
-            case "forme_set": parametres.Add(Parametre.FormeSet); break;
-            case "enjeu": parametres.Add(Parametre.Enjeu); break;
+            case "pentes": parametres.Add(Parametre.Pentes); break;
+            case "pente_service": parametres.Add(Parametre.PenteService); break;
+            case "pente_echange": parametres.Add(Parametre.PenteEchange); break;
+            case "vitesse": parametres.AddRange(surfaces.Select(Parametre.Vitesse)); break;
             default: throw new ArgumentException($"Paramètre inconnu : {nom}");
         }
     string[] familles = options.Contient("familles") ? options.Texte("familles", "").Split(",")

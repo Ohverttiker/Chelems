@@ -5,55 +5,76 @@ using System.Text.Json.Serialization;
 
 namespace Chelems.Core.Configuration;
 
-/// <summary>Point au service : pente en talent (commune à toutes les surfaces) et bornes de sécurité.</summary>
-public sealed record ConfigPointService(double PenteParPointDeTalent, double BorneMin, double BorneMax);
-
 /// <summary>
-/// Physique d'une surface (principe 3 : la surface agit, pas les stats).
-/// Centre = probabilité de gagner un point au service entre deux joueurs égaux.
-/// Affinite = direction (2D, en probabilité) dans l'espace des styles : affinité d'un joueur = Affinite · style.
-/// Contre = écart-type du contre pur entre deux styles (produit vectoriel), en probabilité.
+/// Issues du duel au service, en proportion. Pour la première balle : sur les premières rentrées (DoubleFaute = 0).
+/// Pour la seconde : sur les secondes jouées, doubles fautes comprises. Ordre de <see cref="EnTableau"/> = <see cref="IssueService"/>.
 /// </summary>
-public sealed record ConfigSurface(double Centre, double[] Affinite, double Contre);
-
-/// <summary>
-/// Forme (principe 6, mesurée : docs/mesure_rivalites.md). Écarts-types en probabilité de gagner un point au service,
-/// pour un joueur de Constance 50. La forme d'un joueur augmente son % au service et baisse celui de l'adversaire.
-/// EcartTypeMatch : forme fixe sur un match, dont PartLente (variance) est une phase qui dure d'un match à l'autre
-/// (persistance PersistanceLente par match) ; le reste est tiré à chaque match. EcartTypeSet : variation d'un set à l'autre.
-/// </summary>
-public sealed record ConfigForme(double EcartTypeMatch, double PartLente, double PersistanceLente, double EcartTypeSet);
-
-/// <summary>
-/// Enjeu du tournoi (mesuré : docs/mesure_rivalites.md, étape 0 quinquies). Enjeu e ∈ [0 ; 1] par niveau de tournoi
-/// (codes Sackmann : G, M, A, F, O). Variance de l'aléa du jour × (1 − Reduction × e × (Constance − 1) / 98) :
-/// plus la Constance est haute, plus le joueur « ne passe pas à côté » d'un grand rendez-vous. La phase lente n'est pas touchée.
-/// </summary>
-public sealed record ConfigEnjeu(double Reduction, Dictionary<string, double> Niveaux)
+public sealed record IssuesService(double Ace, double Gagnant, double Attaque, double Neutre, double Defense,
+                                   double RetourGagnant, double DoubleFaute = 0)
 {
-    public double Valeur(string? niveau) => niveau is not null && Niveaux.TryGetValue(niveau, out double e) ? e : 0;
+    public double[] EnTableau() => [Ace, Gagnant, Attaque, Neutre, Defense, RetourGagnant, DoubleFaute];
+
+    public static IssuesService DepuisTableau(double[] v) => new(v[0], v[1], v[2], v[3], v[4], v[5], v[6]);
 }
 
-/// <summary>Constance : multiplicateur de la variance de forme = 1 + Amplitude × (50 − Constance) / 49.</summary>
-public sealed record ConfigConstance(double Amplitude);
+/// <summary>
+/// Issues d'un coup de l'échange pour le joueur qui frappe, en proportion. Ordre de <see cref="EnTableau"/> = <see cref="IssueEchange"/>.
+/// AdvDefense : l'adversaire jouera son coup en défense ; AdvAttaque : il le jouera en attaque.
+/// </summary>
+public sealed record IssuesEchange(double Gagnant, double AdvDefense, double Neutre, double AdvAttaque, double Faute)
+{
+    public double[] EnTableau() => [Gagnant, AdvDefense, Neutre, AdvAttaque, Faute];
 
-/// <summary>Pression : décalage de la probabilité du serveur selon l'enjeu du point (moyenne du circuit).</summary>
-public sealed record ConfigPression(double BalleSetContre, double BalleSetPour, double TieBreak, double BalleDeBreak,
-                                    double BalleDeJeu, double Egalite, double Autres);
+    public static IssuesEchange DepuisTableau(double[] v) => new(v[0], v[1], v[2], v[3], v[4]);
+}
 
 /// <summary>
-/// Élan. Point : ± sur le point suivant du même jeu de service. Jeu : ± sur tout le jeu de service selon le précédent
-/// (tenu ou perdu) dans le set. Set : ± sur le niveau des deux joueurs pendant le set qui suit un set gagné ou perdu.
+/// Duel au service. PremiereRentree : part des premières balles rentrées (constante en V0.3).
+/// Premiere, Seconde : issues entre deux joueurs égaux. Ce sont les lois de référence du créateur (moyenne du tour 2023) ;
+/// chaque surface peut avoir les siennes (<see cref="ConfigSurface"/>), calées sur les points au service de l'ATP. Orientation : valeur de chaque issue pour le serveur (−1 à +1),
+/// qui oriente le décalage dû à l'écart Service − Retour. Pente : décalage (en logit, multiplié par l'orientation) par point d'écart.
 /// </summary>
-public sealed record ConfigElan(double Point, double Jeu, double Set);
+public sealed record ConfigService(double PremiereRentree, IssuesService Premiere, IssuesService Seconde,
+                                   IssuesService Orientation, double Pente);
+
+/// <summary>
+/// Échange. Attaque, Neutre, Defense : issues d'un coup selon l'état du joueur qui frappe, entre deux joueurs égaux.
+/// Orientation : valeur de chaque issue pour le frappeur (−1 à +1). Pente : décalage en logit par point d'écart d'Échange.
+/// </summary>
+public sealed record ConfigEchange(IssuesEchange Attaque, IssuesEchange Neutre, IssuesEchange Defense,
+                                   IssuesEchange Orientation, double Pente, ProfilEchange? Profil = null)
+{
+    public IssuesEchange Etat(EtatEchange e) => e switch
+    {
+        EtatEchange.Attaque => Attaque, EtatEchange.Neutre => Neutre, _ => Defense,
+    };
+}
+
+/// <summary>
+/// Profil de référence de l'échange [Proposé] : vers lui le calage rappelle les lois (les données ne disent pas dans quel état
+/// surviennent fautes et coups gagnants). Il ne sert pas pendant un match.
+/// </summary>
+public sealed record ProfilEchange(IssuesEchange Attaque, IssuesEchange Neutre, IssuesEchange Defense);
+
+/// <summary>
+/// Physique d'une surface (principe 3). Vitesse : décalage de l'échange (en logit, multiplié par l'orientation) en faveur
+/// de l'attaquant en attaque et contre le défenseur en défense. Positive = surface rapide.
+/// PremiereRentree, Premiere, Seconde : lois du duel au service propres à la surface (à défaut, celles de <see cref="ConfigService"/>).
+/// Elles partent des lois du créateur et sont ajustées pour retrouver les points au service de l'ATP sur la surface.
+/// </summary>
+/// FautesRetour [Mesuré, MCP] : part des services gagnants qui sont des retours ratés sur une balle retournable ; comptage seulement
+/// (fautes directes du relanceur au lieu de fautes provoquées), sans effet sur l'issue du point.
+public sealed record ConfigSurface(double Vitesse, double? PremiereRentree = null, IssuesService? Premiere = null, IssuesService? Seconde = null,
+                                   PartsFauteRetour? FautesRetour = null);
+
+/// <summary>Part des services gagnants comptés comme fautes directes de retour, après une première et après une seconde.</summary>
+public sealed record PartsFauteRetour(double Premiere, double Seconde);
 
 /// <summary>
 /// Toutes les constantes de calibrage du moteur (CLAUDE.md §9 : jamais dans le code). Chargées depuis <c>config/moteur.json</c>.
 /// Clés de surface : « dur », « terre », « gazon ».
 /// </summary>
-public sealed record ConfigMoteur(
-    string Version, ConfigPointService PointService, Dictionary<string, ConfigSurface> Surfaces,
-    ConfigForme Forme, ConfigConstance Constance, ConfigPression Pression, ConfigElan Elan, ConfigEnjeu? Enjeu = null)
+public sealed record ConfigMoteur(string Version, ConfigService Service, ConfigEchange Echange, Dictionary<string, ConfigSurface> Surfaces)
 {
     private static readonly JsonSerializerOptions Options = new()
     {
@@ -65,6 +86,13 @@ public sealed record ConfigMoteur(
 
     public ConfigSurface Surface(Surface s) =>
         Surfaces.TryGetValue(SurfaceCle(s), out var c) ? c : throw new InvalidDataException($"Surface absente de la configuration : {SurfaceCle(s)}");
+
+    /// <summary>Lois du duel au service sur la surface : celles de la surface si elle en a, sinon celles de référence.</summary>
+    public (double PremiereRentree, IssuesService Premiere, IssuesService Seconde) LoisService(Surface s)
+    {
+        var c = Surface(s);
+        return (c.PremiereRentree ?? Service.PremiereRentree, c.Premiere ?? Service.Premiere, c.Seconde ?? Service.Seconde);
+    }
 
     public static string SurfaceCle(Surface s) => s switch { Core.Surface.Dur => "dur", Core.Surface.Terre => "terre", _ => "gazon" };
 
@@ -101,21 +129,36 @@ public sealed record ConfigMoteur(
 
     public void Valider()
     {
-        var p = PointService ?? throw new InvalidDataException("point_service manquant");
-        if (p.BorneMin <= 0 || p.BorneMax >= 1 || p.BorneMin >= p.BorneMax) throw new InvalidDataException("point_service : bornes hors de ]0 ; 1[");
-        if (p.PenteParPointDeTalent < 0) throw new InvalidDataException("point_service : pente négative");
+        var s = Service ?? throw new InvalidDataException("service manquant");
+        if (s.PremiereRentree is <= 0 or >= 1) throw new InvalidDataException("service : premiere_rentree dans ]0 ; 1[");
+        VerifierLoi("service.premiere", s.Premiere?.EnTableau());
+        VerifierLoi("service.seconde", s.Seconde?.EnTableau());
+        if (s.Premiere!.DoubleFaute != 0) throw new InvalidDataException("service.premiere : pas de double faute sur une première rentrée");
+        if (s.Orientation is null || s.Pente < 0) throw new InvalidDataException("service : orientation manquante ou pente négative");
+        var e = Echange ?? throw new InvalidDataException("echange manquant");
+        VerifierLoi("echange.attaque", e.Attaque?.EnTableau());
+        VerifierLoi("echange.neutre", e.Neutre?.EnTableau());
+        VerifierLoi("echange.defense", e.Defense?.EnTableau());
+        if (e.Orientation is null || e.Pente < 0) throw new InvalidDataException("echange : orientation manquante ou pente négative");
+        foreach (var x in new[] { e.Attaque!, e.Neutre!, e.Defense! })
+            if (x.Gagnant + x.Faute <= 0) throw new InvalidDataException("echange : chaque état doit pouvoir finir le point");
         if (Surfaces is null || Surfaces.Count == 0) throw new InvalidDataException("surfaces manquantes");
-        foreach (var (nom, s) in Surfaces)
+        foreach (var (cle, c) in Surfaces)
         {
-            if (s.Centre <= p.BorneMin || s.Centre >= p.BorneMax) throw new InvalidDataException($"surface {nom} : centre hors des bornes");
-            if (s.Affinite is not { Length: 2 }) throw new InvalidDataException($"surface {nom} : affinite doit avoir 2 composantes");
-            if (s.Contre < 0) throw new InvalidDataException($"surface {nom} : contre négatif");
+            if (c.PremiereRentree is { } pr && pr is <= 0 or >= 1) throw new InvalidDataException($"surfaces.{cle} : premiere_rentree dans ]0 ; 1[");
+            if (c.Premiere is { } p1)
+            {
+                VerifierLoi($"surfaces.{cle}.premiere", p1.EnTableau());
+                if (p1.DoubleFaute != 0) throw new InvalidDataException($"surfaces.{cle}.premiere : pas de double faute sur une première rentrée");
+            }
+            if (c.Seconde is { } p2) VerifierLoi($"surfaces.{cle}.seconde", p2.EnTableau());
         }
-        if (Forme is null || Forme.EcartTypeMatch < 0 || Forme.EcartTypeSet < 0 || Forme.PartLente is < 0 or > 1 || Forme.PersistanceLente is < 0 or >= 1)
-            throw new InvalidDataException("forme : valeurs invalides");
-        if (Constance is null || Constance.Amplitude is < 0 or >= 1) throw new InvalidDataException("constance : amplitude dans [0 ; 1[");
-        if (Pression is null || Elan is null) throw new InvalidDataException("pression ou elan manquant");
-        if (Enjeu is not null && (Enjeu.Reduction is < 0 or > 1 || Enjeu.Niveaux.Values.Any(v => v is < 0 or > 1)))
-            throw new InvalidDataException("enjeu : reduction et niveaux dans [0 ; 1]");
+    }
+
+    private static void VerifierLoi(string nom, double[]? p)
+    {
+        if (p is null) throw new InvalidDataException($"{nom} manquant");
+        if (p.Any(x => x < 0 || double.IsNaN(x))) throw new InvalidDataException($"{nom} : probabilité négative");
+        if (Math.Abs(p.Sum() - 1) > 1e-4) throw new InvalidDataException($"{nom} : la somme vaut {p.Sum():F4} au lieu de 1");
     }
 }

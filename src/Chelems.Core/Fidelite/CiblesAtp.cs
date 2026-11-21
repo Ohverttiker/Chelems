@@ -77,11 +77,21 @@ public sealed class CiblesAtp
             foreach (var (cle, (g, n)) in acc) c[cle] = new(g / n, n);
         }
 
-        // Moyennes du top 150 : seules les mesures que la V0.1 sait produire (pas de 1re balle, d'ace ni de double faute).
-        string[] mesurables = ["hold", "points_gagnes_service", "balles_de_break_sauvees"];
+        // Moyennes du top 150 (V0.3 : premières balles, aces, doubles fautes et points sur 1re et 2e comprises).
         foreach (var l in Csv.Lire(F("service_moyen_top150.csv")))
-            if (mesurables.Contains(l["mesure"]))
-                c[new("moyen", 0, l["mesure"])] = new(l.Reel("valeur_pct") / 100, double.NaN);
+            c[new("moyen", 0, l["mesure"])] = new(l.Reel("valeur_pct") / 100, double.NaN);
+
+        // Échanges (Match Charting Project, tous les points des matchs « chartés » de la surface, 2015-2025).
+        if (File.Exists(F("echanges_mcp.csv")))
+            foreach (var l in Csv.Lire(F("echanges_mcp.csv")))
+                c[new("mcp", 0, l["mesure"])] = new(l.Reel("valeur_pct") / 100, l.Reel("effectif"));
+
+        // Conversion% et Steal% : moyennes du tour fournies par le créateur (sans effectif), cibles de la seule surface de référence (dur).
+        // Le détail de l'efficacité du service (2023) n'est plus une cible : c'est le point de départ des lois du service de chaque
+        // surface, ajustées sur les points au service de l'ATP (config/moteur.json, rappel du calage).
+        if (File.Exists(F("efficacite_service.csv")))
+            foreach (var l in Csv.Lire(F("efficacite_service.csv")).Where(l => l["mesure"] is "conversion" or "steal"))
+                c[new("efficacite", 0, l["mesure"])] = new(l.Reel("valeur_pct") / 100, double.NaN);
 
         return new CiblesAtp(c);
     }

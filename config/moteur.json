@@ -1,68 +1,173 @@
 {
-  "_commentaire": "Moteur de match V0.2. Toutes les valeurs sont en probabilité de gagner un point au service. p = borne(centre(surface) + pente × écart de talent + affinités de surface + contre de styles + écart de forme + pression + élan). Valeurs de départ mesurées (docs/mesure_rivalites.md), puis calibrées avec : dotnet run --project src/Chelems.Console -- calibrer",
-  "_commentaire_surfaces": "affinite : direction 2D dans l'espace des styles (écart-type de l'affinité d'un joueur = sa norme) ; terre et gazon opposés, dur orthogonal (covariances mesurées entre surfaces). contre : écart-type du contre pur entre deux styles.",
-  "version": "0.2",
-  "point_service": {
-    "pente_par_point_de_talent": 0.003375,
-    "borne_min": 0.4,
-    "borne_max": 0.9
+  "_commentaire": "Moteur de match V0.3 : point en deux phases (duel au service Service contre Retour, puis échange Échange contre Échange). Toutes les lois sont celles de deux joueurs égaux ; l'écart de stats les décale : p_k ∝ base_k × exp(x × orientation_k), x = pente × écart (+ vitesse de la surface dans l'échange). Forme, pression, élan et style caché retirés pour l'instant (docs/moteur_v0_3.md).",
+  "_commentaire_surfaces": "Par surface : vitesse = décalage de l'échange (logit × orientation) pour l'attaquant en attaque et contre le défenseur en défense, positive = surface rapide ; premiere_rentree, premiere, seconde = lois du duel au service de la surface : celles du créateur avec les aces et services gagnants du MCP, ajustées de 2 points au plus sur les points au service de l'ATP (caler-echange --surface <s> --ecrire) ; fautes_retour = part des services gagnants comptés comme retours ratés (faute directe, MCP), comptage seulement. Vitesses et pentes ensuite recalées par simulation de masse (calibrer --surface toutes --parametres pentes,vitesse) : elles compensent l'absence de forme (docs/moteur_v0_3.md, 4.4).",
+  "version": "0.3",
+  "service": {
+    "_commentaire": "Lois de référence du créateur (moyenne du tour 2023, toutes surfaces), point de départ et rappel du calage des lois de chaque surface (section surfaces) : première sur les premières rentrées, seconde sur les secondes jouées (doubles fautes comprises). Attaque / neutre / défense = état du serveur pour son coup suivant. Orientation = valeur de l'issue pour le serveur (aces et services gagnants +1, attaque et défense ± (2 × 0,66 − 1) d'après Conversion%, retours gagnants et doubles fautes −1). pente : en logit, par point d'écart Service − Retour.",
+    "premiere_rentree": 0.6282,
+    "premiere": {
+      "ace": 0.16,
+      "gagnant": 0.22,
+      "attaque": 0.2,
+      "neutre": 0.38,
+      "defense": 0.03,
+      "retour_gagnant": 0.01,
+      "double_faute": 0
+    },
+    "seconde": {
+      "ace": 0.01,
+      "gagnant": 0.16,
+      "attaque": 0.06,
+      "neutre": 0.58,
+      "defense": 0.06,
+      "retour_gagnant": 0.03,
+      "double_faute": 0.1
+    },
+    "orientation": {
+      "ace": 1,
+      "gagnant": 1,
+      "attaque": 0.32,
+      "neutre": 0,
+      "defense": -0.32,
+      "retour_gagnant": -1,
+      "double_faute": -1
+    },
+    "pente": 0.017493
+  },
+  "echange": {
+    "_commentaire": "Issues d'un coup selon l'état du frappeur (attaque, neutre, défense), entre joueurs égaux. adv_defense / adv_attaque : état de l'adversaire pour le coup suivant. Une faute en défense est une faute provoquée, sinon une faute directe. Communes aux trois surfaces, calées sur dur (Match Charting Project, points au service ATP, Conversion%) avec : dotnet run --project src/Chelems.Console -- caler-echange --surface dur --ecrire. Orientation = valeur de l'issue pour le frappeur. pente : en logit, par point d'écart d'Échange.",
+    "attaque": {
+      "gagnant": 0.182622,
+      "adv_defense": 0.602604,
+      "neutre": 0.081134,
+      "adv_attaque": 0.009097,
+      "faute": 0.124543
+    },
+    "neutre": {
+      "gagnant": 0.060143,
+      "adv_defense": 0.110438,
+      "neutre": 0.696685,
+      "adv_attaque": 0.018183,
+      "faute": 0.114551
+    },
+    "defense": {
+      "gagnant": 0.023144,
+      "adv_defense": 0.026649,
+      "neutre": 0.288943,
+      "adv_attaque": 0.352711,
+      "faute": 0.308553
+    },
+    "orientation": {
+      "gagnant": 1,
+      "adv_defense": 0.32,
+      "neutre": 0,
+      "adv_attaque": -0.32,
+      "faute": -1
+    },
+    "pente": 0.003696,
+    "profil": {
+      "_commentaire": "[Décidé pour l'ordre, Proposé pour les valeurs] Point de départ du calage (pas utilisé en match). Créateur : la faute est maximale en défense (on cherche à se sortir d'une situation) et minimale en neutre (on prend plus de risques en attaque) ; le calage impose cet ordre et s'écarte du profil autant que les données l'exigent (option --rappel).",
+      "attaque": {
+        "gagnant": 0.25,
+        "adv_defense": 0.4,
+        "neutre": 0.17,
+        "adv_attaque": 0.03,
+        "faute": 0.15
+      },
+      "neutre": {
+        "gagnant": 0.05,
+        "adv_defense": 0.13,
+        "neutre": 0.66,
+        "adv_attaque": 0.08,
+        "faute": 0.08
+      },
+      "defense": {
+        "gagnant": 0.03,
+        "adv_defense": 0.03,
+        "neutre": 0.22,
+        "adv_attaque": 0.47,
+        "faute": 0.25
+      }
+    }
   },
   "surfaces": {
     "dur": {
-      "centre": 0.641,
-      "affinite": [
-        0,
-        0.0068
-      ],
-      "contre": 0.0077
+      "vitesse": -0.00625,
+      "premiere_rentree": 0.614,
+      "premiere": {
+        "ace": 0.144309,
+        "gagnant": 0.262122,
+        "attaque": 0.210675,
+        "neutre": 0.36202,
+        "defense": 0.014905,
+        "retour_gagnant": 0.005969,
+        "double_faute": 0
+      },
+      "seconde": {
+        "ace": 0.004957,
+        "gagnant": 0.155777,
+        "attaque": 0.068428,
+        "neutre": 0.578788,
+        "defense": 0.056024,
+        "retour_gagnant": 0.036912,
+        "double_faute": 0.099114
+      },
+      "fautes_retour": {
+        "premiere": 0.0104,
+        "seconde": 0.6727
+      }
     },
     "terre": {
-      "centre": 0.6195,
-      "affinite": [
-        -0.0092,
-        0
-      ],
-      "contre": 0.0113
+      "vitesse": 0.02685,
+      "premiere_rentree": 0.624,
+      "premiere": {
+        "ace": 0.085437,
+        "gagnant": 0.227709,
+        "attaque": 0.237887,
+        "neutre": 0.428388,
+        "defense": 0.013111,
+        "retour_gagnant": 0.007468,
+        "double_faute": 0
+      },
+      "seconde": {
+        "ace": 0.006355,
+        "gagnant": 0.13724,
+        "attaque": 0.070421,
+        "neutre": 0.603781,
+        "defense": 0.054118,
+        "retour_gagnant": 0.035556,
+        "double_faute": 0.092529
+      },
+      "fautes_retour": {
+        "premiere": 0.0242,
+        "seconde": 0.7606
+      }
     },
     "gazon": {
-      "centre": 0.6605,
-      "affinite": [
-        0.0106,
-        0
-      ],
-      "contre": 0.011
+      "vitesse": 0.19755,
+      "premiere_rentree": 0.628,
+      "premiere": {
+        "ace": 0.154236,
+        "gagnant": 0.281694,
+        "attaque": 0.189698,
+        "neutre": 0.33229,
+        "defense": 0.018857,
+        "retour_gagnant": 0.023225,
+        "double_faute": 0
+      },
+      "seconde": {
+        "ace": 0.006701,
+        "gagnant": 0.186941,
+        "attaque": 0.058874,
+        "neutre": 0.551407,
+        "defense": 0.053152,
+        "retour_gagnant": 0.038724,
+        "double_faute": 0.104201
+      },
+      "fautes_retour": {
+        "premiere": 0.0049,
+        "seconde": 0.6515
+      }
     }
-  },
-  "forme": {
-    "_commentaire": "Pour une Constance de 50. ecart_type_match : forme fixe sur le match (phase lente + aléa du jour) ; part_lente : part de variance qui dure d'un match à l'autre ; persistance_lente : corrélation d'un match au suivant de cette phase ; ecart_type_set : variation d'un set à l'autre.",
-    "ecart_type_match": 0.021,
-    "part_lente": 0.2,
-    "persistance_lente": 0.9,
-    "ecart_type_set": 0.021
-  },
-  "constance": {
-    "_commentaire": "Multiplicateur de la variance de forme = 1 + amplitude × (50 − Constance) / 49.",
-    "amplitude": 0.5
-  },
-  "pression": {
-    "_commentaire": "Décalage du serveur selon l'enjeu (Match Charting Project, moyenne du circuit).",
-    "balle_set_contre": 0.0033,
-    "balle_set_pour": -0.0113,
-    "tie_break": -0.0105,
-    "balle_de_break": -0.0049,
-    "balle_de_jeu": 0.0077,
-    "egalite": 0.0059,
-    "autres": -0.0022
-  },
-  "enjeu": {
-    "_commentaire": "Enjeu du tournoi (codes Sackmann : G Grand Chelem, M Masters 1000, A ATP 250/500, F Masters final, O Jeux olympiques). Variance de l'aléa du jour × (1 − reduction × enjeu × (Constance − 1) / 98). Mesure : seuls les Grands Chelems montrent un effet net.",
-    "reduction": 0.5,
-    "niveaux": { "G": 1.0, "M": 0.0, "A": 0.0, "F": 0.0, "O": 0.0 }
-  },
-  "elan": {
-    "_commentaire": "point : ± sur le point suivant du même jeu ; jeu : ± sur un jeu de service selon le précédent dans le set ; set : ± de niveau après un set gagné ou perdu.",
-    "point": 0.0048,
-    "jeu": 0.0023,
-    "set": 0.0043
   }
 }

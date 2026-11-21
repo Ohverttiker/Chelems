@@ -25,11 +25,11 @@ public static class Comparaison
     {
         ["hold"] = 1.0, ["pts"] = 0.5, ["gagne"] = 2.0, ["retour"] = 1.0, ["pts_retour"] = 0.5, ["moyen"] = 1.0, ["vict"] = 2.0,
         ["hold_mieux"] = 1.5, ["hold_moins"] = 1.5, ["score"] = 2.0,
-        ["deux_sets"] = 2.5, ["meme12"] = 2.5, ["disp_moy"] = 1.0, ["disp_et"] = 1.0,
+        ["deux_sets"] = 2.5, ["meme12"] = 2.5, ["disp_moy"] = 1.0, ["disp_et"] = 1.0, ["mcp"] = 1.0, ["efficacite"] = 1.0,
     };
 
     private static readonly string[] Ordre =
-        ["moyen", "hold", "pts", "retour", "pts_retour", "gagne", "vict", "hold_mieux", "hold_moins", "score", "deux_sets", "meme12", "disp_moy", "disp_et"];
+        ["moyen", "efficacite", "mcp", "hold", "pts", "retour", "pts_retour", "gagne", "vict", "hold_mieux", "hold_moins", "score", "deux_sets", "meme12", "disp_moy", "disp_et"];
 
     public static List<LigneComparaison> Comparer(CiblesAtp cibles, Mesures mesures)
     {

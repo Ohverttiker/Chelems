@@ -34,6 +34,13 @@ Le jeu doit à terme s'intégrer à un simulateur de circuit ATP déjà dévelop
 
 Échelle : **1-99** [Décidé, plus précise que le 1-20 de Football Manager ; les exemples du créateur en 1-20 se convertissent]. Les pros se situent surtout entre 40 et 99 [À calibrer].
 
+**Moteur V0.3** [Décidé, 2026-11-20] : première ébauche complète. On construit un jeu complet d'abord, on le corrige ensuite. Le moteur n'utilise pour l'instant que **trois stats** :
+- **Service** : duel au service, côté serveur ;
+- **Retour** : duel au service, côté relanceur ;
+- **Échange** : tout le reste du point, non découpé.
+
+Les stats détaillées ci-dessous restent la cible. Elles remplaceront Échange (puis Service et Retour) par étapes, en gardant la fidélité ATP. Structure du point : voir 6.7.
+
 ### 4.1 Techniques (7)
 
 | Stat | Rôle |
@@ -87,6 +94,12 @@ Un indicateur global (OVR) est calculé à partir des stats, avec une pondérati
 
 ### 4.6 Variables dynamiques
 
+**Retirées du moteur V0.3** [Décidé, 2026-11-20] : forme, pression, élan, enjeu et style caché. Elles reviendront, exprimées sur les stats, une fois le point en deux phases satisfaisant. Leur absence explique les écarts actuels sur la dispersion, la dépendance des sets et la force des favoris (`docs/moteur_v0_3.md`). Les mesures ci-dessous restent valables.
+
+**Retour dans le point en deux phases** [Décidé pour le principe, 2026-11-20 ; formules À calibrer sur les résultats] : forme et pression deviennent des **décalages des issues** de l'échange (et du service), comme l'écart de stats.
+- **Forme positive** : transforme des fautes en coups gagnants ou en coups qui mettent l'adversaire en défense ; forme négative, l'inverse.
+- **Pression élevée sans Résilience** : « bras qui se crispe » ; moins de coups gagnants et de coups offensifs, plus de neutres, de défenses et de fautes.
+
 **Soumises au principe 6 (sobriété).** Variables qui évoluent pendant le match ou entre les matchs. Toutes sont **bornées** et reviennent progressivement vers une valeur de base (pas d'effet boule de neige incontrôlé). Avant de coder l'une d'elles, on vérifie par simulation que la variance émergente des probabilités ne suffit pas déjà à reproduire les statistiques ATP (favoris battus, séquences de points, tie-breaks, etc.). Les descriptions ci-dessous restent la **référence si le test échoue**, pas un programme de développement.
 
 - **Forme physique** [Décidé, formules À calibrer] : jauge propre à chaque joueur pendant le match. Elle baisse avec les échanges longs, les courses et les balles difficiles à renvoyer (variées, liftées). La vitesse de baisse dépend de l'**Endurance** : un joueur endurant (Nadal et Djokovic à leur pic, Van Assche) perd très peu. Plus la forme est basse, plus des stats sont pénalisées : Déplacements, Puissance, Explosivité, d'autres à décider. Propositions : [Proposé] effet non linéaire (faible jusqu'à un seuil, puis accéléré) ; coût selon la surface et le format (3 ou 5 sets) ; petite récupération entre les points, plus grande aux changements de côté ; la valeur finale du match alimente la fatigue de circuit (limite n°1 du simulateur), avec une vitesse de récupération liée à l'Endurance.
@@ -136,7 +149,8 @@ La surface agit sur la physique de la balle : conservation de vitesse au rebond,
 - Pas de stat « affinité de surface » : si les résultats ne correspondent pas à la réalité, ajuster les paramètres physiques de la surface, pas les joueurs.
 - [Mesuré] La surface agit surtout à travers l'**affinité de chaque joueur**. Les contres de styles propres à une surface sont faibles (2 % au plus de la dispersion). Les bascules à la Nadal–Djokovic (terre 18-9, dur 7-20) viennent d'une forte affinité.
 - Dans le moteur actuel, un style caché est projeté sur une direction propre à chaque surface : terre et gazon opposés, dur orthogonal. Ce style sera remplacé par les attributs (taille, effet, déplacements).
-- Centres calibrés : dur 64,1 %, terre 62,0 %, gazon 66,1 %.
+- **Moteur V0.3** [Décidé, 2026-11-20] : chaque surface a ses **lois du duel au service** (efficacité du créateur, où aces et services gagnants sont ceux mesurés sur la surface dans le Match Charting Project ; elles ne s'en écartent que de 2 points au plus) et une **vitesse** qui agit dans l'échange seulement. Les lois de l'échange sont communes (calées sur dur).
+- [Mesuré, conflit ouvert n°21] D'après le Match Charting Project, une fois l'échange lancé, la terre n'est pas plus défensive que le dur (longs échanges plus souvent finis sur un coup gagnant). Ce qui allonge les points sur terre, c'est le service (moins d'aces et de services gagnants). Le calage donne donc à la terre une vitesse proche du dur.
 - **Court pace index par tournoi** : pas encore intégré, il manque une source de données (décision ouverte n°16).
 
 ## 6. Gameplay
@@ -202,6 +216,32 @@ L'IA calcule l'issue attendue de plusieurs coups candidats (zone × effet × pui
 **Pourquoi un vrai bonus** [Décidé] : l'IA ne sera pas assez performante pour exploiter la prévisibilité d'un adversaire. La Créativité doit donc donner un avantage réel aux joueurs qui variaient (Alcaraz, capable de battre régulièrement Sinner par ses variations face à un joueur moins créatif jouant coup droit et revers à cadence élevée). Elle est inutile pour un joueur aux lacunes techniques importantes, d'où la nécessité pour les tout meilleurs de la travailler. Point de vigilance : la Lecture du jeu exploite déjà l'historique des coups, ce qui pénalise un peu les joueurs prévisibles ; éviter un double comptage.
 - **Agressivité** → poids du gain brut vs risque dans la fonction d'utilité.
 
+### 6.7 Structure du point (moteur V0.3) [Décidé, 2026-11-20]
+
+Le point est une **chaîne d'états**. L'état après chaque coup donne l'état suivant ; on ne tire pas l'issue du point d'un coup.
+
+1. **Duel au service** (Service du serveur contre Retour du relanceur). Issues :
+   - ace, service gagnant, retour gagnant, double faute (seconde balle seulement) ;
+   - ou l'état du serveur pour son coup suivant : attaque, neutre, défense.
+
+   Les lois sont l'efficacité du service fournie par le créateur (moyenne du tour 2023), avec les aces et services gagnants mesurés sur chaque surface (MCP). [Décidé] Une fois les stats fiables, on ne s'en éloigne pas : quelques points au plus, jamais 15. Pour recaler, on change l'efficacité, pas le fonctionnement du jeu ; aucun traitement particulier du coup qui suit le service. Service gagnant = service hors ace non remis en jeu (non retourné, retour en faute provoquée ou raté sur une balle retournable). L'efficacité d'un joueur se déduit de ses aces, de ses services non retournés et de ses points sur première (ex. Draper 30,4 / 21 / 23,6 / 20 / 3,5 / 1,5 : la qualité et la puissance de son service transforment des services neutres en services avantageux).
+2. **Échange** (Échange contre Échange). À chaque coup, selon l'état du frappeur (attaque, neutre, défense), cinq issues :
+   - coup gagnant ;
+   - adversaire en défense ;
+   - neutre ;
+   - adversaire en attaque ;
+   - faute : **directe** si elle est faite en attaque ou en neutre, **provoquée** si elle est faite en défense.
+
+   On boucle jusqu'à la fin du point. [Décidé] La faute est la plus probable en **défense** (on cherche à se sortir d'une situation, sans pouvoir jouer un coup efficace) et la moins probable en **neutre** (on prend plus de risques en attaque) ; le calage impose cet ordre.
+
+Définitions :
+- **Conversion%** : points gagnés par le joueur en attaque au **premier déséquilibre** du point (service compris). Aces, services gagnants, retours gagnants et échanges restés neutres sont exclus.
+- **Steal%** = 100 − Conversion% pour un même déséquilibre. Moyenne du tour : 66 / 34.
+
+Surfaces : des lois de service et une **vitesse** d'échange par surface (voir 5.3). Les surfaces rapides avantagent l'attaque, les lentes la défense.
+
+Chaque loi est celle de deux joueurs égaux, décalée par l'écart de stats. Une résolution exacte, sans simulation, existe (`AnalysePoint`). Détail, calage et résultats : `docs/moteur_v0_3.md`.
+
 ## 7. Archétypes et équilibrage
 
 Les archétypes sont des profils de stats. Liste actuelle :
@@ -239,7 +279,13 @@ Cibles figées par surface : `objectifs_equilibrage/` pour le dur, `terre/` et `
 - sets et tie-breaks ;
 - dépendance des sets et dispersion par match.
 
-Bilan à date : `docs/bilan_v0_2.md`.
+Depuis la V0.3 :
+- **Échanges** : longueur, % du serveur par longueur, coups gagnants, fautes provoquées et directes. Source : Match Charting Project 2015-2025, fichiers `echanges_mcp.csv` de chaque surface (`outils/Chelems.Donnees -- echanges Hard|Clay|Grass`).
+- **Efficacité du service et Conversion% / Steal%** : moyenne du tour 2023 fournie par le créateur, fichier `objectifs_equilibrage/efficacite_service.csv`. Conversion% / Steal% sont une cible du dur ; le détail de l'efficacité n'est plus une cible, c'est le point de départ des lois de service de chaque surface.
+- Fins de point **hors service** (définition du créateur : aces, services gagnants et doubles fautes exclus, retours gagnants compris) : 25-35 % de coups gagnants, 25-30 % de fautes provoquées, 35-45 % de fautes directes. [Mesuré] MCP dur : 33,5 / 24,6 / 41,9. Le MCP compte les retours ratés sur une balle retournable en fautes directes : le moteur fait de même (comptage seulement, `fautes_retour`).
+- **Premières balles, aces, doubles fautes, points sur 1re et 2e** : ATP, déjà figés.
+
+Bilan à date : `docs/bilan_v0_2.md`, puis `docs/moteur_v0_3.md`.
 
 ## 9. Conventions de code
 
@@ -267,6 +313,12 @@ Bilan à date : `docs/bilan_v0_2.md`.
 14. Conflit Confiance / données ATP : garder suspendu ou abandonner ?
 15. Population de test : le lien rang ↔ talent du simulateur de circuit est plus « plat » que l'ATP, ce qui fausse les victoires à 0-10 places et à plus de 160 places. Faut-il corriger le simulateur ou seulement la population de test ?
 16. Source de données pour le court pace index par tournoi.
+17. ~~Points sur première (V0.3)~~ : tranché, bonus du coup suivant le service supprimé ; l'efficacité du service est ajustée par surface.
+18. ~~Aces par surface~~ : tranché, lois de service extrapolées par surface depuis celles du créateur.
+19. ~~Définition des fins de point~~ : tranché, hors service (aces, services gagnants, doubles fautes exclus) ; le MCP concorde avec les fourchettes du créateur.
+20. Vitesses (dur −0,006, terre +0,027, gazon +0,198) : elles compensent l'absence de forme [accepté], à remonter quand la forme reviendra.
+21. Vitesse de la terre : les données du MCP la placent au niveau du dur (l'échange n'y est pas plus défensif ; la lenteur passe par le service). Garder la vitesse tirée des données, ou imposer une vitesse négative ? Le créateur pense que les coups gagnants sont plus rares sur terre (le MCP ne le montre pas hors service : 34,3 % contre 33,5 % sur dur) et cherchera d'autres sources.
+22. Gazon : la vitesse ne joue pas assez sur l'avantage offensif (points un peu trop longs, 1-3 coups 62,4 % contre 65,6 %). Écart jugé satisfaisant pour l'instant.
 
 ## 11. Travail avec les agents
 
