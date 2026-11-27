@@ -1,0 +1,52 @@
+Pentes mesurées sur 76 joueurs (MCP, dur), comparées au moteur :
+  Taille du serveur, effet total mesuré (points de % par 10 cm) :
+    premieres            +0.96    +0.96
+    p1_ace               +6.69    +6.70
+    p1_gagnant           +0.78    +0.77
+    p1_gagnes            +3.31    +3.31
+    p2_ace               +0.55    +0.45
+    p2_gagnant           +0.78    +0.78
+    p2_double_faute      +1.42    +1.42
+    p2_gagnes            -0.44    -0.43
+    dont effet direct (points de % par 10 cm) :
+    premieres            +0.96    +0.96
+    p1_ace               +6.34    +6.36
+    p1_gagnant           +0.16    +0.14
+    p1_gagnes            +2.86    +2.86
+    p2_ace               +0.55    +0.45
+    p2_gagnant           +0.78    +0.78
+    p2_double_faute      +1.42    +1.42
+    p2_gagnes            -0.44    -0.43
+  Taille du relanceur, effet total mesuré (points de % par 10 cm) :
+    premieres            libre    +0.00
+    p1_ace               -1.21    -1.20
+    p1_gagnant           +1.35    +1.35
+    p1_gagnes            +1.08    +1.05
+    p2_ace               +0.02    +0.02
+    p2_gagnant           +0.87    +0.88
+    p2_double_faute      -0.09    -0.09
+    p2_gagnes            +1.47    +1.46
+    dont effet direct (points de % par 10 cm) :
+    premieres            libre    +0.00
+    p1_ace               -1.81    -1.80
+    p1_gagnant           +0.26    +0.25
+    p1_gagnes            +0.29    +0.26
+    p2_ace               +0.01    +0.01
+    p2_gagnant           +0.59    +0.60
+    p2_double_faute      -0.06    -0.06
+    p2_gagnes            +1.31    +1.30
+  Agressivité (points de % par 10 points) :
+    premieres            -1.63    -1.63
+    p1_ace               +0.27    +0.27
+    p1_gagnant           -0.01    -0.01
+    p1_gagnes            +0.66    +0.64
+    p2_ace               +0.00   -+0.00
+    p2_gagnant           +0.00   -+0.00
+    p2_double_faute      +0.24    +0.24
+    p2_gagnes            -0.14    -0.13
+  Agressivité : neutre à capacité de référence (total des points au service inchangé), le risque paie sur la première.
+  Mesure à taille égale, pour 1 point de premières en moins : seconde ace -0.051, gagnant -0.149 point de %
+  taille       premières +0.0040  1re [+0.0509 +0.0078 -0.0103 +0.0000 -0.0027 -0.0017 +0.0000]  2e [+0.0947 +0.0071 -0.0213 +0.0000 +0.0009 +0.0106 +0.0166]
+  taille_rel.  premières -+0.0000  1re [+0.0035 +0.0170 +0.0522 +0.0000 -0.0092 -0.0071 +0.0000]  2e [+0.0024 +0.0034 +0.0192 +0.0000 -0.0190 -0.0322 -0.0010]
+  agressivite  premières -0.0069  1re [+0.0121 +0.0102 +0.0275 +0.0000 -0.0057 -0.0043 +0.0000]  2e [+0.0002 +0.0003 -0.0008 +0.0000 +0.0002 +0.0007 +0.0027]
+Écrit : D:\Dev\Chelems\config\moteur.json

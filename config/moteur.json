@@ -3,7 +3,8 @@
   "_commentaire_surfaces": "Par surface : vitesse = décalage de l'échange (logit × orientation) pour l'attaquant en attaque et contre le défenseur en défense, positive = surface rapide ; premiere_rentree, premiere, seconde = lois du duel au service de la surface : celles du créateur avec les aces et services gagnants du MCP, ajustées de 2 points au plus sur les points au service de l'ATP (caler-echange --surface <s> --ecrire) ; fautes_retour = part des services gagnants comptés comme retours ratés (faute directe, MCP), comptage seulement. Vitesses et pentes ensuite recalées par simulation de masse (calibrer --surface toutes --parametres pentes,vitesse) : elles compensent l'absence de forme (docs/moteur_v0_3.md, 4.4).",
   "version": "0.3",
   "service": {
-    "_commentaire": "Lois de référence du créateur (moyenne du tour 2023, toutes surfaces), point de départ et rappel du calage des lois de chaque surface (section surfaces) : première sur les premières rentrées, seconde sur les secondes jouées (doubles fautes comprises). Attaque / neutre / défense = état du serveur pour son coup suivant. Orientation = valeur de l'issue pour le serveur (aces et services gagnants +1, attaque et défense ± (2 × 0,66 − 1) d'après Conversion%, retours gagnants et doubles fautes −1). pente : en logit, par point d'écart Service − Retour.",
+    "_commentaire": "Lois de référence du créateur (moyenne du tour 2023, toutes surfaces), point de départ et rappel du calage des lois de chaque surface (section surfaces) : première sur les premières rentrées, seconde sur les secondes jouées (doubles fautes comprises). Attaque / neutre / défense = état du serveur pour son coup suivant. Orientation = valeur de l'issue pour le serveur (aces et services gagnants +1, attaque et défense ± (2 × 0,66 − 1) d'après Conversion%, retours gagnants et doubles fautes −1). pente : sans effet quand service.stats est présent (chaque stat a son effet absolu par point) ; conservée pour le moteur sans stats (V0.3).",
+    "_commentaire_stats": "undefined Puissance et Explosivité sont des stats de style (indépendantes du classement) : effet absolu par point (echelle, sans part), réglé pour que les joueurs réels suivent l'échelle des stats (caler-echelles). Dans la population de test, elles restent à 75.",
     "premiere_rentree": 0.6282,
     "premiere": {
       "ace": 0.16,
@@ -32,30 +33,216 @@
       "retour_gagnant": -1,
       "double_faute": -1
     },
-    "pente": 0.017493
+    "pente": 0.027493,
+    "stats": {
+      "taille_relanceur": {
+        "reference": 188,
+        "premiere": {
+          "ace": 0.003525,
+          "gagnant": 0.01697,
+          "attaque": 0.052217,
+          "neutre": 0,
+          "defense": -0.009239,
+          "retour_gagnant": -0.00713,
+          "double_faute": 0
+        },
+        "seconde": {
+          "ace": 0.002372,
+          "gagnant": 0.003402,
+          "attaque": 0.019243,
+          "neutre": 0,
+          "defense": -0.018973,
+          "retour_gagnant": -0.032216,
+          "double_faute": -0.001037
+        },
+        "rentree": -0,
+        "echelle": 1
+      },
+      "agressivite": {
+        "reference": 50,
+        "premiere": {
+          "ace": 0.012099,
+          "gagnant": 0.010187,
+          "attaque": 0.027518,
+          "neutre": 0,
+          "defense": -0.005695,
+          "retour_gagnant": -0.00432,
+          "double_faute": 0
+        },
+        "seconde": {
+          "ace": 0.000207,
+          "gagnant": 0.000296,
+          "attaque": -0.000813,
+          "neutre": 0,
+          "defense": 0.000242,
+          "retour_gagnant": 0.000664,
+          "double_faute": 0.002736
+        },
+        "rentree": -0.006877,
+        "echelle": 1
+      },
+      "service": {
+        "reference": 75,
+        "premiere": {
+          "ace": 0.7,
+          "gagnant": 1,
+          "attaque": 1,
+          "neutre": 0,
+          "defense": -1,
+          "retour_gagnant": -1,
+          "double_faute": 0
+        },
+        "seconde": {
+          "ace": 0.48999999999999994,
+          "gagnant": 0.7,
+          "attaque": 0.7,
+          "neutre": 0,
+          "defense": -0.7,
+          "retour_gagnant": -0.7,
+          "double_faute": 0
+        },
+        "rentree": 0,
+        "echelle": 0.0328
+      },
+      "retour": {
+        "reference": 75,
+        "premiere": {
+          "ace": 0.7,
+          "gagnant": 1,
+          "attaque": 1,
+          "neutre": 0,
+          "defense": -1,
+          "retour_gagnant": -1,
+          "double_faute": 0
+        },
+        "seconde": {
+          "ace": 0.42,
+          "gagnant": 0.6,
+          "attaque": 0.6,
+          "neutre": 0,
+          "defense": -0.6,
+          "retour_gagnant": -0.6,
+          "double_faute": 0
+        },
+        "rentree": 0,
+        "echelle": 0.0328
+      },
+      "puissance": {
+        "reference": 75,
+        "premiere": {
+          "ace": 1,
+          "gagnant": 1,
+          "attaque": 0,
+          "neutre": 0,
+          "defense": 0,
+          "retour_gagnant": 0,
+          "double_faute": 0
+        },
+        "seconde": {
+          "ace": 0,
+          "gagnant": 0,
+          "attaque": 0,
+          "neutre": 0,
+          "defense": 0,
+          "retour_gagnant": 0,
+          "double_faute": 0
+        },
+        "rentree": 0,
+        "echelle": 0.0366
+      },
+      "explosivite": {
+        "reference": 75,
+        "premiere": {
+          "ace": 1,
+          "gagnant": 1,
+          "attaque": 0,
+          "neutre": 0,
+          "defense": 0,
+          "retour_gagnant": 0,
+          "double_faute": 0
+        },
+        "seconde": {
+          "ace": 0.3,
+          "gagnant": 0.3,
+          "attaque": 0,
+          "neutre": 0,
+          "defense": 0,
+          "retour_gagnant": 0,
+          "double_faute": 0
+        },
+        "rentree": 0,
+        "echelle": 0.0468
+      },
+      "regularite": {
+        "reference": 75,
+        "premiere": {
+          "ace": 0,
+          "gagnant": 0,
+          "attaque": 0,
+          "neutre": 0,
+          "defense": 0,
+          "retour_gagnant": 0,
+          "double_faute": 0
+        },
+        "seconde": {
+          "ace": 0,
+          "gagnant": 0,
+          "attaque": 0,
+          "neutre": 0,
+          "defense": 0,
+          "retour_gagnant": 0,
+          "double_faute": -4
+        },
+        "rentree": 1,
+        "echelle": 0.0109
+      },
+      "taille": {
+        "reference": 188,
+        "premiere": {
+          "ace": 0.050926,
+          "gagnant": 0.00782,
+          "attaque": -0.010311,
+          "neutre": 0,
+          "defense": -0.002692,
+          "retour_gagnant": -0.001668,
+          "double_faute": 0
+        },
+        "seconde": {
+          "ace": 0.094719,
+          "gagnant": 0.007113,
+          "attaque": -0.021297,
+          "neutre": 0,
+          "defense": 0.000903,
+          "retour_gagnant": 0.010615,
+          "double_faute": 0.016579
+        },
+        "rentree": 0.004047,
+        "echelle": 1
+      }
+    }
   },
   "echange": {
     "_commentaire": "Issues d'un coup selon l'état du frappeur (attaque, neutre, défense), entre joueurs égaux. adv_defense / adv_attaque : état de l'adversaire pour le coup suivant. Une faute en défense est une faute provoquée, sinon une faute directe. Communes aux trois surfaces, calées sur dur (Match Charting Project, points au service ATP, Conversion%) avec : dotnet run --project src/Chelems.Console -- caler-echange --surface dur --ecrire. Orientation = valeur de l'issue pour le frappeur. pente : en logit, par point d'écart d'Échange.",
     "attaque": {
-      "gagnant": 0.182622,
-      "adv_defense": 0.602604,
-      "neutre": 0.081134,
-      "adv_attaque": 0.009097,
-      "faute": 0.124543
+      "gagnant": 0.25854,
+      "adv_defense": 0.555203,
+      "neutre": 0.070217,
+      "adv_attaque": 0.00734,
+      "faute": 0.1087
     },
     "neutre": {
-      "gagnant": 0.060143,
-      "adv_defense": 0.110438,
-      "neutre": 0.696685,
-      "adv_attaque": 0.018183,
-      "faute": 0.114551
+      "gagnant": 0.057017,
+      "adv_defense": 0.082521,
+      "neutre": 0.73818,
+      "adv_attaque": 0.023548,
+      "faute": 0.098734
     },
     "defense": {
-      "gagnant": 0.023144,
-      "adv_defense": 0.026649,
-      "neutre": 0.288943,
-      "adv_attaque": 0.352711,
-      "faute": 0.308553
+      "gagnant": 0.010927,
+      "adv_defense": 0.014742,
+      "neutre": 0.153847,
+      "adv_attaque": 0.372545,
+      "faute": 0.447939
     },
     "orientation": {
       "gagnant": 1,
@@ -64,7 +251,7 @@
       "adv_attaque": -0.32,
       "faute": -1
     },
-    "pente": 0.003696,
+    "pente": 0.007347,
     "profil": {
       "_commentaire": "[Décidé pour l'ordre, Proposé pour les valeurs] Point de départ du calage (pas utilisé en match). Créateur : la faute est maximale en défense (on cherche à se sortir d'une situation) et minimale en neutre (on prend plus de risques en attaque) ; le calage impose cet ordre et s'écarte du profil autant que les données l'exigent (option --rappel).",
       "attaque": {
@@ -92,25 +279,25 @@
   },
   "surfaces": {
     "dur": {
-      "vitesse": -0.00625,
+      "vitesse": -0.428124,
       "premiere_rentree": 0.614,
       "premiere": {
-        "ace": 0.144309,
-        "gagnant": 0.262122,
-        "attaque": 0.210675,
-        "neutre": 0.36202,
-        "defense": 0.014905,
-        "retour_gagnant": 0.005969,
+        "ace": 0.145144,
+        "gagnant": 0.263824,
+        "attaque": 0.212764,
+        "neutre": 0.363404,
+        "defense": 0.010869,
+        "retour_gagnant": 0.003995,
         "double_faute": 0
       },
       "seconde": {
-        "ace": 0.004957,
-        "gagnant": 0.155777,
-        "attaque": 0.068428,
-        "neutre": 0.578788,
-        "defense": 0.056024,
-        "retour_gagnant": 0.036912,
-        "double_faute": 0.099114
+        "ace": 0.004659,
+        "gagnant": 0.156893,
+        "attaque": 0.069822,
+        "neutre": 0.579624,
+        "defense": 0.054229,
+        "retour_gagnant": 0.036463,
+        "double_faute": 0.09831
       },
       "fautes_retour": {
         "premiere": 0.0104,
@@ -118,25 +305,25 @@
       }
     },
     "terre": {
-      "vitesse": 0.02685,
+      "vitesse": -0.4063,
       "premiere_rentree": 0.624,
       "premiere": {
-        "ace": 0.085437,
-        "gagnant": 0.227709,
-        "attaque": 0.237887,
-        "neutre": 0.428388,
-        "defense": 0.013111,
-        "retour_gagnant": 0.007468,
+        "ace": 0.086016,
+        "gagnant": 0.228419,
+        "attaque": 0.238842,
+        "neutre": 0.432523,
+        "defense": 0.008388,
+        "retour_gagnant": 0.005812,
         "double_faute": 0
       },
       "seconde": {
-        "ace": 0.006355,
-        "gagnant": 0.13724,
-        "attaque": 0.070421,
-        "neutre": 0.603781,
-        "defense": 0.054118,
-        "retour_gagnant": 0.035556,
-        "double_faute": 0.092529
+        "ace": 0.006092,
+        "gagnant": 0.138617,
+        "attaque": 0.070722,
+        "neutre": 0.605978,
+        "defense": 0.051417,
+        "retour_gagnant": 0.034607,
+        "double_faute": 0.092567
       },
       "fautes_retour": {
         "premiere": 0.0242,
@@ -144,25 +331,25 @@
       }
     },
     "gazon": {
-      "vitesse": 0.19755,
+      "vitesse": -0.1375,
       "premiere_rentree": 0.628,
       "premiere": {
-        "ace": 0.154236,
-        "gagnant": 0.281694,
-        "attaque": 0.189698,
-        "neutre": 0.33229,
-        "defense": 0.018857,
-        "retour_gagnant": 0.023225,
+        "ace": 0.154742,
+        "gagnant": 0.280726,
+        "attaque": 0.193249,
+        "neutre": 0.331972,
+        "defense": 0.019425,
+        "retour_gagnant": 0.019886,
         "double_faute": 0
       },
       "seconde": {
-        "ace": 0.006701,
-        "gagnant": 0.186941,
-        "attaque": 0.058874,
-        "neutre": 0.551407,
-        "defense": 0.053152,
-        "retour_gagnant": 0.038724,
-        "double_faute": 0.104201
+        "ace": 0.006499,
+        "gagnant": 0.188332,
+        "attaque": 0.060493,
+        "neutre": 0.550669,
+        "defense": 0.053087,
+        "retour_gagnant": 0.036154,
+        "double_faute": 0.104766
       },
       "fautes_retour": {
         "premiere": 0.0049,

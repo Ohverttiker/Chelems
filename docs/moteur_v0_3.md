@@ -227,13 +227,8 @@ Statuts : **dur 107 ok, 29 limite, 60 écart ; terre 116 / 24 / 54 ; gazon 110 /
 | Le serveur gagne trop peu les échanges de 4-6 coups (toutes surfaces) | 39,3 → 35,7 | les lois de l'échange ne dépendent pas du numéro du coup |
 | Gazon : points trop longs | 1-3 coups 65,6 → 62,4 | voir 4.6 |
 
-## 6. Prochaines étapes proposées
+## 6. Suite
 
-1. **Remettre la forme** (match et set), puis la pression et l'élan, exprimées comme des décalages des issues de l'échange et du service (définition du créateur, CLAUDE.md 4.6) :
-   - **forme positive** : transforme des fautes en coups gagnants ou en coups qui mettent l'adversaire en défense, et l'inverse en forme négative ;
-   - **pression sans Résilience** : « bras qui se crispe », moins de coups gagnants et offensifs, plus de neutres, de défenses et de fautes.
+La roadmap est dans CLAUDE.md, section 12 (décidée le 2026-11-21) : un jeu jouable d'abord. Prochaine étape : lier les stats (Taille, Service, Retour, Puissance, Explosivité) au détail de l'efficacité au service, par calibrage sur des profils de joueurs réels.
 
-   Elle devrait corriger la dispersion, la dépendance des sets et une partie de la force des favoris. Les vitesses seront alors recalées (4.4).
-2. **Profils Service / Retour / Échange distincts** dans la population de test, et le test du « grand relanceur » (retour du n°1 en Bo5 : 33,7 %). L'efficacité du service par joueur se déduit de ses aces, de ses services non retournés et de ses points sur première (exemple de Draper, donné par le créateur : 30,4 / 21 / 23,6 / 20 / 3,5 / 1,5).
-3. **Trancher 4.5** (vitesse de la terre), avec des statistiques de coups gagnants par surface (créateur).
-4. **Fautes directes par match** de l'ATP (créateur) en contrôle supplémentaire.
+Écarts de la V0.3 laissés en l'état (moteur V0, non utilisé tel quel par le jeu) : ceux dus à l'absence de forme, le retour du n°1, les échanges de 4-6 coups, les points du gazon. Forme, pression et élan reviendront à l'étape 7, selon la définition de CLAUDE.md 4.6.

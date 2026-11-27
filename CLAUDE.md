@@ -76,7 +76,7 @@ Attributs fixes (ne sont pas des stats) :
 | Résilience à la pression | Évite la baisse de stats quand l'enjeu monte : tie-breaks, balles de break, finales (Djokovic, Nadal ; à l'inverse Zverev face aux top 10). [Mesuré] À l'ATP, les meilleurs semblent mieux sauver leurs balles de break, mais le moteur reproduit le même écart sans aucune résilience : c'est un effet mécanique, pas un trait des meilleurs. La Résilience reste à mesurer **joueur par joueur** (balles de break, tie-breaks, points importants). Piste prioritaire : le n°1 de 2015-2025 convertit ses points importants bien mieux que le hasard ne le prévoit |
 | Agressivité | IA : tendance à attaquer et prendre des risques. Humain : zone de confort (voir 6.4) |
 | Constance | [Décidé, Mesuré] Amplitude de la forme d'un joueur : multiplie la variance de sa forme par un facteur allant de ×1,5 (Constance 1) à ×0,5 (Constance 99). Trait stable mais modéré (fiabilité 0,35). Il est lié au niveau, puisque les meilleurs sont plus réguliers, mais pas seulement. Il réduit aussi l'aléa du jour dans les tournois à fort enjeu (voir 4.6). Exemples mesurés de joueurs réguliers : Federer, Sinner, Alcaraz, Djokovic |
-| Régularité | [Proposé] Stat **en match** : capacité à réussir plusieurs fois le même coup (réduit la dispersion d'exécution) ; augmente le taux de deuxièmes balles rentrées. À classer entre technique et mental |
+| Régularité | [Proposé] Stat **en match** : capacité à réussir plusieurs fois le même coup (réduit la dispersion d'exécution) ; augmente le taux de deuxièmes balles rentrées. [Décidé, codé 2026-11-25] Au service : une part des premières balles et la plus grande part des doubles fautes (`docs/etape1_service_stats.md`, section 5). À classer entre technique et mental |
 | Créativité | [Décidé] Augmente la réussite (ou la qualité) des coups candidats **moins bien classés** par le score de l'IA, donc plus rarement choisis (amorti, lob, long de ligne à plat, montée surprise…). Il n'existe pas de catégorie de coups « atypiques » : c'est le classement contextuel qui décide. Les coups sûrs ne reçoivent aucun bonus. Un joueur créatif réussit plus souvent les coups non intuitifs et les choisit donc plus souvent (ex. répartition 45-35-20 au lieu de 55-30-15) ; un joueur peu créatif choisit plus souvent le coup sûr, qu'il réussit aussi bien. Le bonus dépend de la stat technique de chaque coup : fort pour un joueur complet (Alcaraz), presque nul pour un joueur à une seule qualité ou aux lacunes techniques importantes. Mécanisme détaillé en 6.6 |
 | **Lecture du jeu** [Décidé] | Qualité de l'anticipation et de l'évaluation des coups (voir 6.5). Remplace l'idée d'une stat « Anticipation » |
 
@@ -133,6 +133,8 @@ Un indicateur global (OVR) est calculé à partir des stats, avec une pondérati
 - Plus un joueur est grand : service meilleur (à stats égales : plus de premières et de secondes rentrent sur une même jauge, donc il peut se permettre plus de puissance), bonus de puissance de frappe, **mais** malus de déplacement et de retour.
 - Plus un joueur est petit : l'inverse (bonus déplacement et retour, malus service).
 - L'avantage au service est compensé à l'égal côté retour. Les bonus de puissance et de service **ne compensent pas** les malus de déplacement et de retour.
+- [Mesuré, 2026-11-26, conflit ouvert n°27] Dans le Match Charting Project, la gêne au retour ne vaut qu'environ le tiers de l'avantage au service : pour 10 cm de plus, le serveur gagne +3,3 points sur première ; face à un relanceur plus grand de 10 cm, +1,1 (moins d'aces concédés grâce aux grands bras, mais plus de services gagnants, au corps). Le moteur suit la mesure.
+- [Décidé, 2026-11-25] La taille est corrélée à la Puissance (positivement) et à l'Explosivité (négativement), pas à la stat de Service. Codé : population Puissance +0,11 et Explosivité −0,15 point par cm (valeurs les plus fortes compatibles avec un effet direct de la taille dans le bon sens).
 - Exemple de test : Medvedev et Rublev avec des stats identiques → Medvedev rentre plus de balles à jauge égale.
 
 ### 5.2 Main dominante et revers
@@ -182,6 +184,15 @@ Brouillon de la V1 : la 1re balle dépend de Agressivité, Taille, Service, Puis
   - Tirante / J.M. Cerúndolo : service faible, donc peu de gain à prendre du risque, première balle prudente pour ne pas avoir à défendre la balle suivante.
 
 **Cible de pourcentage de premières** [Décidé] : chaque joueur vise un pourcentage de premières balles selon son Agressivité (ex. un joueur très agressif comme Sinner s'approche de 60 %, un joueur très prudent comme Zverev de 70 %). La Pression et la Confiance modifient la capacité réelle.
+
+**Agressivité et prise de risque au service** [Proposé par le créateur, 2026-11-21 ; Mesuré] : plus l'Agressivité est haute, plus le joueur prend de risques au service : ses services sont meilleurs, mais sa première passe moins. Ce que disent les données (MCP, dur, 76 joueurs, à taille égale), pour 10 points de premières balles en moins :
+- +1,6 point de services « libres » (aces et services gagnants) sur première ;
+- points gagnés sur première inchangés (+0,05 par point) ;
+- +1,5 double faute pour 100 secondes, et −4 points gagnés sur seconde.
+
+Le risque touche donc les **deux balles**. Sur première, il rapporte des points gratuits sans changer le total des points gagnés. Les chiffres ATP sur 52 semaines (81 joueurs, sans la taille) vont dans le même sens : moins de premières, plus de doubles fautes (r = −0,47) et moins de points sur seconde (r = 0,30). La capacité (Service, Taille, Puissance) décale la courbe : Zverev ou Sinner ont à la fois beaucoup de premières et un bon service.
+
+**Codé (roadmap, étape 1, 2026-11-25)** : chaque stat décale les issues du duel au service (`service.stats`, `docs/etape1_service_stats.md`). [Décidé] Le Service (placement, effets) donne des services gagnants et un coup suivant en attaque ; la Puissance (vitesse) donne des aces et des services gagnants. Le Retour s'oppose au Service du serveur, l'Explosivité à sa Puissance : ce sont des duels entre deux joueurs, jamais un handicap pour le joueur qui a la stat (Nadal, puissant et grand relanceur, est avantagé des deux côtés). Seule la Taille agit sur les deux rôles d'un même joueur. [Décidé] Le risque paie sur la première : à capacité de référence, l'Agressivité ne change pas le total des points au service (moins de premières et plus de doubles fautes, compensés par plus de points gagnés sur première). [Proposé] Échelle : de 1 à 99, la part de premières passe d'environ 72 % à 56 %.
 
 **Jour sans** [Décidé] : un joueur dans un mauvais jour peut faire un match entier à 50 % de premières sans recalibrer, car il est habitué à un certain niveau de risque. [Proposé] l'IA choisit sa jauge d'après sa capacité **perçue** (ses stats habituelles), pas sa capacité réelle du moment, et ne la réestime qu'avec retard ; la vitesse d'ajustement dépend de la Lecture du jeu et de la Concentration. Le joueur humain voit ses pourcentages réels sur le tableau de bord et peut recalibrer lui-même, ce qui est une partie du jeu. (Attention au principe 6 : un « jour sans » ne doit pas devenir une variable de forme cachée ; à réexaminer après les premières mesures.)
 
@@ -284,6 +295,8 @@ Depuis la V0.3 :
 - **Efficacité du service et Conversion% / Steal%** : moyenne du tour 2023 fournie par le créateur, fichier `objectifs_equilibrage/efficacite_service.csv`. Conversion% / Steal% sont une cible du dur ; le détail de l'efficacité n'est plus une cible, c'est le point de départ des lois de service de chaque surface.
 - Fins de point **hors service** (définition du créateur : aces, services gagnants et doubles fautes exclus, retours gagnants compris) : 25-35 % de coups gagnants, 25-30 % de fautes provoquées, 35-45 % de fautes directes. [Mesuré] MCP dur : 33,5 / 24,6 / 41,9. Le MCP compte les retours ratés sur une balle retournable en fautes directes : le moteur fait de même (comptage seulement, `fautes_retour`).
 - **Premières balles, aces, doubles fautes, points sur 1re et 2e** : ATP, déjà figés.
+- **Efficacité au service par joueur** (roadmap, étape 1) : Match Charting Project, dur 2015-2025, 77 joueurs (au moins 1 500 points au service et au retour), avec la taille de l'ATP. Fichier `objectifs_equilibrage/efficacite_joueurs.csv` (`outils/Chelems.Donnees -- efficacite-joueurs Hard`), lu par `dotnet run --project src/Chelems.Console -- efficacite-joueurs`.
+- **Classements ATP sur 52 semaines** (service, retour, points sous pression ; 81 joueurs, toutes surfaces, relevé du 2026-11-21) : `objectifs_equilibrage/atp_classements_52_semaines.csv`. Base principale pour estimer les qualités des joueurs actuels (créateur). Le détail de l'efficacité au service par joueur (attaque, neutre, défense) vient d'entreprises privées : il n'est pas disponible.
 
 Bilan à date : `docs/bilan_v0_2.md`, puis `docs/moteur_v0_3.md`.
 
@@ -309,19 +322,42 @@ Bilan à date : `docs/bilan_v0_2.md`, puis `docs/moteur_v0_3.md`.
 10. Stats touchées par la Forme physique (point de départ proposé : Déplacements, Puissance, Explosivité ; à tester par simulation).
 11. Formule de la Confiance (gains et chutes) : sans objet tant que la décision n°14 n'est pas tranchée.
 12. ~~Statut des variables dynamiques~~ : tranché par le test du principe 6 (forme du jour et Constance codées, confiance suspendue, voir 4.6).
-13. Roadmap par jalons (à valider, voir section 11 et `docs/bilan_v0_2.md`).
+13. ~~Roadmap par jalons~~ : tranché, voir section 12.
 14. Conflit Confiance / données ATP : garder suspendu ou abandonner ?
 15. Population de test : le lien rang ↔ talent du simulateur de circuit est plus « plat » que l'ATP, ce qui fausse les victoires à 0-10 places et à plus de 160 places. Faut-il corriger le simulateur ou seulement la population de test ?
 16. Source de données pour le court pace index par tournoi.
 17. ~~Points sur première (V0.3)~~ : tranché, bonus du coup suivant le service supprimé ; l'efficacité du service est ajustée par surface.
 18. ~~Aces par surface~~ : tranché, lois de service extrapolées par surface depuis celles du créateur.
 19. ~~Définition des fins de point~~ : tranché, hors service (aces, services gagnants, doubles fautes exclus) ; le MCP concorde avec les fourchettes du créateur.
-20. Vitesses (dur −0,006, terre +0,027, gazon +0,198) : elles compensent l'absence de forme [accepté], à remonter quand la forme reviendra.
+20. Vitesses (dur −0,43, terre −0,41, gazon −0,14 au 2026-11-26) : elles compensent l'absence de forme [accepté], à remonter quand la forme reviendra.
 21. Vitesse de la terre : les données du MCP la placent au niveau du dur (l'échange n'y est pas plus défensif ; la lenteur passe par le service). Garder la vitesse tirée des données, ou imposer une vitesse négative ? Le créateur pense que les coups gagnants sont plus rares sur terre (le MCP ne le montre pas hors service : 34,3 % contre 33,5 % sur dur) et cherchera d'autres sources.
 22. Gazon : la vitesse ne joue pas assez sur l'avantage offensif (points un peu trop longs, 1-3 coups 62,4 % contre 65,6 %). Écart jugé satisfaisant pour l'instant.
+23. ~~Agressivité et seconde balle~~ : tranché, le risque paie sur la première et l'Agressivité est neutre au total à capacité de référence. [Proposé, étape 4] Faire dépendre le gain du risque de la capacité (un grand serveur a intérêt à risquer).
+24. ~~Service et Puissance~~ : tranché, Service = services gagnants et attaque, Puissance = aces et services gagnants.
+25. ~~Doubles fautes~~ : tranché, la Régularité donne la plus grande part des doubles fautes et une part des premières balles (l'autre part revient à l'Agressivité) ; le Service n'y touche plus.
+26. ~~Spécialisation~~ : tranché, la population de test a des profils Service / Retour / Échange : Service et Retour suivent 41 % du talent, plus un écart de 8 points, et l'Échange compense. Les profils reproduisent la dispersion et la corrélation ATP (−0,28). Point de vigilance : la corrélation des écarts bute sur −0,95 (profils presque tous « serveur » ou « relanceur »). [2026-11-26] Le créateur attribue la corrélation négative surtout à la taille ; codé (section 5.1), mais la taille n'explique pas tout : avec une corrélation des profils bornée à −0,6, la population obtient −0,01 au lieu de −0,28, et la dispersion du service est trop forte (3,7 contre 2,95).
+27. Gêne au retour d'un grand joueur : un tiers de l'avantage au service d'après le MCP, contre « à l'égal » au §5.1. Le moteur suit la mesure.
+28. Retour estimé des joueurs réels corrélé à la taille (+0,34), alors qu'il ne devrait pas l'être. Piste : l'Échange n'est estimé que par les points au service ; l'estimer sur le service et le retour ensemble. [2026-11-26] Après les corrections (artefact des aces, effets par balle) : +0,28, et des profils encore peu crédibles. Laissé comme limite de l'estimation ; le moteur n'est pas en cause.
 
 ## 11. Travail avec les agents
 
 - **Agent d'équilibrage** : brief dans `AGENT_EQUILIBRAGE.txt`. Il lit ce fichier comme source de vérité des intentions de design. Toute modification de design importante se fait ici d'abord.
 - **Agent de relecture** : brief dans `AGENT_RELECTURE.txt`. Il relit le code (qualité, bugs, conformité aux conventions de la section 9) et vérifie à chaque étape que les simulations restent fidèles aux statistiques ATP (principe 5).
 - Les deux agents considèrent les statistiques de l'ATP comme la bible du jeu.
+
+## 12. Roadmap [Décidé, 2026-11-21]
+
+Priorité : **un jeu jouable et agréable**, avant le simulateur de circuit. Tant que le jeu n'est pas jouable, on ne peut pas juger si le rendu est réaliste et intéressant. On avance étape par étape, sans chercher à parfaire chaque moteur V0 : leurs petits écarts aux statistiques ATP ne sont pas graves, car le jeu ne les utilisera pas tels quels.
+
+1. **Service et retour par les stats.** Lien entre les stats et le détail de l'efficacité au service (ace, gagnant, attaque, neutre, défense, retour gagnant ; double faute sur seconde). Stats utilisées : Taille, Service, Retour, Puissance, Explosivité. Rien de compliqué techniquement : du calibrage, sur des profils de joueurs réels et leurs cibles (aces, services non retournés, points sur 1re et 2e, retour ; ATP et Match Charting Project). Exemple de Draper : 30,4 / 21 / 23,6 / 20 / 3,5 / 1,5. **Fait (2026-11-25)** : `docs/etape1_service_stats.md`. **Figé le 2026-11-26** (section 7) : effets par balle selon le créateur (Puissance sur la première seulement, Explosivité au retour surtout sur la première, Échange absent du duel au retour), simulation de masse dur 118 / terre 126 / gazon 123 ok, 120 tests. Limite connue : l'estimation du Retour des joueurs réels reste peu fiable (à reprendre avec des données par saison). [Décidé, 2026-11-25] Échelle des stats : répartition normale autour de 70 (population de test : 72,8 ± 6,4), très peu de joueurs au-delà de 90, 99 réservé à une saison parfaite (Roddick 2003). Puissance et Explosivité sont des stats de style, indépendantes du classement. Estimation des joueurs réels avec un a priori normal. Décisions ouvertes n°25 et 26. Reste à estimer Retour et Explosivité des joueurs réels avec leurs statistiques au retour.
+2. **Moteur coup par coup avec décisions.** Le point avance coup par coup en attendant une décision (joueur humain ou IA), au lieu d'être tiré d'un bloc. Changement d'architecture du cœur, fait avant l'interface pour que celle-ci reste fine.
+3. **Terrain et interface graphique.** Terrain à l'échelle vu de dessus, joueurs, balle, tableau de bord (§6.1), sans soin graphique au début. Moteur d'interface à trancher (décision ouverte n°1) ; [Proposé] Godot 4 .NET.
+4. **Service et retour physiques.** Les stats deviennent vitesse, angle et effet du service ; la couverture du relanceur (ellipse, temps de réaction) décide de la difficulté du retour. [Proposé] Modèle hybride : la physique donne la difficulté, une table de probabilités donne l'issue (§6.4), pour garder la main sur les objectifs de l'étape 1. Choix de la jauge de service par le joueur et par l'IA (§6.3). À intégrer alors [créateur, 2026-11-26] : la stat **Effet** sur la seconde balle (rotation, kick) et un poids plus fort de l'Agressivité sur la seconde. Exemple : Shelton, première terrifiante par la puissance, et probablement la meilleure seconde du circuit, par son agressivité et surtout l'effet qu'il met dans la balle, pas par sa puissance.
+5. **Échanges jouables.** D'abord des choix simples (zone parmi 9, effet, puissance), puis le placement et l'anticipation (§6.2, §6.5).
+6. **IA de choix de coup** (§6.6).
+7. **Forme, pression et élan**, selon la définition de 4.6.
+8. **Simulateur de circuit**, plus tard, pour donner un contexte au jeu.
+
+Points à trancher par le créateur, liés à cette roadmap :
+- [Proposé] **Principe 5** : contrôle de fidélité à chaque jalon, avec des tolérances larges pour les moteurs V0, sans bloquer l'avancée (aujourd'hui : « absolument à tout instant »).
+- [Proposé] **Principe 4** : le moteur physique du jeu remplacera à terme le moteur V0.3, qui pourra devenir la version allégée du simulateur de circuit, recalée sur le moteur physique, pour ne pas maintenir deux moteurs qui divergent.

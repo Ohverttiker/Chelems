@@ -3,5 +3,14 @@
   "constance_moyenne": 50,
   "constance_pente_talent": 1.5,
   "talent_reference": 72,
-  "constance_ecart_type": 28
+  "constance_ecart_type": 28,
+  "specialisation_ecart_type": 8.08,
+  "specialisation_correlation": -0.6,
+  "specialisation_part_talent": 0.4207,
+  "_commentaire_specialisation": "Profils de la population (roadmap, étape 1) : Service = talent_reference + β × (talent − référence) + dS, Retour idem avec dR, Échange = talent − (dS + dR) / 2 ; dS, dR ~ N(0, ecart_type) de corrélation donnée, tirés par joueur. β (specialisation_part_talent) garde l effet du talent sur le service calé par la simulation de masse ; écart-type et corrélation reproduisent la dispersion et la corrélation service / retour du top 81 ATP (52 semaines). Commandes : caler-echelles puis caler-specialisation.",
+  "_commentaire_taille": "[Décidé pour le principe par le créateur, 2026-11-25 ; valeurs calées] Taille des joueurs tirée selon le MCP (moyenne 188,7 cm, écart-type 7,4). La Puissance suit la taille (+taille_puissance point par cm) et l Explosivité en sens inverse (−taille_explosivite par cm). Service et Retour ne dépendent pas de la taille. L effet mesuré de la taille sur le service se partage entre son effet direct (hauteur de frappe, marge ; gêne au retour) et ce qui passe par ces deux stats (caler-stats). Valeurs : les plus fortes qui laissent l effet direct de la taille dans le bon sens (pas de service gagnant en moins pour un grand serveur, pas d avantage direct pour un grand relanceur).",
+  "taille_puissance": 0.11,
+  "taille_explosivite": 0.15,
+  "taille_moyenne": 188.7,
+  "taille_ecart_type": 7.4
 }

@@ -6,7 +6,8 @@ namespace Chelems.Core.Fidelite;
 public sealed record Banc(Surface Surface, PopulationAtp Population, CiblesAtp Cibles)
 {
     public static Banc Construire(CheminsDepot chemins, Surface s, int tiragesParJoueur, int graine) =>
-        new(s, PopulationAtp.Construire(chemins.Classements, chemins.Adversaires(s), tiragesParJoueur, graine),
+        new(s, PopulationAtp.Construire(chemins.Classements, chemins.Adversaires(s), tiragesParJoueur, graine,
+                                        File.Exists(chemins.ConfigPopulation) ? ConfigPopulation.Charger(chemins.ConfigPopulation) : null),
             CiblesAtp.Charger(chemins.Objectifs(s)));
 
     public Mesures Mesurer(ConfigMoteur cfg, int graine) =>

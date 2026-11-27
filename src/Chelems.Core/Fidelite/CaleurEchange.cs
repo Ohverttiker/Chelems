@@ -216,6 +216,9 @@ public static class CaleurEchange
         // Dérivées de p par unité de x (logit), mesurées autour de l'égalité ; l'écart d'Échange agit sur les deux frappeurs.
         double dS = (Analyser(unitaire, surface, eps).Serveur - Analyser(unitaire, surface, -eps).Serveur) / (2 * eps);
         double dE = (Analyser(unitaire, surface, 0, eps).Serveur - Analyser(unitaire, surface, 0, -eps).Serveur) / (2 * eps);
+        // Effets du service par stat (service.stats) : chacun a son effet absolu par point, calé sur les joueurs réels ;
+        // la pente du service ne joue plus et l'on ne recalcule que celle de l'échange (calée ensuite par simulation de masse).
+        if (cfg.Service.Stats is not null) return cfg;
         return cfg with
         {
             Service = cfg.Service with { Pente = Math.Round(partService * pente / dS, 6) },
@@ -223,7 +226,7 @@ public static class CaleurEchange
         };
     }
 
-    private static double[] NelderMead(Func<double[], double> f, double[] x0, double pas, int iterations)
+    internal static double[] NelderMead(Func<double[], double> f, double[] x0, double pas, int iterations)
     {
         int n = x0.Length;
         var pts = new double[n + 1][];

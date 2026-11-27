@@ -33,9 +33,26 @@ public sealed record IssuesEchange(double Gagnant, double AdvDefense, double Neu
 /// Premiere, Seconde : issues entre deux joueurs égaux. Ce sont les lois de référence du créateur (moyenne du tour 2023) ;
 /// chaque surface peut avoir les siennes (<see cref="ConfigSurface"/>), calées sur les points au service de l'ATP. Orientation : valeur de chaque issue pour le serveur (−1 à +1),
 /// qui oriente le décalage dû à l'écart Service − Retour. Pente : décalage (en logit, multiplié par l'orientation) par point d'écart.
+/// Stats : effet de chaque stat sur le duel (roadmap, étape 1). Absent : seul l'écart Service − Retour joue, avec Orientation.
 /// </summary>
 public sealed record ConfigService(double PremiereRentree, IssuesService Premiere, IssuesService Seconde,
-                                   IssuesService Orientation, double Pente);
+                                   IssuesService Orientation, double Pente, Dictionary<string, EffetStat>? Stats = null)
+{
+    /// <summary>Clés de <see cref="Stats"/>, et le joueur qui porte la stat (serveur ou relanceur).</summary>
+    public static readonly string[] ClesStats = ["service", "puissance", "retour", "explosivite", "echange_relanceur", "taille", "taille_relanceur", "agressivite", "regularite"];
+}
+
+/// <summary>
+/// Effet d'une stat sur le duel au service : décalage en logit de chaque issue,
+/// x_k = coefficient × (valeur − Reference) × Premiere_k (ou Seconde_k), et de la part de premières rentrées, coefficient × (valeur − Reference) × Rentree.
+/// Coefficient = Part × pente du service si Part est donné (stats de niveau, recalées avec la pente), sinon 1 (effet par unité, mesuré),
+/// multiplié par Echelle : réglée pour que les joueurs réels se répartissent selon l'échelle des stats (écart-type 6,4 autour de 72,8).
+/// Les stats du relanceur (Retour, Explosivité) jouent avec le signe opposé : à valeurs égales, elles annulent leur pendant
+/// (Service, Puissance) quand leurs orientations sont égales. La Taille du serveur (« taille ») et celle du relanceur (« taille_relanceur »)
+/// ont chacune leur effet, mesuré séparément :
+/// un grand serveur a un meilleur service, un grand relanceur un moins bon retour (CLAUDE.md §5.1).
+/// </summary>
+public sealed record EffetStat(double Reference, IssuesService Premiere, IssuesService Seconde, double Rentree = 0, double? Part = null, double Echelle = 1);
 
 /// <summary>
 /// Échange. Attaque, Neutre, Defense : issues d'un coup selon l'état du joueur qui frappe, entre deux joueurs égaux.
@@ -135,6 +152,11 @@ public sealed record ConfigMoteur(string Version, ConfigService Service, ConfigE
         VerifierLoi("service.seconde", s.Seconde?.EnTableau());
         if (s.Premiere!.DoubleFaute != 0) throw new InvalidDataException("service.premiere : pas de double faute sur une première rentrée");
         if (s.Orientation is null || s.Pente < 0) throw new InvalidDataException("service : orientation manquante ou pente négative");
+        foreach (var (cle, effet) in s.Stats ?? [])
+        {
+            if (!ConfigService.ClesStats.Contains(cle)) throw new InvalidDataException($"service.stats : stat inconnue « {cle} »");
+            if (effet.Premiere is null || effet.Seconde is null) throw new InvalidDataException($"service.stats.{cle} : premiere et seconde requises");
+        }
         var e = Echange ?? throw new InvalidDataException("echange manquant");
         VerifierLoi("echange.attaque", e.Attaque?.EnTableau());
         VerifierLoi("echange.neutre", e.Neutre?.EnTableau());

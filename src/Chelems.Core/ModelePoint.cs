@@ -76,14 +76,64 @@ public sealed class ModelePoint
         return p;
     }
 
+    /// <summary>Loi décalée par un vecteur : p_k ∝ base_k × exp(x_k).</summary>
+    public static double[] Decaler(double[] loi, double[] x)
+    {
+        var p = new double[loi.Length];
+        double somme = 0;
+        for (int k = 0; k < loi.Length; k++) somme += p[k] = loi[k] * Math.Exp(x[k]);
+        for (int k = 0; k < loi.Length; k++) p[k] /= somme;
+        return p;
+    }
+
+    /// <summary>
+    /// Décalages du duel au service (en logit) : par issue de la première et de la seconde, et de la part de premières rentrées.
+    /// Sans <see cref="ConfigService.Stats"/> : pente × (Service − Retour) × orientation (moteur V0.3).
+    /// </summary>
+    public (double[] Premiere, double[] Seconde, double Rentree) DecalagesService(Joueur serveur, Joueur relanceur)
+    {
+        var s = Config.Service;
+        double[] x1 = new double[7], x2 = new double[7];
+        double rentree = 0;
+        if (s.Stats is null)
+        {
+            double x = s.Pente * (serveur.Service - relanceur.Retour);
+            var o = s.Orientation.EnTableau();
+            for (int k = 0; k < 7; k++) x1[k] = x2[k] = x * o[k];
+            return (x1, x2, 0);
+        }
+        foreach (var (cle, effet) in s.Stats)
+        {
+            double ecart = cle switch
+            {
+                "service" => serveur.Service - effet.Reference,
+                "puissance" => serveur.Puissance - effet.Reference,
+                "agressivite" => serveur.Agressivite - effet.Reference,
+                "regularite" => serveur.Regularite - effet.Reference,
+                "retour" => -(relanceur.Retour - effet.Reference),
+                "explosivite" => -(relanceur.Explosivite - effet.Reference),
+                "echange_relanceur" => -(relanceur.Echange - effet.Reference),
+                "taille" => serveur.TailleCm - effet.Reference,
+                "taille_relanceur" => relanceur.TailleCm - effet.Reference,
+                _ => 0,
+            };
+            double c = (effet.Part is { } part ? part * s.Pente : 1) * effet.Echelle * ecart;
+            if (c == 0) continue;
+            double[] o1 = effet.Premiere.EnTableau(), o2 = effet.Seconde.EnTableau();
+            for (int k = 0; k < 7; k++) { x1[k] += c * o1[k]; x2[k] += c * o2[k]; }
+            rentree += c * effet.Rentree;
+        }
+        return (x1, x2, rentree);
+    }
+
     public DuelPoint Preparer(Joueur serveur, Joueur relanceur, Surface surface)
     {
         var s = Config.Service;
         var e = Config.Echange;
         var (premiereRentree, premiere, seconde) = Config.LoisService(surface);
         double v = Config.Surface(surface).Vitesse;
-        double xService = s.Pente * (serveur.Service - relanceur.Retour);
-        double[] oS = s.Orientation.EnTableau(), oE = e.Orientation.EnTableau();
+        var (x1, x2, xRentree) = DecalagesService(serveur, relanceur);
+        double[] oE = e.Orientation.EnTableau();
         double[][] Joueur(double ecart) =>
         [
             Decaler(e.Attaque.EnTableau(), oE, e.Pente * ecart + v),
@@ -93,9 +143,9 @@ public sealed class ModelePoint
         double d = serveur.Echange - relanceur.Echange;
         return new DuelPoint
         {
-            PremiereRentree = premiereRentree,
-            Premiere = Decaler(premiere.EnTableau(), oS, xService),
-            Seconde = Decaler(seconde.EnTableau(), oS, xService),
+            PremiereRentree = xRentree == 0 ? premiereRentree : 1 / (1 + Math.Exp(-(Math.Log(premiereRentree / (1 - premiereRentree)) + xRentree))),
+            Premiere = Decaler(premiere.EnTableau(), x1),
+            Seconde = Decaler(seconde.EnTableau(), x2),
             Echange = [Joueur(d), Joueur(-d)],
             FautesRetour = Config.Surface(surface).FautesRetour is { } f ? [f.Premiere, f.Seconde] : [0, 0],
         };

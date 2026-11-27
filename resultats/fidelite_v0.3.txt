@@ -1,648 +1,648 @@
-######## DUR — 101413 matchs, 17498609 points en 1.5 s (graine 1)
+######## DUR — 101413 matchs, 17280034 points en 1.6 s (graine 1)
 
 mesure                                         ATP     sim   écart   tol.  statut
 moyen points_gagnes_1re                       73.0    72.0    -1.0    1.0  limite
-moyen points_gagnes_2e                        51.0    50.2    -0.8    1.0  ok
-moyen hold                                    80.7    80.2    -0.5    1.0  ok
+moyen points_gagnes_2e                        51.0    50.3    -0.7    1.0  ok
+moyen hold                                    80.7    79.8    -0.9    1.0  ok
 moyen points_gagnes_service                   64.5    63.6    -0.9    1.0  ok
 moyen premieres_balles                        61.4    61.4     0.0    1.0  ok
-moyen aces_par_point_service                   8.9     8.9     0.0    1.0  ok
-moyen doubles_fautes_par_point_service         3.8     4.0    +0.2    1.0  ok
-moyen balles_de_break_sauvees                 61.7    63.0    +1.3    1.0  limite
+moyen aces_par_point_service                   8.9     9.6    +0.7    1.0  ok
+moyen doubles_fautes_par_point_service         3.8     3.8     0.0    1.0  ok
+moyen balles_de_break_sauvees                 61.7    62.2    +0.5    1.0  ok
 
-efficacite conversion                         66.0    66.2    +0.2    1.0  ok
-efficacite steal                              34.0    33.8    -0.2    1.0  ok
+efficacite conversion                         66.0    65.9    -0.1    1.0  ok
+efficacite steal                              34.0    34.1    +0.1    1.0  ok
 
-mcp part_1-3                                  59.7    58.9    -0.8    1.0  ok
-mcp serveur_1-3                               76.2    76.7    +0.5    1.0  ok
-mcp gagnants_1-3                              28.8    27.9    -0.9    1.0  ok
-mcp provoquees_1-3                            39.9    39.5    -0.5    1.0  ok
-mcp directes_1-3                              25.3    26.0    +0.8    1.0  ok
-mcp points_gagnes_1re                         73.1    72.3    -0.7    1.0  ok
+mcp part_1-3                                  59.7    59.4    -0.3    1.0  ok
+mcp serveur_1-3                               76.2    76.5    +0.2    1.0  ok
+mcp gagnants_1-3                              28.8    28.4    -0.3    1.0  ok
+mcp provoquees_1-3                            39.9    39.2    -0.7    1.0  ok
+mcp directes_1-3                              25.3    26.0    +0.7    1.0  ok
+mcp points_gagnes_1re                         73.1    72.3    -0.8    1.0  ok
 mcp points_gagnes_2e                          50.9    50.7    -0.2    1.0  ok
-mcp part_4-6                                  21.2    21.1    -0.1    1.0  ok
-mcp serveur_4-6                               39.3    35.7    -3.5    1.0  ÉCART
-mcp gagnants_4-6                              35.3    35.0    -0.4    1.0  ok
-mcp provoquees_4-6                            22.8    23.1    +0.3    1.0  ok
-mcp directes_4-6                              41.8    42.0    +0.2    1.0  ok
-mcp part_7-9                                  10.0    10.4    +0.5    1.0  ok
-mcp serveur_7-9                               69.2    67.9    -1.4    1.0  limite
-mcp gagnants_7-9                              36.4    35.8    -0.6    1.0  ok
-mcp provoquees_7-9                            23.2    24.5    +1.3    1.0  limite
-mcp directes_7-9                              40.4    39.7    -0.6    1.0  ok
-mcp part_10+                                   9.2     9.6    +0.4    1.0  ok
-mcp serveur_10+                               44.2    43.9    -0.3    1.0  ok
-mcp gagnants_10+                              34.6    35.7    +1.0    1.0  limite
-mcp provoquees_10+                            23.5    24.2    +0.7    1.0  ok
-mcp directes_10+                              41.8    40.2    -1.7    1.0  ÉCART
-mcp gagnants_total                            31.5    31.0    -0.5    1.0  ok
-mcp provoquees_total                          33.1    33.0    -0.1    1.0  ok
-mcp directes_total                            31.8    32.2    +0.4    1.0  ok
-mcp gagnants_hors_service                     33.5    33.7    +0.2    1.0  ok
-mcp provoquees_hors_service                   24.6    23.2    -1.3    1.0  limite
-mcp directes_hors_service                     41.9    43.0    +1.2    1.0  limite
-mcp premiere_ace                              14.2    14.4    +0.2    1.0  ok
-mcp premiere_gagnant                          24.2    26.2    +2.0    1.0  ÉCART
-mcp seconde_ace                                0.8     0.5    -0.3    1.0  ok
-mcp seconde_gagnant                           15.3    15.7    +0.4    1.0  ok
-mcp seconde_double_faute                       9.5    10.1    +0.5    1.0  ok
-mcp aces                                       9.2     9.0    -0.2    1.0  ok
-mcp doubles_fautes                             3.6     3.9    +0.3    1.0  ok
+mcp part_4-6                                  21.2    20.7    -0.5    1.0  ok
+mcp serveur_4-6                               39.3    35.6    -3.7    1.0  ÉCART
+mcp gagnants_4-6                              35.3    35.1    -0.2    1.0  ok
+mcp provoquees_4-6                            22.8    23.0    +0.2    1.0  ok
+mcp directes_4-6                              41.8    41.9    +0.1    1.0  ok
+mcp part_7-9                                  10.0    10.3    +0.3    1.0  ok
+mcp serveur_7-9                               69.2    67.8    -1.4    1.0  limite
+mcp gagnants_7-9                              36.4    35.9    -0.5    1.0  ok
+mcp provoquees_7-9                            23.2    24.4    +1.2    1.0  limite
+mcp directes_7-9                              40.4    39.7    -0.7    1.0  ok
+mcp part_10+                                   9.2     9.7    +0.5    1.0  ok
+mcp serveur_10+                               44.2    44.0    -0.3    1.0  ok
+mcp gagnants_10+                              34.6    35.8    +1.2    1.0  limite
+mcp provoquees_10+                            23.5    23.9    +0.5    1.0  ok
+mcp directes_10+                              41.8    40.3    -1.6    1.0  ÉCART
+mcp gagnants_total                            31.5    31.3    -0.2    1.0  ok
+mcp provoquees_total                          33.1    32.9    -0.3    1.0  ok
+mcp directes_total                            31.8    32.0    +0.2    1.0  ok
+mcp gagnants_hors_service                     33.5    33.6    +0.1    1.0  ok
+mcp provoquees_hors_service                   24.6    23.4    -1.2    1.0  limite
+mcp directes_hors_service                     41.9    43.0    +1.1    1.0  limite
+mcp premiere_ace                              14.2    15.2    +0.9    1.0  ok
+mcp premiere_gagnant                          24.2    25.9    +1.7    1.0  ÉCART
+mcp seconde_ace                                0.8     0.6    -0.2    1.0  ok
+mcp seconde_gagnant                           15.3    15.8    +0.5    1.0  ok
+mcp seconde_double_faute                       9.5     9.8    +0.3    1.0  ok
+mcp aces                                       9.2     9.5    +0.3    1.0  ok
+mcp doubles_fautes                             3.6     3.8    +0.2    1.0  ok
 mcp premieres_balles                          62.5    61.4    -1.1    1.0  limite
 mcp points_gagnes_service                     64.8    64.0    -0.8    1.0  ok
 
-hold Bo3 1-1                                  87.4    88.5    +1.1    1.2  ok
-hold Bo3 2-5                                  86.5    87.1    +0.6    1.0  ok
-hold Bo3 6-10                                 85.6    85.1    -0.5    1.0  ok
-hold Bo3 11-20                                84.1    83.9    -0.2    1.0  ok
-hold Bo3 21-50                                80.7    81.6    +0.9    1.0  ok
-hold Bo3 51-100                               78.8    80.1    +1.3    1.0  limite
-hold Bo3 101-150                              77.9    78.2    +0.3    1.0  ok
-hold Bo5 1-1                                  89.2    89.2     0.0    1.5  ok
-hold Bo5 2-5                                  87.5    88.0    +0.5    1.0  ok
-hold Bo5 6-10                                 85.6    85.3    -0.3    1.0  ok
-hold Bo5 11-20                                83.7    84.6    +0.9    1.0  ok
-hold Bo5 21-50                                80.6    81.4    +0.8    1.0  ok
-hold Bo5 51-100                               76.5    79.0    +2.5    1.0  ÉCART
+hold Bo3 1-1                                  87.4    87.2    -0.2    1.2  ok
+hold Bo3 2-5                                  86.5    86.9    +0.4    1.0  ok
+hold Bo3 6-10                                 85.6    84.6    -1.0    1.0  limite
+hold Bo3 11-20                                84.1    83.2    -0.9    1.0  ok
+hold Bo3 21-50                                80.7    80.9    +0.2    1.0  ok
+hold Bo3 51-100                               78.8    79.5    +0.7    1.0  ok
+hold Bo3 101-150                              77.9    78.1    +0.2    1.0  ok
+hold Bo5 1-1                                  89.2    88.1    -1.1    1.5  ok
+hold Bo5 2-5                                  87.5    87.7    +0.2    1.0  ok
+hold Bo5 6-10                                 85.6    85.0    -0.6    1.0  ok
+hold Bo5 11-20                                83.7    83.2    -0.5    1.0  ok
+hold Bo5 21-50                                80.6    80.5    -0.1    1.0  ok
+hold Bo5 51-100                               76.5    78.6    +2.1    1.0  ÉCART
 hold Bo5 101-150                              75.3    77.5    +2.2    1.0  ÉCART
 
-pts Bo3 1-1                                   68.6    68.8    +0.2    0.7  ok
-pts Bo3 2-5                                   68.1    67.8    -0.3    0.5  ok
+pts Bo3 1-1                                   68.6    68.6     0.0    0.7  ok
+pts Bo3 2-5                                   68.1    68.0    -0.1    0.5  ok
 pts Bo3 6-10                                  67.5    66.5    -1.0    0.5  ÉCART
-pts Bo3 11-20                                 66.4    65.6    -0.8    0.5  ÉCART
-pts Bo3 21-50                                 64.5    64.3    -0.2    0.5  ok
+pts Bo3 11-20                                 66.4    65.5    -0.9    0.5  ÉCART
+pts Bo3 21-50                                 64.5    64.2    -0.3    0.5  ok
 pts Bo3 51-100                                63.4    63.4     0.0    0.5  ok
-pts Bo3 101-150                               63.0    62.5    -0.5    0.5  limite
-pts Bo5 1-1                                   69.7    69.6    -0.1    0.9  ok
-pts Bo5 2-5                                   68.3    68.5    +0.2    0.5  ok
+pts Bo3 101-150                               63.0    62.6    -0.4    0.5  ok
+pts Bo5 1-1                                   69.7    69.3    -0.4    0.9  ok
+pts Bo5 2-5                                   68.3    68.6    +0.3    0.5  ok
 pts Bo5 6-10                                  67.5    66.8    -0.7    0.5  limite
-pts Bo5 11-20                                 66.3    66.1    -0.2    0.5  ok
-pts Bo5 21-50                                 64.4    64.2    -0.2    0.5  ok
+pts Bo5 11-20                                 66.3    65.7    -0.6    0.5  limite
+pts Bo5 21-50                                 64.4    64.1    -0.3    0.5  ok
 pts Bo5 51-100                                62.0    62.9    +0.9    0.5  ÉCART
-pts Bo5 101-150                               61.6    62.1    +0.5    0.5  ok
+pts Bo5 101-150                               61.6    62.4    +0.8    0.5  ÉCART
 
-retour Bo3 1-1                                29.5    27.9    -1.6    1.7  ok
-retour Bo3 2-5                                24.3    26.5    +2.2    1.0  ÉCART
-retour Bo3 6-10                               21.3    23.5    +2.2    1.0  ÉCART
-retour Bo3 11-20                              21.3    21.8    +0.5    1.0  ok
-retour Bo3 21-50                              19.5    19.5     0.0    1.0  ok
-retour Bo3 51-100                             18.9    17.9    -1.0    1.0  ok
-retour Bo3 101-150                            18.3    16.4    -1.9    1.0  ÉCART
-retour Bo5 1-1                                33.7    28.8    -4.9    2.3  ÉCART
-retour Bo5 2-5                                28.2    28.3    +0.1    1.1  ok
-retour Bo5 6-10                               25.4    24.4    -1.0    1.1  ok
+retour Bo3 1-1                                29.5    29.2    -0.3    1.7  ok
+retour Bo3 2-5                                24.3    25.7    +1.4    1.0  limite
+retour Bo3 6-10                               21.3    25.4    +4.1    1.0  ÉCART
+retour Bo3 11-20                              21.3    22.4    +1.1    1.0  limite
+retour Bo3 21-50                              19.5    20.1    +0.6    1.0  ok
+retour Bo3 51-100                             18.9    18.6    -0.3    1.0  ok
+retour Bo3 101-150                            18.3    17.2    -1.1    1.0  limite
+retour Bo5 1-1                                33.7    29.6    -4.1    2.3  ÉCART
+retour Bo5 2-5                                28.2    27.3    -0.9    1.1  ok
+retour Bo5 6-10                               25.4    26.0    +0.6    1.1  ok
 retour Bo5 11-20                              23.1    23.6    +0.5    1.0  ok
-retour Bo5 21-50                              21.0    19.4    -1.6    1.0  ÉCART
-retour Bo5 51-100                             18.2    17.1    -1.1    1.0  limite
-retour Bo5 101-150                            17.4    15.8    -1.6    1.0  ÉCART
+retour Bo5 21-50                              21.0    20.3    -0.7    1.0  ok
+retour Bo5 51-100                             18.2    17.7    -0.5    1.0  ok
+retour Bo5 101-150                            17.4    16.3    -1.1    1.0  limite
 
-pts_retour Bo3 1-1                            41.3    40.8    -0.5    0.7  ok
-pts_retour Bo3 2-5                            38.1    39.8    +1.7    0.5  ÉCART
-pts_retour Bo3 6-10                           36.8    38.4    +1.6    0.5  ÉCART
+pts_retour Bo3 1-1                            41.3    41.0    -0.3    0.7  ok
+pts_retour Bo3 2-5                            38.1    39.2    +1.1    0.5  ÉCART
+pts_retour Bo3 6-10                           36.8    39.1    +2.3    0.5  ÉCART
 pts_retour Bo3 11-20                          36.5    37.6    +1.1    0.5  ÉCART
-pts_retour Bo3 21-50                          35.6    36.2    +0.6    0.5  limite
-pts_retour Bo3 51-100                         35.3    35.4    +0.1    0.5  ok
-pts_retour Bo3 101-150                        35.0    34.5    -0.5    0.5  limite
+pts_retour Bo3 21-50                          35.6    36.3    +0.7    0.5  limite
+pts_retour Bo3 51-100                         35.3    35.5    +0.2    0.5  ok
+pts_retour Bo3 101-150                        35.0    34.6    -0.4    0.5  ok
 pts_retour Bo5 1-1                            42.8    41.0    -1.8    0.9  ÉCART
-pts_retour Bo5 2-5                            40.0    40.7    +0.7    0.5  limite
-pts_retour Bo5 6-10                           38.9    39.0    +0.1    0.5  ok
-pts_retour Bo5 11-20                          37.8    38.4    +0.6    0.5  limite
-pts_retour Bo5 21-50                          36.5    36.2    -0.3    0.5  ok
-pts_retour Bo5 51-100                         34.9    34.9     0.0    0.5  ok
-pts_retour Bo5 101-150                        34.4    34.1    -0.3    0.5  ok
+pts_retour Bo5 2-5                            40.0    40.1    +0.1    0.5  ok
+pts_retour Bo5 6-10                           38.9    39.5    +0.6    0.5  limite
+pts_retour Bo5 11-20                          37.8    38.1    +0.3    0.5  ok
+pts_retour Bo5 21-50                          36.5    36.4    -0.1    0.5  ok
+pts_retour Bo5 51-100                         34.9    35.0    +0.1    0.5  ok
+pts_retour Bo5 101-150                        34.4    34.0    -0.4    0.5  ok
 
-gagne Bo3 1-1                                 83.5    86.3    +2.8    4.4  ok
-gagne Bo3 2-5                                 72.9    79.9    +7.0    2.5  ÉCART
-gagne Bo3 6-10                                65.8    69.8    +4.0    2.4  ÉCART
-gagne Bo3 11-20                               61.4    64.4    +3.0    2.0  limite
-gagne Bo3 21-50                               50.6    52.3    +1.7    2.0  ok
-gagne Bo3 51-100                              45.0    44.7    -0.3    2.0  ok
-gagne Bo3 101-150                             41.8    36.5    -5.2    2.0  ÉCART
-gagne Bo5 1-1                                 92.8    90.4    -2.4    4.9  ok
-gagne Bo5 2-5                                 82.2    84.8    +2.6    4.0  ok
-gagne Bo5 6-10                                75.0    76.9    +1.9    4.5  ok
-gagne Bo5 11-20                               66.6    71.9    +5.3    3.9  limite
-gagne Bo5 21-50                               53.9    51.2    -2.7    2.8  ok
-gagne Bo5 51-100                              37.9    37.9     0.0    2.5  ok
-gagne Bo5 101-150                             33.9    31.1    -2.8    3.6  ok
+gagne Bo3 1-1                                 83.5    82.9    -0.6    4.4  ok
+gagne Bo3 2-5                                 72.9    77.1    +4.2    2.5  ÉCART
+gagne Bo3 6-10                                65.8    71.1    +5.3    2.4  ÉCART
+gagne Bo3 11-20                               61.4    62.9    +1.5    2.0  ok
+gagne Bo3 21-50                               50.6    52.1    +1.5    2.0  ok
+gagne Bo3 51-100                              45.0    45.2    +0.3    2.0  ok
+gagne Bo3 101-150                             41.8    38.4    -3.3    2.0  ÉCART
+gagne Bo5 1-1                                 92.8    88.7    -4.1    4.9  ok
+gagne Bo5 2-5                                 82.2    82.3    +0.1    4.0  ok
+gagne Bo5 6-10                                75.0    77.2    +2.2    4.5  ok
+gagne Bo5 11-20                               66.6    66.2    -0.4    3.9  ok
+gagne Bo5 21-50                               53.9    51.9    -2.0    2.8  ok
+gagne Bo5 51-100                              37.9    40.6    +2.7    2.5  limite
+gagne Bo5 101-150                             33.9    33.9     0.0    3.6  ok
 
-vict Bo3 0-5                                  55.1    53.8    -1.3    3.0  ok
-vict Bo3 6-10                                 58.8    55.3    -3.5    3.1  limite
-vict Bo3 11-20                                58.0    60.7    +2.7    2.3  limite
-vict Bo3 21-40                                63.0    62.4    -0.6    2.0  ok
-vict Bo3 41-80                                66.1    69.3    +3.2    2.0  ÉCART
-vict Bo3 81-160                               70.1    76.8    +6.7    2.2  ÉCART
-vict Bo3 161+                                 74.6    91.8   +17.2    2.7  ÉCART
-vict Bo5 0-5                                  53.9    48.3    -5.6    7.7  ok
-vict Bo5 6-10                                 55.6    55.8    +0.2    8.0  ok
-vict Bo5 11-20                                59.2    58.3    -0.9    5.7  ok
-vict Bo5 21-40                                69.8    64.8    -5.0    3.9  limite
-vict Bo5 41-80                                75.7    74.4    -1.3    3.1  ok
-vict Bo5 81-160                               75.9    80.9    +5.0    3.8  limite
-vict Bo5 161+                                 86.8    93.4    +6.6    4.4  ÉCART
+vict Bo3 0-5                                  55.1    52.4    -2.7    3.0  ok
+vict Bo3 6-10                                 58.8    54.7    -4.1    3.1  limite
+vict Bo3 11-20                                58.0    58.3    +0.3    2.3  ok
+vict Bo3 21-40                                63.0    61.9    -1.1    2.0  ok
+vict Bo3 41-80                                66.1    68.1    +2.0    2.0  limite
+vict Bo3 81-160                               70.1    74.4    +4.3    2.2  ÉCART
+vict Bo3 161+                                 74.6    88.9   +14.3    2.7  ÉCART
+vict Bo5 0-5                                  53.9    50.8    -3.1    7.7  ok
+vict Bo5 6-10                                 55.6    54.0    -1.6    8.0  ok
+vict Bo5 11-20                                59.2    60.8    +1.6    5.7  ok
+vict Bo5 21-40                                69.8    67.5    -2.3    3.9  ok
+vict Bo5 41-80                                75.7    68.5    -7.2    3.1  ÉCART
+vict Bo5 81-160                               75.9    79.9    +4.0    3.8  limite
+vict Bo5 161+                                 86.8    90.5    +3.7    4.4  ok
 
-hold_mieux Bo3 0-5                            82.7    81.8    -0.9    1.5  ok
-hold_mieux Bo3 6-10                           82.8    82.6    -0.2    1.5  ok
-hold_mieux Bo3 11-20                          82.5    83.1    +0.6    1.5  ok
-hold_mieux Bo3 21-40                          83.2    83.6    +0.4    1.5  ok
-hold_mieux Bo3 41-80                          84.0    84.7    +0.7    1.5  ok
-hold_mieux Bo3 81-160                         84.8    86.3    +1.5    1.5  ok
-hold_mieux Bo3 161+                           85.5    90.6    +5.1    1.5  ÉCART
+hold_mieux Bo3 0-5                            82.7    81.5    -1.2    1.5  ok
+hold_mieux Bo3 6-10                           82.8    81.8    -1.0    1.5  ok
+hold_mieux Bo3 11-20                          82.5    82.1    -0.4    1.5  ok
+hold_mieux Bo3 21-40                          83.2    83.1    -0.1    1.5  ok
+hold_mieux Bo3 41-80                          84.0    84.0     0.0    1.5  ok
+hold_mieux Bo3 81-160                         84.8    85.7    +0.9    1.5  ok
+hold_mieux Bo3 161+                           85.5    89.6    +4.1    1.5  ÉCART
 hold_mieux Bo5 0-5                            80.7    81.1    +0.4    1.5  ok
-hold_mieux Bo5 6-10                           81.1    82.1    +1.0    1.5  ok
-hold_mieux Bo5 11-20                          82.3    82.7    +0.4    1.5  ok
-hold_mieux Bo5 21-40                          83.2    83.6    +0.4    1.5  ok
-hold_mieux Bo5 41-80                          85.1    85.1     0.0    1.5  ok
-hold_mieux Bo5 81-160                         84.8    86.3    +1.5    1.5  limite
-hold_mieux Bo5 161+                           87.2    89.9    +2.7    1.5  ÉCART
+hold_mieux Bo5 6-10                           81.1    81.5    +0.4    1.5  ok
+hold_mieux Bo5 11-20                          82.3    82.2    -0.1    1.5  ok
+hold_mieux Bo5 21-40                          83.2    83.0    -0.2    1.5  ok
+hold_mieux Bo5 41-80                          85.1    83.7    -1.4    1.5  ok
+hold_mieux Bo5 81-160                         84.8    85.9    +1.1    1.5  ok
+hold_mieux Bo5 161+                           87.2    89.6    +2.4    1.5  ÉCART
 
-hold_moins Bo3 0-5                            79.9    80.6    +0.7    1.5  ok
-hold_moins Bo3 6-10                           78.8    80.3    +1.5    1.5  limite
-hold_moins Bo3 11-20                          78.9    79.4    +0.5    1.5  ok
-hold_moins Bo3 21-40                          77.4    78.8    +1.4    1.5  ok
-hold_moins Bo3 41-80                          76.6    77.1    +0.5    1.5  ok
-hold_moins Bo3 81-160                         76.1    75.4    -0.7    1.5  ok
-hold_moins Bo3 161+                           73.7    66.7    -7.0    1.5  ÉCART
-hold_moins Bo5 0-5                            78.8    80.5    +1.7    1.5  limite
-hold_moins Bo5 6-10                           79.9    80.3    +0.4    1.5  ok
-hold_moins Bo5 11-20                          77.9    79.7    +1.8    1.5  limite
-hold_moins Bo5 21-40                          75.2    78.3    +3.1    1.5  ÉCART
-hold_moins Bo5 41-80                          74.2    76.9    +2.7    1.5  ÉCART
-hold_moins Bo5 81-160                         72.8    74.3    +1.5    1.5  limite
-hold_moins Bo5 161+                           70.8    67.1    -3.7    1.5  ÉCART
+hold_moins Bo3 0-5                            79.9    80.1    +0.2    1.5  ok
+hold_moins Bo3 6-10                           78.8    80.0    +1.2    1.5  ok
+hold_moins Bo3 11-20                          78.9    78.8    -0.1    1.5  ok
+hold_moins Bo3 21-40                          77.4    78.1    +0.7    1.5  ok
+hold_moins Bo3 41-80                          76.6    76.7    +0.1    1.5  ok
+hold_moins Bo3 81-160                         76.1    74.9    -1.2    1.5  ok
+hold_moins Bo3 161+                           73.7    66.3    -7.4    1.5  ÉCART
+hold_moins Bo5 0-5                            78.8    81.2    +2.4    1.5  ÉCART
+hold_moins Bo5 6-10                           79.9    79.5    -0.4    1.5  ok
+hold_moins Bo5 11-20                          77.9    78.5    +0.6    1.5  ok
+hold_moins Bo5 21-40                          75.2    77.1    +1.9    1.5  limite
+hold_moins Bo5 41-80                          74.2    76.6    +2.4    1.5  ÉCART
+hold_moins Bo5 81-160                         72.8    74.1    +1.3    1.5  ok
+hold_moins Bo5 161+                           70.8    67.6    -3.2    1.5  ÉCART
 
-score Bo3 matchs_en_2_sets                    63.5    58.0    -5.5    2.0  ÉCART
-score Bo3 matchs_en_3_sets                    36.2    42.0    +5.8    2.0  ÉCART
-score Bo3 sets_au_tiebreak                    20.0    20.9    +0.9    2.0  ok
-score Bo5 matchs_en_3_sets                    45.9    37.6    -8.3    2.0  ÉCART
-score Bo5 matchs_en_4_sets                    34.0    34.4    +0.4    2.0  ok
-score Bo5 matchs_en_5_sets                    20.1    28.0    +7.9    2.0  ÉCART
-score Bo5 sets_au_tiebreak                    17.0    20.1    +3.1    2.0  ÉCART
+score Bo3 matchs_en_2_sets                    63.5    59.5    -4.0    2.0  ÉCART
+score Bo3 matchs_en_3_sets                    36.2    40.5    +4.3    2.0  ÉCART
+score Bo3 sets_au_tiebreak                    20.0    21.3    +1.3    2.0  ok
+score Bo5 matchs_en_3_sets                    45.9    40.0    -5.9    2.0  ÉCART
+score Bo5 matchs_en_4_sets                    34.0    34.3    +0.3    2.0  ok
+score Bo5 matchs_en_5_sets                    20.1    25.7    +5.6    2.0  ÉCART
+score Bo5 sets_au_tiebreak                    17.0    21.0    +4.0    2.0  ÉCART
 
-deux_sets Bo3 0-5                             61.7    50.6   -11.1    2.9  ÉCART
-deux_sets Bo3 6-10                            60.9    52.7    -8.2    3.0  ÉCART
-deux_sets Bo3 11-20                           63.5    54.0    -9.5    2.5  ÉCART
-deux_sets Bo3 21-40                           62.4    55.3    -7.1    2.5  ÉCART
-deux_sets Bo3 41-80                           64.6    56.1    -8.5    2.5  ÉCART
-deux_sets Bo3 81-160                          64.8    60.6    -4.2    2.5  ÉCART
-deux_sets Bo3 161+                            68.0    78.3   +10.3    2.9  ÉCART
+deux_sets Bo3 0-5                             61.7    55.9    -5.8    2.9  ÉCART
+deux_sets Bo3 6-10                            60.9    55.1    -5.8    3.0  ÉCART
+deux_sets Bo3 11-20                           63.5    55.0    -8.5    2.5  ÉCART
+deux_sets Bo3 21-40                           62.4    57.2    -5.2    2.5  ÉCART
+deux_sets Bo3 41-80                           64.6    58.7    -5.9    2.5  ÉCART
+deux_sets Bo3 81-160                          64.8    61.2    -3.6    2.5  limite
+deux_sets Bo3 161+                            68.0    75.7    +7.7    2.9  ÉCART
 
-meme12 Bo3 0-5                                61.8    50.6   -11.2    2.9  ÉCART
-meme12 Bo3 6-10                               61.1    52.7    -8.4    3.0  ÉCART
-meme12 Bo3 11-20                              63.8    54.0    -9.8    2.5  ÉCART
-meme12 Bo3 21-40                              62.6    55.3    -7.3    2.5  ÉCART
-meme12 Bo3 41-80                              64.7    56.1    -8.6    2.5  ÉCART
-meme12 Bo3 81-160                             64.8    60.6    -4.2    2.5  ÉCART
-meme12 Bo3 161+                               68.2    78.3   +10.1    2.9  ÉCART
+meme12 Bo3 0-5                                61.8    55.9    -5.9    2.9  ÉCART
+meme12 Bo3 6-10                               61.1    55.1    -6.0    3.0  ÉCART
+meme12 Bo3 11-20                              63.8    55.0    -8.8    2.5  ÉCART
+meme12 Bo3 21-40                              62.6    57.2    -5.4    2.5  ÉCART
+meme12 Bo3 41-80                              64.7    58.7    -6.0    2.5  ÉCART
+meme12 Bo3 81-160                             64.8    61.2    -3.6    2.5  limite
+meme12 Bo3 161+                               68.2    75.7    +7.5    2.9  ÉCART
 
-disp_moy Bo3 0-5                               1.9     1.0    -0.9    1.0  ok
+disp_moy Bo3 0-5                               1.9     0.9    -1.0    1.0  limite
 disp_moy Bo3 6-20                              2.8     2.1    -0.7    1.0  ok
-disp_moy Bo3 21-80                             4.7     4.3    -0.4    1.0  ok
-disp_moy Bo3 81+                               6.8    11.3    +4.5    1.0  ÉCART
-disp_moy Bo5 0-5                               1.3     0.2    -1.1    1.0  limite
-disp_moy Bo5 6-20                              2.5     1.7    -0.8    1.0  ok
-disp_moy Bo5 21-80                             6.9     4.8    -2.1    1.0  ÉCART
-disp_moy Bo5 81+                               9.0    10.7    +1.7    1.0  ÉCART
+disp_moy Bo3 21-80                             4.7     4.4    -0.3    1.0  ok
+disp_moy Bo3 81+                               6.8    11.2    +4.4    1.0  ÉCART
+disp_moy Bo5 0-5                               1.3    -0.0    -1.3    1.0  limite
+disp_moy Bo5 6-20                              2.5     2.1    -0.4    1.0  ok
+disp_moy Bo5 21-80                             6.9     4.6    -2.3    1.0  ÉCART
+disp_moy Bo5 81+                               9.0    10.6    +1.6    1.0  ÉCART
 
-disp_et Bo3 0-5                               12.9     9.8    -3.1    1.0  ÉCART
-disp_et Bo3 6-20                              13.0    10.2    -2.8    1.0  ÉCART
-disp_et Bo3 21-80                             13.2    10.3    -2.9    1.0  ÉCART
-disp_et Bo3 81+                               13.2    11.6    -1.6    1.0  ÉCART
-disp_et Bo5 0-5                               10.6     7.3    -3.3    1.0  ÉCART
-disp_et Bo5 6-20                              12.0     8.3    -3.7    1.0  ÉCART
-disp_et Bo5 21-80                             11.3     8.5    -2.8    1.0  ÉCART
-disp_et Bo5 81+                               11.1     9.7    -1.4    1.0  limite
+disp_et Bo3 0-5                               12.9    10.9    -2.0    1.0  ÉCART
+disp_et Bo3 6-20                              13.0    10.9    -2.1    1.0  ÉCART
+disp_et Bo3 21-80                             13.2    11.2    -2.0    1.0  ÉCART
+disp_et Bo3 81+                               13.2    12.6    -0.6    1.0  ok
+disp_et Bo5 0-5                               10.6     9.2    -1.4    1.0  limite
+disp_et Bo5 6-20                              12.0     9.4    -2.6    1.0  ÉCART
+disp_et Bo5 21-80                             11.3     9.6    -1.7    1.0  ÉCART
+disp_et Bo5 81+                               11.1    10.4    -0.7    1.0  ok
 
-chi2 ajusté (hold, pts, vict) = 1053 ; chi2 contrôles (sets, tie-breaks, dépendance) = 1368
-Statuts : 107 ok, 29 limite, 60 écart
+chi2 ajusté (hold, pts, vict) = 733 ; chi2 contrôles (sets, tie-breaks, dépendance) = 815
+Statuts : 118 ok, 26 limite, 52 écart
 
-######## TERRE — 101484 matchs, 17340024 points en 1.3 s (graine 1)
+######## TERRE — 101484 matchs, 17043359 points en 1.4 s (graine 1)
 
 mesure                                         ATP     sim   écart   tol.  statut
 moyen points_gagnes_1re                       69.2    68.1    -1.1    1.0  limite
-moyen points_gagnes_2e                        50.8    50.2    -0.6    1.0  ok
-moyen hold                                    76.7    76.2    -0.5    1.0  ok
+moyen points_gagnes_2e                        50.8    50.3    -0.5    1.0  ok
+moyen hold                                    76.7    75.8    -0.9    1.0  ok
 moyen points_gagnes_service                   62.2    61.4    -0.8    1.0  ok
 moyen premieres_balles                        62.4    62.4     0.0    1.0  ok
-moyen aces_par_point_service                   5.5     5.5     0.0    1.0  ok
-moyen doubles_fautes_par_point_service         3.4     3.6    +0.2    1.0  ok
-moyen balles_de_break_sauvees                 60.2    60.9    +0.7    1.0  ok
+moyen aces_par_point_service                   5.5     6.1    +0.6    1.0  ok
+moyen doubles_fautes_par_point_service         3.4     3.5    +0.1    1.0  ok
+moyen balles_de_break_sauvees                 60.2    60.1    -0.1    1.0  ok
 
-mcp part_1-3                                  54.4    54.7    +0.4    1.0  ok
-mcp serveur_1-3                               73.8    74.4    +0.6    1.0  ok
-mcp gagnants_1-3                              25.3    25.0    -0.3    1.0  ok
-mcp provoquees_1-3                            39.0    38.5    -0.5    1.0  ok
-mcp directes_1-3                              29.7    30.1    +0.4    1.0  ok
-mcp points_gagnes_1re                         68.8    68.2    -0.5    1.0  ok
+mcp part_1-3                                  54.4    55.3    +0.9    1.0  ok
+mcp serveur_1-3                               73.8    74.2    +0.4    1.0  ok
+mcp gagnants_1-3                              25.3    25.5    +0.1    1.0  ok
+mcp provoquees_1-3                            39.0    38.3    -0.7    1.0  ok
+mcp directes_1-3                              29.7    30.0    +0.3    1.0  ok
+mcp points_gagnes_1re                         68.8    68.2    -0.6    1.0  ok
 mcp points_gagnes_2e                          50.3    50.4    +0.1    1.0  ok
-mcp part_4-6                                  23.5    23.3    -0.2    1.0  ok
-mcp serveur_4-6                               39.3    36.0    -3.2    1.0  ÉCART
-mcp gagnants_4-6                              35.3    34.9    -0.4    1.0  ok
-mcp provoquees_4-6                            22.6    23.4    +0.9    1.0  ok
-mcp directes_4-6                              42.0    41.6    -0.4    1.0  ok
-mcp part_7-9                                  11.8    11.5    -0.2    1.0  ok
-mcp serveur_7-9                               68.5    67.9    -0.6    1.0  ok
-mcp gagnants_7-9                              37.5    35.8    -1.8    1.0  ÉCART
-mcp provoquees_7-9                            23.1    24.9    +1.8    1.0  ÉCART
+mcp part_4-6                                  23.5    22.8    -0.7    1.0  ok
+mcp serveur_4-6                               39.3    35.9    -3.4    1.0  ÉCART
+mcp gagnants_4-6                              35.3    35.1    -0.2    1.0  ok
+mcp provoquees_4-6                            22.6    23.1    +0.6    1.0  ok
+mcp directes_4-6                              42.0    41.8    -0.3    1.0  ok
+mcp part_7-9                                  11.8    11.3    -0.4    1.0  ok
+mcp serveur_7-9                               68.5    67.9    -0.7    1.0  ok
+mcp gagnants_7-9                              37.5    36.0    -1.5    1.0  ÉCART
+mcp provoquees_7-9                            23.1    24.6    +1.6    1.0  ÉCART
 mcp directes_7-9                              39.3    39.3     0.0    1.0  ok
-mcp part_10+                                  10.4    10.5    +0.1    1.0  ok
-mcp serveur_10+                               43.7    43.9    +0.2    1.0  ok
-mcp gagnants_10+                              38.5    35.7    -2.9    1.0  ÉCART
-mcp provoquees_10+                            23.5    24.6    +1.1    1.0  limite
-mcp directes_10+                              37.9    39.8    +1.8    1.0  ÉCART
-mcp gagnants_total                            30.5    29.7    -0.8    1.0  ok
-mcp provoquees_total                          31.6    31.9    +0.3    1.0  ok
-mcp directes_total                            34.6    34.9    +0.3    1.0  ok
+mcp part_10+                                  10.4    10.6    +0.2    1.0  ok
+mcp serveur_10+                               43.7    44.0    +0.3    1.0  ok
+mcp gagnants_10+                              38.5    35.9    -2.7    1.0  ÉCART
+mcp provoquees_10+                            23.5    24.2    +0.7    1.0  ok
+mcp directes_10+                              37.9    39.9    +2.0    1.0  ÉCART
+mcp gagnants_total                            30.5    30.0    -0.5    1.0  ok
+mcp provoquees_total                          31.6    31.8    +0.2    1.0  ok
+mcp directes_total                            34.6    34.8    +0.2    1.0  ok
 mcp gagnants_hors_service                     34.3    33.7    -0.6    1.0  ok
-mcp provoquees_hors_service                   23.8    23.5    -0.3    1.0  ok
-mcp directes_hors_service                     41.8    42.8    +1.0    1.0  ok
-mcp premiere_ace                               8.3     8.5    +0.3    1.0  ok
-mcp premiere_gagnant                          21.3    22.8    +1.5    1.0  limite
-mcp seconde_ace                                0.6     0.6    +0.1    1.0  ok
-mcp seconde_gagnant                           13.2    13.8    +0.6    1.0  ok
-mcp seconde_double_faute                       8.7     9.4    +0.6    1.0  ok
-mcp aces                                       5.4     5.6    +0.2    1.0  ok
-mcp doubles_fautes                             3.2     3.5    +0.3    1.0  ok
-mcp premieres_balles                          62.9    62.4    -0.5    1.0  ok
+mcp provoquees_hors_service                   23.8    23.4    -0.4    1.0  ok
+mcp directes_hors_service                     41.8    42.9    +1.1    1.0  limite
+mcp premiere_ace                               8.3     9.2    +1.0    1.0  ok
+mcp premiere_gagnant                          21.3    22.9    +1.5    1.0  ÉCART
+mcp seconde_ace                                0.6     0.8    +0.2    1.0  ok
+mcp seconde_gagnant                           13.2    14.0    +0.8    1.0  ok
+mcp seconde_double_faute                       8.7     9.2    +0.5    1.0  ok
+mcp aces                                       5.4     6.1    +0.6    1.0  ok
+mcp doubles_fautes                             3.2     3.5    +0.2    1.0  ok
+mcp premieres_balles                          62.9    62.4    -0.4    1.0  ok
 mcp points_gagnes_service                     61.9    61.5    -0.4    1.0  ok
 
-hold Bo3 1-1                                  81.2    85.7    +4.5    2.3  ÉCART
-hold Bo3 2-5                                  83.2    84.1    +0.9    1.0  ok
-hold Bo3 6-10                                 82.0    81.2    -0.8    1.0  ok
-hold Bo3 11-20                                78.8    80.2    +1.4    1.0  limite
-hold Bo3 21-50                                77.0    77.5    +0.5    1.0  ok
-hold Bo3 51-100                               75.7    76.1    +0.4    1.0  ok
-hold Bo3 101-150                              75.0    74.2    -0.8    1.0  ok
-hold Bo5 1-1                                  85.9    85.8    -0.1    2.1  ok
-hold Bo5 2-5                                  83.8    84.1    +0.3    1.3  ok
-hold Bo5 6-10                                 83.7    81.1    -2.6    1.3  ÉCART
-hold Bo5 11-20                                78.9    80.8    +1.9    1.2  ÉCART
-hold Bo5 21-50                                76.1    77.1    +1.0    1.0  limite
-hold Bo5 51-100                               73.1    74.3    +1.2    1.0  limite
-hold Bo5 101-150                              71.0    71.7    +0.7    1.2  ok
+hold Bo3 1-1                                  81.2    84.9    +3.7    2.3  ÉCART
+hold Bo3 2-5                                  83.2    84.2    +1.0    1.0  limite
+hold Bo3 6-10                                 82.0    81.0    -1.0    1.0  limite
+hold Bo3 11-20                                78.8    79.3    +0.5    1.0  ok
+hold Bo3 21-50                                77.0    77.1    +0.1    1.0  ok
+hold Bo3 51-100                               75.7    75.5    -0.2    1.0  ok
+hold Bo3 101-150                              75.0    74.1    -0.9    1.0  ok
+hold Bo5 1-1                                  85.9    85.7    -0.2    2.1  ok
+hold Bo5 2-5                                  83.8    83.5    -0.3    1.3  ok
+hold Bo5 6-10                                 83.7    81.0    -2.7    1.3  ÉCART
+hold Bo5 11-20                                78.9    79.3    +0.4    1.2  ok
+hold Bo5 21-50                                76.1    76.6    +0.5    1.0  ok
+hold Bo5 51-100                               73.1    74.0    +0.9    1.0  ok
+hold Bo5 101-150                              71.0    71.5    +0.5    1.2  ok
 
-pts Bo3 1-1                                   64.8    66.8    +2.0    1.1  ÉCART
-pts Bo3 2-5                                   66.0    65.8    -0.2    0.5  ok
-pts Bo3 6-10                                  65.1    64.0    -1.1    0.5  ÉCART
-pts Bo3 11-20                                 63.3    63.5    +0.2    0.5  ok
-pts Bo3 21-50                                 62.3    62.0    -0.3    0.5  ok
-pts Bo3 51-100                                61.7    61.3    -0.4    0.5  ok
-pts Bo3 101-150                               61.4    60.4    -1.0    0.5  ÉCART
-pts Bo5 1-1                                   67.4    66.8    -0.6    1.2  ok
-pts Bo5 2-5                                   66.3    65.8    -0.5    0.7  ok
-pts Bo5 6-10                                  66.2    63.9    -2.3    0.6  ÉCART
-pts Bo5 11-20                                 63.4    63.8    +0.4    0.5  ok
+pts Bo3 1-1                                   64.8    66.4    +1.6    1.1  limite
+pts Bo3 2-5                                   66.0    66.2    +0.2    0.5  ok
+pts Bo3 6-10                                  65.1    64.2    -0.9    0.5  ÉCART
+pts Bo3 11-20                                 63.3    63.3     0.0    0.5  ok
+pts Bo3 21-50                                 62.3    62.1    -0.2    0.5  ok
+pts Bo3 51-100                                61.7    61.2    -0.5    0.5  ok
+pts Bo3 101-150                               61.4    60.5    -0.9    0.5  ÉCART
+pts Bo5 1-1                                   67.4    67.1    -0.3    1.2  ok
+pts Bo5 2-5                                   66.3    65.7    -0.6    0.7  ok
+pts Bo5 6-10                                  66.2    64.4    -1.8    0.6  ÉCART
+pts Bo5 11-20                                 63.4    63.4     0.0    0.5  ok
 pts Bo5 21-50                                 62.0    61.9    -0.1    0.5  ok
-pts Bo5 51-100                                60.5    60.4    -0.1    0.5  ok
-pts Bo5 101-150                               59.4    59.2    -0.2    0.5  ok
+pts Bo5 51-100                                60.5    60.5     0.0    0.5  ok
+pts Bo5 101-150                               59.4    59.3    -0.1    0.5  ok
 
-retour Bo3 1-1                                34.7    35.1    +0.4    2.8  ok
-retour Bo3 2-5                                30.8    32.0    +1.2    1.2  limite
-retour Bo3 6-10                               26.9    29.5    +2.6    1.1  ÉCART
-retour Bo3 11-20                              25.7    26.9    +1.2    1.0  limite
-retour Bo3 21-50                              23.9    24.5    +0.6    1.0  ok
-retour Bo3 51-100                             23.3    23.0    -0.3    1.0  ok
-retour Bo3 101-150                            21.8    21.3    -0.5    1.0  ok
-retour Bo5 1-1                                38.1    34.4    -3.7    3.0  limite
-retour Bo5 2-5                                32.6    32.1    -0.5    1.6  ok
-retour Bo5 6-10                               29.3    29.5    +0.2    1.6  ok
-retour Bo5 11-20                              28.8    28.1    -0.7    1.3  ok
-retour Bo5 21-50                              24.6    23.8    -0.8    1.0  ok
-retour Bo5 51-100                             21.2    21.4    +0.2    1.0  ok
-retour Bo5 101-150                            20.3    19.3    -1.0    1.1  ok
+retour Bo3 1-1                                34.7    35.5    +0.8    2.8  ok
+retour Bo3 2-5                                30.8    32.5    +1.7    1.2  limite
+retour Bo3 6-10                               26.9    31.7    +4.8    1.1  ÉCART
+retour Bo3 11-20                              25.7    27.2    +1.5    1.0  ÉCART
+retour Bo3 21-50                              23.9    25.3    +1.4    1.0  limite
+retour Bo3 51-100                             23.3    23.5    +0.2    1.0  ok
+retour Bo3 101-150                            21.8    21.6    -0.2    1.0  ok
+retour Bo5 1-1                                38.1    35.5    -2.6    3.0  ok
+retour Bo5 2-5                                32.6    32.6     0.0    1.6  ok
+retour Bo5 6-10                               29.3    31.4    +2.1    1.6  limite
+retour Bo5 11-20                              28.8    28.7    -0.1    1.3  ok
+retour Bo5 21-50                              24.6    24.3    -0.3    1.0  ok
+retour Bo5 51-100                             21.2    22.0    +0.8    1.0  ok
+retour Bo5 101-150                            20.3    19.5    -0.8    1.1  ok
 
-pts_retour Bo3 1-1                            43.7    43.7     0.0    1.1  ok
-pts_retour Bo3 2-5                            41.5    42.5    +1.0    0.5  ÉCART
-pts_retour Bo3 6-10                           39.6    41.2    +1.6    0.5  ÉCART
-pts_retour Bo3 11-20                          38.9    40.2    +1.3    0.5  ÉCART
-pts_retour Bo3 21-50                          38.1    38.9    +0.8    0.5  ÉCART
+pts_retour Bo3 1-1                            43.7    43.9    +0.2    1.1  ok
+pts_retour Bo3 2-5                            41.5    42.6    +1.1    0.5  ÉCART
+pts_retour Bo3 6-10                           39.6    42.1    +2.5    0.5  ÉCART
+pts_retour Bo3 11-20                          38.9    40.1    +1.2    0.5  ÉCART
+pts_retour Bo3 21-50                          38.1    39.2    +1.1    0.5  ÉCART
 pts_retour Bo3 51-100                         37.8    38.2    +0.4    0.5  ok
-pts_retour Bo3 101-150                        37.2    37.4    +0.2    0.5  ok
-pts_retour Bo5 1-1                            44.9    43.6    -1.3    1.2  limite
+pts_retour Bo3 101-150                        37.2    37.3    +0.1    0.5  ok
+pts_retour Bo5 1-1                            44.9    43.9    -1.0    1.2  ok
 pts_retour Bo5 2-5                            42.4    42.5    +0.1    0.7  ok
-pts_retour Bo5 6-10                           40.9    41.3    +0.4    0.7  ok
-pts_retour Bo5 11-20                          40.4    40.8    +0.4    0.5  ok
-pts_retour Bo5 21-50                          38.4    38.6    +0.2    0.5  ok
-pts_retour Bo5 51-100                         36.7    37.4    +0.7    0.5  limite
-pts_retour Bo5 101-150                        36.1    36.2    +0.1    0.5  ok
+pts_retour Bo5 6-10                           40.9    41.9    +1.0    0.7  limite
+pts_retour Bo5 11-20                          40.4    40.7    +0.3    0.5  ok
+pts_retour Bo5 21-50                          38.4    38.7    +0.3    0.5  ok
+pts_retour Bo5 51-100                         36.7    37.5    +0.8    0.5  ÉCART
+pts_retour Bo5 101-150                        36.1    36.1     0.0    0.5  ok
 
-gagne Bo3 1-1                                 79.8    88.3    +8.5    7.7  limite
-gagne Bo3 2-5                                 76.8    83.0    +6.1    3.7  ÉCART
-gagne Bo3 6-10                                68.9    71.5    +2.5    3.8  ok
-gagne Bo3 11-20                               60.9    65.5    +4.6    2.9  ÉCART
-gagne Bo3 21-50                               51.2    54.6    +3.4    2.0  ÉCART
-gagne Bo3 51-100                              47.6    47.5    -0.2    2.0  ok
-gagne Bo3 101-150                             43.4    39.8    -3.7    2.3  ÉCART
-gagne Bo5 1-1                                 89.7    87.7    -2.0    7.4  ok
-gagne Bo5 2-5                                 84.4    84.5    +0.1    5.1  ok
-gagne Bo5 6-10                                76.8    73.5    -3.4    5.9  ok
-gagne Bo5 11-20                               65.5    72.1    +6.6    5.7  limite
-gagne Bo5 21-50                               51.9    52.5    +0.6    4.0  ok
-gagne Bo5 51-100                              38.0    38.8    +0.8    3.5  ok
-gagne Bo5 101-150                             31.1    27.4    -3.7    5.1  ok
+gagne Bo3 1-1                                 79.8    86.4    +6.6    7.7  ok
+gagne Bo3 2-5                                 76.8    82.8    +5.9    3.7  ÉCART
+gagne Bo3 6-10                                68.9    75.4    +6.5    3.8  ÉCART
+gagne Bo3 11-20                               60.9    63.9    +3.0    2.9  limite
+gagne Bo3 21-50                               51.2    55.3    +4.1    2.0  ÉCART
+gagne Bo3 51-100                              47.6    47.2    -0.4    2.0  ok
+gagne Bo3 101-150                             43.4    40.5    -3.0    2.3  limite
+gagne Bo5 1-1                                 89.7    90.5    +0.8    7.4  ok
+gagne Bo5 2-5                                 84.4    82.4    -2.1    5.1  ok
+gagne Bo5 6-10                                76.8    77.2    +0.3    5.9  ok
+gagne Bo5 11-20                               65.5    68.7    +3.2    5.7  ok
+gagne Bo5 21-50                               51.9    53.4    +1.4    4.0  ok
+gagne Bo5 51-100                              38.0    40.6    +2.6    3.5  ok
+gagne Bo5 101-150                             31.1    28.9    -2.2    5.1  ok
 
-vict Bo3 0-5                                  55.4    54.1    -1.3    4.5  ok
-vict Bo3 6-10                                 56.5    57.0    +0.5    4.5  ok
-vict Bo3 11-20                                58.1    57.7    -0.4    3.2  ok
-vict Bo3 21-40                                60.3    62.2    +1.9    2.4  ok
-vict Bo3 41-80                                62.3    67.9    +5.6    2.3  ÉCART
-vict Bo3 81-160                               68.4    76.5    +8.1    3.0  ÉCART
-vict Bo3 161+                                 75.1    90.5   +15.4    3.5  ÉCART
+vict Bo3 0-5                                  55.4    53.7    -1.7    4.5  ok
+vict Bo3 6-10                                 56.5    56.4    -0.1    4.5  ok
+vict Bo3 11-20                                58.1    59.4    +1.3    3.2  ok
+vict Bo3 21-40                                60.3    62.3    +2.0    2.4  ok
+vict Bo3 41-80                                62.3    68.2    +5.9    2.3  ÉCART
+vict Bo3 81-160                               68.4    75.9    +7.5    3.0  ÉCART
+vict Bo3 161+                                 75.1    89.8   +14.7    3.5  ÉCART
 vict Bo5 0-5                                  54.0    52.0    -2.0   10.7  ok
-vict Bo5 6-10                                 61.0    61.3    +0.3   10.8  ok
-vict Bo5 11-20                                64.2    61.1    -3.1    8.3  ok
-vict Bo5 21-40                                64.8    66.3    +1.5    5.8  ok
-vict Bo5 41-80                                78.1    75.6    -2.5    4.2  ok
-vict Bo5 81-160                               78.7    84.4    +5.7    4.9  limite
-vict Bo5 161+                                 83.8    94.7   +10.9    7.2  ÉCART
+vict Bo5 6-10                                 61.0    59.4    -1.6   10.8  ok
+vict Bo5 11-20                                64.2    62.9    -1.3    8.3  ok
+vict Bo5 21-40                                64.8    67.4    +2.6    5.8  ok
+vict Bo5 41-80                                78.1    76.0    -2.1    4.2  ok
+vict Bo5 81-160                               78.7    82.7    +4.0    4.9  ok
+vict Bo5 161+                                 83.8    92.4    +8.6    7.2  limite
 
-hold_mieux Bo3 0-5                            77.6    77.4    -0.2    1.5  ok
-hold_mieux Bo3 6-10                           78.4    78.1    -0.3    1.5  ok
-hold_mieux Bo3 11-20                          78.4    78.3    -0.1    1.5  ok
-hold_mieux Bo3 21-40                          79.0    79.2    +0.2    1.5  ok
-hold_mieux Bo3 41-80                          79.6    80.4    +0.8    1.5  ok
-hold_mieux Bo3 81-160                         80.5    82.1    +1.6    1.5  limite
-hold_mieux Bo3 161+                           81.9    86.8    +4.9    1.5  ÉCART
-hold_mieux Bo5 0-5                            77.4    77.5    +0.1    2.1  ok
-hold_mieux Bo5 6-10                           80.0    79.3    -0.7    2.1  ok
+hold_mieux Bo3 0-5                            77.6    76.8    -0.8    1.5  ok
+hold_mieux Bo3 6-10                           78.4    77.8    -0.6    1.5  ok
+hold_mieux Bo3 11-20                          78.4    78.4     0.0    1.5  ok
+hold_mieux Bo3 21-40                          79.0    78.9    -0.1    1.5  ok
+hold_mieux Bo3 41-80                          79.6    80.2    +0.6    1.5  ok
+hold_mieux Bo3 81-160                         80.5    81.9    +1.4    1.5  ok
+hold_mieux Bo3 161+                           81.9    86.5    +4.6    1.5  ÉCART
+hold_mieux Bo5 0-5                            77.4    77.0    -0.4    2.1  ok
+hold_mieux Bo5 6-10                           80.0    77.9    -2.1    2.1  limite
 hold_mieux Bo5 11-20                          78.6    78.7    +0.1    1.7  ok
-hold_mieux Bo5 21-40                          78.5    79.4    +0.9    1.5  ok
-hold_mieux Bo5 41-80                          82.6    81.0    -1.6    1.5  limite
-hold_mieux Bo5 81-160                         82.7    83.4    +0.7    1.5  ok
-hold_mieux Bo5 161+                           83.8    86.8    +3.0    1.8  ÉCART
+hold_mieux Bo5 21-40                          78.5    79.2    +0.7    1.5  ok
+hold_mieux Bo5 41-80                          82.6    80.8    -1.8    1.5  limite
+hold_mieux Bo5 81-160                         82.7    83.1    +0.4    1.5  ok
+hold_mieux Bo5 161+                           83.8    86.5    +2.7    1.8  ÉCART
 
-hold_moins Bo3 0-5                            75.4    76.1    +0.7    1.5  ok
-hold_moins Bo3 6-10                           75.3    75.5    +0.2    1.5  ok
-hold_moins Bo3 11-20                          75.1    75.2    +0.1    1.5  ok
-hold_moins Bo3 21-40                          74.2    74.0    -0.2    1.5  ok
-hold_moins Bo3 41-80                          73.3    72.7    -0.6    1.5  ok
-hold_moins Bo3 81-160                         71.1    70.0    -1.1    1.5  ok
-hold_moins Bo3 161+                           69.2    62.8    -6.4    1.5  ÉCART
-hold_moins Bo5 0-5                            73.4    76.5    +3.1    2.2  limite
-hold_moins Bo5 6-10                           75.8    75.8     0.0    2.2  ok
-hold_moins Bo5 11-20                          72.7    74.7    +2.0    1.8  limite
-hold_moins Bo5 21-40                          71.9    73.6    +1.7    1.5  limite
-hold_moins Bo5 41-80                          69.5    71.5    +2.0    1.5  limite
-hold_moins Bo5 81-160                         67.4    68.8    +1.4    1.5  ok
-hold_moins Bo5 161+                           67.5    61.6    -5.9    2.3  ÉCART
+hold_moins Bo3 0-5                            75.4    75.4     0.0    1.5  ok
+hold_moins Bo3 6-10                           75.3    75.0    -0.3    1.5  ok
+hold_moins Bo3 11-20                          75.1    74.2    -0.9    1.5  ok
+hold_moins Bo3 21-40                          74.2    73.4    -0.8    1.5  ok
+hold_moins Bo3 41-80                          73.3    72.0    -1.3    1.5  ok
+hold_moins Bo3 81-160                         71.1    69.8    -1.3    1.5  ok
+hold_moins Bo3 161+                           69.2    61.4    -7.8    1.5  ÉCART
+hold_moins Bo5 0-5                            73.4    75.8    +2.4    2.2  limite
+hold_moins Bo5 6-10                           75.8    74.4    -1.4    2.2  ok
+hold_moins Bo5 11-20                          72.7    74.0    +1.3    1.8  ok
+hold_moins Bo5 21-40                          71.9    72.3    +0.4    1.5  ok
+hold_moins Bo5 41-80                          69.5    71.0    +1.5    1.5  ok
+hold_moins Bo5 81-160                         67.4    68.7    +1.3    1.5  ok
+hold_moins Bo5 161+                           67.5    61.2    -6.3    2.3  ÉCART
 
-score Bo3 matchs_en_2_sets                    62.4    57.1    -5.3    2.0  ÉCART
-score Bo3 matchs_en_3_sets                    37.6    42.9    +5.3    2.0  ÉCART
-score Bo3 sets_au_tiebreak                    16.3    17.3    +1.0    2.0  ok
-score Bo5 matchs_en_3_sets                    49.9    39.6   -10.3    2.7  ÉCART
-score Bo5 matchs_en_4_sets                    31.7    33.7    +2.0    2.5  ok
-score Bo5 matchs_en_5_sets                    18.4    26.7    +8.3    2.1  ÉCART
-score Bo5 sets_au_tiebreak                    14.2    16.8    +2.6    2.0  limite
+score Bo3 matchs_en_2_sets                    62.4    59.5    -2.9    2.0  limite
+score Bo3 matchs_en_3_sets                    37.6    40.5    +2.9    2.0  limite
+score Bo3 sets_au_tiebreak                    16.3    17.7    +1.4    2.0  ok
+score Bo5 matchs_en_3_sets                    49.9    42.1    -7.8    2.7  ÉCART
+score Bo5 matchs_en_4_sets                    31.7    33.5    +1.8    2.5  ok
+score Bo5 matchs_en_5_sets                    18.4    24.4    +6.0    2.1  ÉCART
+score Bo5 sets_au_tiebreak                    14.2    17.4    +3.2    2.0  ÉCART
 
-deux_sets Bo3 0-5                             63.6    52.1   -11.5    4.4  ÉCART
-deux_sets Bo3 6-10                            60.5    53.7    -6.8    4.5  ÉCART
-deux_sets Bo3 11-20                           61.2    53.7    -7.5    3.2  ÉCART
-deux_sets Bo3 21-40                           61.0    54.0    -7.0    2.5  ÉCART
-deux_sets Bo3 41-80                           63.7    55.3    -8.4    2.5  ÉCART
-deux_sets Bo3 81-160                          61.3    60.0    -1.3    3.2  ok
-deux_sets Bo3 161+                            65.7    75.1    +9.4    3.8  ÉCART
+deux_sets Bo3 0-5                             63.6    54.5    -9.1    4.4  ÉCART
+deux_sets Bo3 6-10                            60.5    54.9    -5.6    4.5  limite
+deux_sets Bo3 11-20                           61.2    56.0    -5.2    3.2  ÉCART
+deux_sets Bo3 21-40                           61.0    55.9    -5.1    2.5  ÉCART
+deux_sets Bo3 41-80                           63.7    58.7    -5.0    2.5  ÉCART
+deux_sets Bo3 81-160                          61.3    61.7    +0.4    3.2  ok
+deux_sets Bo3 161+                            65.7    77.4   +11.7    3.8  ÉCART
 
-meme12 Bo3 0-5                                63.6    52.1   -11.5    4.4  ÉCART
-meme12 Bo3 6-10                               60.5    53.7    -6.8    4.5  ÉCART
-meme12 Bo3 11-20                              61.2    53.7    -7.5    3.2  ÉCART
-meme12 Bo3 21-40                              61.0    54.0    -7.0    2.5  ÉCART
-meme12 Bo3 41-80                              63.7    55.3    -8.4    2.5  ÉCART
-meme12 Bo3 81-160                             61.3    60.0    -1.3    3.2  ok
-meme12 Bo3 161+                               65.7    75.1    +9.4    3.8  ÉCART
+meme12 Bo3 0-5                                63.6    54.5    -9.1    4.4  ÉCART
+meme12 Bo3 6-10                               60.5    54.9    -5.6    4.5  limite
+meme12 Bo3 11-20                              61.2    56.0    -5.2    3.2  ÉCART
+meme12 Bo3 21-40                              61.0    55.9    -5.1    2.5  ÉCART
+meme12 Bo3 41-80                              63.7    58.7    -5.0    2.5  ÉCART
+meme12 Bo3 81-160                             61.3    61.7    +0.4    3.2  ok
+meme12 Bo3 161+                               65.7    77.4   +11.7    3.8  ÉCART
 
-disp_moy Bo3 0-5                               1.6     0.8    -0.8    1.0  ok
-disp_moy Bo3 6-20                              2.2     1.9    -0.3    1.0  ok
-disp_moy Bo3 21-80                             3.7     4.1    +0.4    1.0  ok
-disp_moy Bo3 81+                               6.9    10.6    +3.7    1.0  ÉCART
-disp_moy Bo5 0-5                               2.7     1.0    -1.7    1.0  ÉCART
-disp_moy Bo5 6-20                              3.7     2.4    -1.3    1.0  limite
-disp_moy Bo5 21-80                             6.3     5.0    -1.3    1.0  limite
-disp_moy Bo5 81+                              10.0    10.8    +0.8    1.0  ok
+disp_moy Bo3 0-5                               1.6     0.9    -0.7    1.0  ok
+disp_moy Bo3 6-20                              2.2     2.4    +0.2    1.0  ok
+disp_moy Bo3 21-80                             3.7     4.4    +0.7    1.0  ok
+disp_moy Bo3 81+                               6.9    11.0    +4.1    1.0  ÉCART
+disp_moy Bo5 0-5                               2.7     0.8    -1.9    1.0  ÉCART
+disp_moy Bo5 6-20                              3.7     2.9    -0.8    1.0  ok
+disp_moy Bo5 21-80                             6.3     5.5    -0.8    1.0  ok
+disp_moy Bo5 81+                              10.0    11.0    +1.0    1.0  ok
 
-disp_et Bo3 0-5                               13.6    10.1    -3.5    1.0  ÉCART
-disp_et Bo3 6-20                              13.4    10.6    -2.8    1.0  ÉCART
-disp_et Bo3 21-80                             13.1    10.5    -2.6    1.0  ÉCART
-disp_et Bo3 81+                               12.8    11.5    -1.3    1.0  limite
-disp_et Bo5 0-5                               12.0     8.3    -3.7    1.0  ÉCART
-disp_et Bo5 6-20                              12.6     8.5    -4.1    1.0  ÉCART
-disp_et Bo5 21-80                             12.0     8.8    -3.2    1.0  ÉCART
-disp_et Bo5 81+                               11.5     9.7    -1.8    1.0  ÉCART
+disp_et Bo3 0-5                               13.6    11.0    -2.6    1.0  ÉCART
+disp_et Bo3 6-20                              13.4    11.1    -2.3    1.0  ÉCART
+disp_et Bo3 21-80                             13.1    11.3    -1.8    1.0  ÉCART
+disp_et Bo3 81+                               12.8    12.5    -0.3    1.0  ok
+disp_et Bo5 0-5                               12.0     9.0    -3.0    1.0  ÉCART
+disp_et Bo5 6-20                              12.6     9.5    -3.1    1.0  ÉCART
+disp_et Bo5 21-80                             12.0     9.4    -2.6    1.0  ÉCART
+disp_et Bo5 81+                               11.5    10.7    -0.8    1.0  ok
 
-chi2 ajusté (hold, pts, vict) = 546 ; chi2 contrôles (sets, tie-breaks, dépendance) = 634
-Statuts : 116 ok, 24 limite, 54 écart
+chi2 ajusté (hold, pts, vict) = 421 ; chi2 contrôles (sets, tie-breaks, dépendance) = 399
+Statuts : 126 ok, 19 limite, 49 écart
 
-######## GAZON — 101512 matchs, 19628688 points en 1.4 s (graine 1)
+######## GAZON — 101512 matchs, 19444198 points en 1.4 s (graine 1)
 
 mesure                                         ATP     sim   écart   tol.  statut
-moyen points_gagnes_1re                       74.5    73.3    -1.2    1.0  limite
-moyen points_gagnes_2e                        52.4    51.8    -0.6    1.0  ok
-moyen hold                                    83.9    83.2    -0.7    1.0  ok
-moyen points_gagnes_service                   66.3    65.3    -1.0    1.0  ok
-moyen premieres_balles                        62.8    62.8     0.0    1.0  ok
-moyen aces_par_point_service                   9.9     9.8    -0.1    1.0  ok
-moyen doubles_fautes_par_point_service         3.8     4.0    +0.2    1.0  ok
-moyen balles_de_break_sauvees                 64.1    64.7    +0.6    1.0  ok
+moyen points_gagnes_1re                       74.5    73.7    -0.8    1.0  ok
+moyen points_gagnes_2e                        52.4    52.1    -0.3    1.0  ok
+moyen hold                                    83.9    83.0    -0.9    1.0  ok
+moyen points_gagnes_service                   66.3    65.7    -0.6    1.0  ok
+moyen premieres_balles                        62.8    62.9    +0.1    1.0  ok
+moyen aces_par_point_service                   9.9    10.4    +0.5    1.0  ok
+moyen doubles_fautes_par_point_service         3.8     3.9    +0.1    1.0  ok
+moyen balles_de_break_sauvees                 64.1    63.6    -0.5    1.0  ok
 
-mcp part_1-3                                  65.6    62.4    -3.2    1.0  ÉCART
-mcp serveur_1-3                               77.3    77.4    +0.1    1.0  ok
-mcp gagnants_1-3                              29.0    29.4    +0.4    1.0  ok
-mcp provoquees_1-3                            42.1    41.1    -0.9    1.0  ok
-mcp directes_1-3                              23.4    23.1    -0.3    1.0  ok
-mcp points_gagnes_1re                         75.1    73.6    -1.5    1.0  ÉCART
-mcp points_gagnes_2e                          52.7    52.2    -0.5    1.0  ok
-mcp part_4-6                                  20.9    19.7    -1.2    1.0  limite
-mcp serveur_4-6                               39.8    36.4    -3.4    1.0  ÉCART
-mcp gagnants_4-6                              40.1    35.1    -5.1    1.0  ÉCART
-mcp provoquees_4-6                            24.8    25.6    +0.8    1.0  ok
-mcp directes_4-6                              35.0    39.4    +4.4    1.0  ÉCART
-mcp part_7-9                                   7.9     9.6    +1.7    1.0  ÉCART
-mcp serveur_7-9                               70.0    68.0    -2.0    1.1  ÉCART
-mcp gagnants_7-9                              39.3    35.9    -3.4    1.2  ÉCART
-mcp provoquees_7-9                            23.8    26.9    +3.0    1.0  ÉCART
-mcp directes_7-9                              36.8    37.2    +0.4    1.2  ok
-mcp part_10+                                   5.6     8.3    +2.8    1.0  ÉCART
-mcp serveur_10+                               42.6    43.7    +1.1    1.4  ok
-mcp gagnants_10+                              37.4    35.7    -1.7    1.4  limite
-mcp provoquees_10+                            26.2    26.5    +0.3    1.3  ok
-mcp directes_10+                              36.2    37.8    +1.6    1.4  limite
-mcp gagnants_total                            32.6    31.7    -0.9    1.0  ok
-mcp provoquees_total                          36.1    35.5    -0.6    1.0  ok
-mcp directes_total                            27.6    28.9    +1.3    1.0  limite
-mcp gagnants_hors_service                     35.5    35.4    -0.1    1.0  ok
-mcp provoquees_hors_service                   27.0    25.2    -1.8    1.0  ÉCART
-mcp directes_hors_service                     37.4    39.4    +2.1    1.0  ÉCART
-mcp premiere_ace                              15.8    15.4    -0.4    1.0  ok
-mcp premiere_gagnant                          26.9    28.1    +1.2    1.0  limite
-mcp seconde_ace                                1.2     0.7    -0.6    1.0  ok
-mcp seconde_gagnant                           18.1    18.8    +0.7    1.0  ok
-mcp seconde_double_faute                       9.8    10.6    +0.8    1.0  ok
-mcp aces                                      10.5     9.9    -0.6    1.0  ok
-mcp doubles_fautes                             3.6     3.9    +0.4    1.0  ok
-mcp premieres_balles                          63.7    62.8    -0.9    1.0  ok
-mcp points_gagnes_service                     66.9    65.6    -1.3    1.0  limite
+mcp part_1-3                                  65.6    62.9    -2.7    1.0  ÉCART
+mcp serveur_1-3                               77.3    77.6    +0.3    1.0  ok
+mcp gagnants_1-3                              29.0    30.3    +1.3    1.0  limite
+mcp provoquees_1-3                            42.1    41.3    -0.8    1.0  ok
+mcp directes_1-3                              23.4    22.3    -1.2    1.0  limite
+mcp points_gagnes_1re                         75.1    73.9    -1.1    1.0  limite
+mcp points_gagnes_2e                          52.7    52.3    -0.3    1.0  ok
+mcp part_4-6                                  20.9    19.3    -1.6    1.0  ÉCART
+mcp serveur_4-6                               39.8    36.5    -3.3    1.0  ÉCART
+mcp gagnants_4-6                              40.1    36.0    -4.1    1.0  ÉCART
+mcp provoquees_4-6                            24.8    26.3    +1.6    1.0  ÉCART
+mcp directes_4-6                              35.0    37.6    +2.7    1.0  ÉCART
+mcp part_7-9                                   7.9     9.4    +1.5    1.0  ÉCART
+mcp serveur_7-9                               70.0    68.1    -1.9    1.1  ÉCART
+mcp gagnants_7-9                              39.3    36.9    -2.4    1.2  ÉCART
+mcp provoquees_7-9                            23.8    27.3    +3.5    1.0  ÉCART
+mcp directes_7-9                              36.8    35.9    -0.9    1.2  ok
+mcp part_10+                                   5.6     8.4    +2.8    1.0  ÉCART
+mcp serveur_10+                               42.6    43.8    +1.3    1.4  ok
+mcp gagnants_10+                              37.4    36.6    -0.8    1.4  ok
+mcp provoquees_10+                            26.2    26.9    +0.6    1.3  ok
+mcp directes_10+                              36.2    36.5    +0.3    1.4  ok
+mcp gagnants_total                            32.6    32.6     0.0    1.0  ok
+mcp provoquees_total                          36.1    35.9    -0.3    1.0  ok
+mcp directes_total                            27.6    27.7    +0.1    1.0  ok
+mcp gagnants_hors_service                     35.5    36.1    +0.6    1.0  ok
+mcp provoquees_hors_service                   27.0    26.4    -0.6    1.0  ok
+mcp directes_hors_service                     37.4    37.6    +0.2    1.0  ok
+mcp premiere_ace                              15.8    16.1    +0.3    1.0  ok
+mcp premiere_gagnant                          26.9    27.5    +0.6    1.0  ok
+mcp seconde_ace                                1.2     0.8    -0.4    1.0  ok
+mcp seconde_gagnant                           18.1    18.9    +0.8    1.0  ok
+mcp seconde_double_faute                       9.8    10.4    +0.6    1.0  ok
+mcp aces                                      10.5    10.4    -0.1    1.0  ok
+mcp doubles_fautes                             3.6     3.9    +0.3    1.0  ok
+mcp premieres_balles                          63.7    62.9    -0.9    1.0  ok
+mcp points_gagnes_service                     66.9    65.9    -1.0    1.0  limite
 
-hold Bo3 1-1                                  91.2    92.7    +1.5    3.7  ok
-hold Bo3 2-5                                  90.2    91.1    +0.9    1.7  ok
-hold Bo3 6-10                                 90.2    89.1    -1.1    1.4  ok
-hold Bo3 11-20                                86.9    87.1    +0.2    1.1  ok
-hold Bo3 21-50                                85.3    84.5    -0.8    1.0  ok
-hold Bo3 51-100                               82.8    83.2    +0.4    1.0  ok
-hold Bo3 101-150                              81.0    81.9    +0.9    1.2  ok
-hold Bo5 1-1                                  91.2    91.0    -0.2    1.9  ok
-hold Bo5 2-5                                  90.2    90.3    +0.1    1.1  ok
-hold Bo5 6-10                                 88.6    88.2    -0.4    1.1  ok
-hold Bo5 11-20                                86.9    87.0    +0.1    1.0  ok
-hold Bo5 21-50                                84.3    84.2    -0.1    1.0  ok
-hold Bo5 51-100                               79.8    82.0    +2.2    1.0  ÉCART
-hold Bo5 101-150                              79.3    80.0    +0.7    1.1  ok
+hold Bo3 1-1                                  91.2    92.0    +0.8    3.7  ok
+hold Bo3 2-5                                  90.2    90.5    +0.3    1.7  ok
+hold Bo3 6-10                                 90.2    88.2    -2.0    1.4  limite
+hold Bo3 11-20                                86.9    86.3    -0.6    1.1  ok
+hold Bo3 21-50                                85.3    83.9    -1.4    1.0  limite
+hold Bo3 51-100                               82.8    82.9    +0.1    1.0  ok
+hold Bo3 101-150                              81.0    82.2    +1.2    1.2  limite
+hold Bo5 1-1                                  91.2    91.5    +0.3    1.9  ok
+hold Bo5 2-5                                  90.2    89.8    -0.4    1.1  ok
+hold Bo5 6-10                                 88.6    87.4    -1.2    1.1  limite
+hold Bo5 11-20                                86.9    86.6    -0.3    1.0  ok
+hold Bo5 21-50                                84.3    83.8    -0.5    1.0  ok
+hold Bo5 51-100                               79.8    81.6    +1.8    1.0  ÉCART
+hold Bo5 101-150                              79.3    80.3    +1.0    1.1  ok
 
-pts Bo3 1-1                                   70.2    72.8    +2.6    2.4  limite
-pts Bo3 2-5                                   70.1    70.9    +0.8    1.0  ok
-pts Bo3 6-10                                  70.3    69.1    -1.2    0.9  limite
+pts Bo3 1-1                                   70.2    72.6    +2.4    2.4  limite
+pts Bo3 2-5                                   70.1    71.1    +1.0    1.0  ok
+pts Bo3 6-10                                  70.3    69.3    -1.0    0.9  limite
 pts Bo3 11-20                                 68.2    67.8    -0.4    0.6  ok
-pts Bo3 21-50                                 67.0    66.1    -0.9    0.5  ÉCART
-pts Bo3 51-100                                65.4    65.3    -0.1    0.5  ok
-pts Bo3 101-150                               64.6    64.6     0.0    0.6  ok
-pts Bo5 1-1                                   70.7    71.2    +0.5    1.2  ok
-pts Bo5 2-5                                   71.2    70.4    -0.8    0.7  limite
-pts Bo5 6-10                                  69.6    68.7    -0.9    0.7  limite
-pts Bo5 11-20                                 68.6    67.8    -0.8    0.6  limite
-pts Bo5 21-50                                 66.5    66.0    -0.5    0.5  limite
-pts Bo5 51-100                                63.9    64.6    +0.7    0.5  limite
-pts Bo5 101-150                               63.5    63.4    -0.1    0.5  ok
+pts Bo3 21-50                                 67.0    66.3    -0.7    0.5  limite
+pts Bo3 51-100                                65.4    65.6    +0.2    0.5  ok
+pts Bo3 101-150                               64.6    65.1    +0.5    0.6  ok
+pts Bo5 1-1                                   70.7    71.9    +1.2    1.2  ok
+pts Bo5 2-5                                   71.2    70.5    -0.7    0.7  limite
+pts Bo5 6-10                                  69.6    68.8    -0.8    0.7  limite
+pts Bo5 11-20                                 68.6    68.1    -0.5    0.6  ok
+pts Bo5 21-50                                 66.5    66.2    -0.3    0.5  ok
+pts Bo5 51-100                                63.9    64.9    +1.0    0.5  ÉCART
+pts Bo5 101-150                               63.5    64.1    +0.6    0.5  limite
 
-retour Bo3 1-1                                15.1    29.0   +13.9    4.7  ÉCART
-retour Bo3 2-5                                19.7    27.0    +7.3    2.2  ÉCART
-retour Bo3 6-10                               16.3    22.0    +5.7    1.7  ÉCART
-retour Bo3 11-20                              16.0    20.2    +4.2    1.2  ÉCART
-retour Bo3 21-50                              16.0    16.9    +0.9    1.0  ok
-retour Bo3 51-100                             15.8    15.6    -0.2    1.0  ok
-retour Bo3 101-150                            16.7    14.6    -2.1    1.1  ÉCART
-retour Bo5 1-1                                26.8    28.4    +1.6    3.0  ok
-retour Bo5 2-5                                22.8    25.0    +2.2    1.6  limite
-retour Bo5 6-10                               20.0    22.5    +2.5    1.5  ÉCART
-retour Bo5 11-20                              19.8    20.2    +0.4    1.2  ok
-retour Bo5 21-50                              17.6    17.0    -0.6    1.0  ok
-retour Bo5 51-100                             15.7    14.6    -1.1    1.0  limite
-retour Bo5 101-150                            15.1    12.9    -2.2    1.0  ÉCART
+retour Bo3 1-1                                15.1    26.7   +11.6    4.7  ÉCART
+retour Bo3 2-5                                19.7    25.2    +5.5    2.2  ÉCART
+retour Bo3 6-10                               16.3    23.5    +7.2    1.7  ÉCART
+retour Bo3 11-20                              16.0    20.0    +4.0    1.2  ÉCART
+retour Bo3 21-50                              16.0    17.6    +1.6    1.0  ÉCART
+retour Bo3 51-100                             15.8    16.1    +0.3    1.0  ok
+retour Bo3 101-150                            16.7    15.2    -1.5    1.1  limite
+retour Bo5 1-1                                26.8    27.2    +0.4    3.0  ok
+retour Bo5 2-5                                22.8    23.6    +0.8    1.6  ok
+retour Bo5 6-10                               20.0    23.6    +3.6    1.5  ÉCART
+retour Bo5 11-20                              19.8    19.6    -0.2    1.2  ok
+retour Bo5 21-50                              17.6    17.1    -0.5    1.0  ok
+retour Bo5 51-100                             15.7    15.2    -0.5    1.0  ok
+retour Bo5 101-150                            15.1    13.3    -1.8    1.0  ÉCART
 
-pts_retour Bo3 1-1                            35.5    41.2    +5.7    2.4  ÉCART
-pts_retour Bo3 2-5                            35.8    40.2    +4.4    1.1  ÉCART
-pts_retour Bo3 6-10                           34.2    37.7    +3.5    0.9  ÉCART
-pts_retour Bo3 11-20                          33.8    36.7    +2.9    0.6  ÉCART
-pts_retour Bo3 21-50                          33.6    34.8    +1.2    0.5  ÉCART
-pts_retour Bo3 51-100                         33.7    34.0    +0.3    0.5  ok
-pts_retour Bo3 101-150                        33.9    33.3    -0.6    0.6  limite
-pts_retour Bo5 1-1                            40.0    40.7    +0.7    1.3  ok
-pts_retour Bo5 2-5                            37.7    39.3    +1.6    0.7  ÉCART
-pts_retour Bo5 6-10                           36.2    37.8    +1.6    0.7  ÉCART
-pts_retour Bo5 11-20                          35.6    36.6    +1.0    0.6  ÉCART
-pts_retour Bo5 21-50                          34.6    34.7    +0.1    0.5  ok
-pts_retour Bo5 51-100                         33.1    33.3    +0.2    0.5  ok
-pts_retour Bo5 101-150                        33.3    32.2    -1.1    0.5  ÉCART
+pts_retour Bo3 1-1                            35.5    39.6    +4.1    2.4  ÉCART
+pts_retour Bo3 2-5                            35.8    38.8    +3.0    1.1  ÉCART
+pts_retour Bo3 6-10                           34.2    38.0    +3.8    0.9  ÉCART
+pts_retour Bo3 11-20                          33.8    36.1    +2.3    0.6  ÉCART
+pts_retour Bo3 21-50                          33.6    34.6    +1.0    0.5  ÉCART
+pts_retour Bo3 51-100                         33.7    33.8    +0.1    0.5  ok
+pts_retour Bo3 101-150                        33.9    33.1    -0.8    0.6  limite
+pts_retour Bo5 1-1                            40.0    39.9    -0.1    1.3  ok
+pts_retour Bo5 2-5                            37.7    38.0    +0.3    0.7  ok
+pts_retour Bo5 6-10                           36.2    37.9    +1.7    0.7  ÉCART
+pts_retour Bo5 11-20                          35.6    35.8    +0.2    0.6  ok
+pts_retour Bo5 21-50                          34.6    34.4    -0.2    0.5  ok
+pts_retour Bo5 51-100                         33.1    33.2    +0.1    0.5  ok
+pts_retour Bo5 101-150                        33.3    31.9    -1.4    0.5  ÉCART
 
-gagne Bo3 1-1                                 75.0    94.6   +19.6   19.4  limite
-gagne Bo3 2-5                                 76.4    88.3   +11.9    8.2  limite
-gagne Bo3 6-10                                67.7    78.5   +10.8    7.5  limite
-gagne Bo3 11-20                               59.3    68.9    +9.5    5.7  ÉCART
-gagne Bo3 21-50                               54.0    53.5    -0.5    3.0  ok
-gagne Bo3 51-100                              44.6    46.3    +1.8    2.9  ok
-gagne Bo3 101-150                             43.7    40.1    -3.5    5.1  ok
-gagne Bo5 1-1                                 92.5    91.2    -1.2    7.3  ok
-gagne Bo5 2-5                                 80.9    86.5    +5.6    6.4  ok
-gagne Bo5 6-10                                74.2    78.5    +4.2    6.9  ok
-gagne Bo5 11-20                               65.7    70.0    +4.2    6.1  ok
-gagne Bo5 21-50                               54.8    53.7    -1.1    4.1  ok
-gagne Bo5 51-100                              38.7    39.4    +0.7    3.6  ok
-gagne Bo5 101-150                             37.3    29.1    -8.2    5.6  limite
+gagne Bo3 1-1                                 75.0    90.4   +15.4   19.4  ok
+gagne Bo3 2-5                                 76.4    84.3    +7.9    8.2  ok
+gagne Bo3 6-10                                67.7    76.7    +9.0    7.5  limite
+gagne Bo3 11-20                               59.3    64.7    +5.4    5.7  ok
+gagne Bo3 21-50                               54.0    53.5    -0.4    3.0  ok
+gagne Bo3 51-100                              44.6    47.2    +2.6    2.9  ok
+gagne Bo3 101-150                             43.7    42.5    -1.1    5.1  ok
+gagne Bo5 1-1                                 92.5    89.7    -2.8    7.3  ok
+gagne Bo5 2-5                                 80.9    81.6    +0.7    6.4  ok
+gagne Bo5 6-10                                74.2    78.4    +4.2    6.9  ok
+gagne Bo5 11-20                               65.7    66.5    +0.8    6.1  ok
+gagne Bo5 21-50                               54.8    52.9    -1.9    4.1  ok
+gagne Bo5 51-100                              38.7    41.1    +2.4    3.6  ok
+gagne Bo5 101-150                             37.3    32.1    -5.2    5.6  ok
 
-vict Bo3 0-5                                  43.1    50.2    +7.1    9.5  ok
-vict Bo3 6-10                                 60.0    56.4    -3.6    9.1  ok
-vict Bo3 11-20                                54.4    58.4    +4.0    6.2  ok
-vict Bo3 21-40                                60.2    63.0    +2.8    4.7  ok
-vict Bo3 41-80                                65.7    69.5    +3.8    4.6  ok
-vict Bo3 81-160                               65.0    76.4   +11.4    6.0  ÉCART
-vict Bo3 161+                                 64.9    90.8   +25.9    6.7  ÉCART
-vict Bo5 0-5                                  58.4    52.4    -6.0   11.2  ok
-vict Bo5 6-10                                 59.8    56.9    -2.9   10.8  ok
-vict Bo5 11-20                                62.5    60.5    -2.0    8.6  ok
-vict Bo5 21-40                                63.6    67.0    +3.4    6.1  ok
-vict Bo5 41-80                                75.6    74.1    -1.5    4.6  ok
-vict Bo5 81-160                               80.6    85.1    +4.5    5.2  ok
-vict Bo5 161+                                 82.4    94.9   +12.5    7.3  ÉCART
+vict Bo3 0-5                                  43.1    51.8    +8.7    9.5  ok
+vict Bo3 6-10                                 60.0    54.2    -5.8    9.1  ok
+vict Bo3 11-20                                54.4    56.0    +1.6    6.2  ok
+vict Bo3 21-40                                60.2    61.6    +1.4    4.7  ok
+vict Bo3 41-80                                65.7    66.8    +1.1    4.6  ok
+vict Bo3 81-160                               65.0    72.2    +7.2    6.0  limite
+vict Bo3 161+                                 64.9    87.2   +22.3    6.7  ÉCART
+vict Bo5 0-5                                  58.4    52.2    -6.2   11.2  ok
+vict Bo5 6-10                                 59.8    57.8    -2.0   10.8  ok
+vict Bo5 11-20                                62.5    61.1    -1.4    8.6  ok
+vict Bo5 21-40                                63.6    64.8    +1.2    6.1  ok
+vict Bo5 41-80                                75.6    70.3    -5.3    4.6  limite
+vict Bo5 81-160                               80.6    78.6    -2.0    5.2  ok
+vict Bo5 161+                                 82.4    91.9    +9.5    7.3  limite
 
-hold_mieux Bo3 0-5                            83.9    84.4    +0.5    2.0  ok
-hold_mieux Bo3 6-10                           85.0    85.2    +0.2    2.0  ok
-hold_mieux Bo3 11-20                          85.3    85.6    +0.3    1.5  ok
-hold_mieux Bo3 21-40                          86.9    86.1    -0.8    1.5  ok
-hold_mieux Bo3 41-80                          86.1    87.3    +1.2    1.5  ok
-hold_mieux Bo3 81-160                         86.7    88.4    +1.7    1.5  limite
-hold_mieux Bo3 161+                           86.5    92.0    +5.5    1.5  ÉCART
-hold_mieux Bo5 0-5                            85.7    84.7    -1.0    1.8  ok
-hold_mieux Bo5 6-10                           84.0    85.0    +1.0    1.8  ok
-hold_mieux Bo5 11-20                          86.7    85.5    -1.2    1.5  ok
-hold_mieux Bo5 21-40                          85.4    86.5    +1.1    1.5  ok
-hold_mieux Bo5 41-80                          87.3    87.6    +0.3    1.5  ok
-hold_mieux Bo5 81-160                         88.5    89.4    +0.9    1.5  ok
-hold_mieux Bo5 161+                           88.5    92.5    +4.0    1.5  ÉCART
+hold_mieux Bo3 0-5                            83.9    84.0    +0.1    2.0  ok
+hold_mieux Bo3 6-10                           85.0    84.3    -0.7    2.0  ok
+hold_mieux Bo3 11-20                          85.3    84.9    -0.4    1.5  ok
+hold_mieux Bo3 21-40                          86.9    85.5    -1.4    1.5  ok
+hold_mieux Bo3 41-80                          86.1    86.7    +0.6    1.5  ok
+hold_mieux Bo3 81-160                         86.7    87.9    +1.2    1.5  ok
+hold_mieux Bo3 161+                           86.5    91.3    +4.8    1.5  ÉCART
+hold_mieux Bo5 0-5                            85.7    84.9    -0.8    1.8  ok
+hold_mieux Bo5 6-10                           84.0    84.8    +0.8    1.8  ok
+hold_mieux Bo5 11-20                          86.7    85.2    -1.5    1.5  limite
+hold_mieux Bo5 21-40                          85.4    86.3    +0.9    1.5  ok
+hold_mieux Bo5 41-80                          87.3    87.2    -0.1    1.5  ok
+hold_mieux Bo5 81-160                         88.5    88.7    +0.2    1.5  ok
+hold_mieux Bo5 161+                           88.5    91.4    +2.9    1.5  ÉCART
 
-hold_moins Bo3 0-5                            85.0    83.6    -1.4    1.9  ok
-hold_moins Bo3 6-10                           82.5    83.0    +0.5    2.1  ok
-hold_moins Bo3 11-20                          84.2    82.5    -1.7    1.5  limite
-hold_moins Bo3 21-40                          82.3    81.6    -0.7    1.5  ok
-hold_moins Bo3 41-80                          81.6    80.1    -1.5    1.5  limite
-hold_moins Bo3 81-160                         80.2    78.4    -1.8    1.5  limite
-hold_moins Bo3 161+                           79.4    70.4    -9.0    1.7  ÉCART
-hold_moins Bo5 0-5                            84.1    83.8    -0.3    1.8  ok
-hold_moins Bo5 6-10                           81.2    83.2    +2.0    2.0  limite
-hold_moins Bo5 11-20                          81.1    82.3    +1.2    1.6  ok
+hold_moins Bo3 0-5                            85.0    83.4    -1.6    1.9  ok
+hold_moins Bo3 6-10                           82.5    82.6    +0.1    2.1  ok
+hold_moins Bo3 11-20                          84.2    82.3    -1.9    1.5  limite
+hold_moins Bo3 21-40                          82.3    80.9    -1.4    1.5  ok
+hold_moins Bo3 41-80                          81.6    80.0    -1.6    1.5  limite
+hold_moins Bo3 81-160                         80.2    79.3    -0.9    1.5  ok
+hold_moins Bo3 161+                           79.4    70.9    -8.5    1.7  ÉCART
+hold_moins Bo5 0-5                            84.1    83.4    -0.7    1.8  ok
+hold_moins Bo5 6-10                           81.2    82.7    +1.5    2.0  ok
+hold_moins Bo5 11-20                          81.1    82.1    +1.0    1.6  ok
 hold_moins Bo5 21-40                          80.2    81.1    +0.9    1.5  ok
-hold_moins Bo5 41-80                          78.0    79.7    +1.7    1.5  limite
-hold_moins Bo5 81-160                         76.2    77.0    +0.8    1.5  ok
-hold_moins Bo5 161+                           74.2    68.9    -5.3    2.0  ÉCART
+hold_moins Bo5 41-80                          78.0    79.9    +1.9    1.5  limite
+hold_moins Bo5 81-160                         76.2    78.4    +2.2    1.5  limite
+hold_moins Bo5 161+                           74.2    70.2    -4.0    2.0  ÉCART
 
-score Bo3 matchs_en_2_sets                    62.0    59.1    -2.9    2.3  limite
-score Bo3 matchs_en_3_sets                    38.0    40.9    +2.9    2.3  limite
-score Bo3 sets_au_tiebreak                    24.7    23.4    -1.3    2.0  ok
-score Bo5 matchs_en_3_sets                    46.9    39.0    -7.9    2.9  ÉCART
-score Bo5 matchs_en_4_sets                    32.4    34.3    +1.9    2.7  ok
-score Bo5 matchs_en_5_sets                    20.7    26.6    +5.9    2.3  ÉCART
-score Bo5 sets_au_tiebreak                    19.6    23.4    +3.8    2.0  ÉCART
+score Bo3 matchs_en_2_sets                    62.0    60.3    -1.7    2.3  ok
+score Bo3 matchs_en_3_sets                    38.0    39.7    +1.7    2.3  ok
+score Bo3 sets_au_tiebreak                    24.7    25.4    +0.7    2.0  ok
+score Bo5 matchs_en_3_sets                    46.9    40.7    -6.2    2.9  ÉCART
+score Bo5 matchs_en_4_sets                    32.4    33.9    +1.5    2.7  ok
+score Bo5 matchs_en_5_sets                    20.7    25.4    +4.7    2.3  ÉCART
+score Bo5 sets_au_tiebreak                    19.6    26.1    +6.5    2.0  ÉCART
 
-deux_sets Bo3 0-5                             56.9    52.3    -4.6    9.5  ok
-deux_sets Bo3 6-10                            67.8    52.7   -15.1    8.7  ÉCART
-deux_sets Bo3 11-20                           59.0    54.6    -4.4    6.1  ok
-deux_sets Bo3 21-40                           60.6    56.3    -4.3    4.6  ok
-deux_sets Bo3 41-80                           61.9    57.2    -4.7    4.7  ok
-deux_sets Bo3 81-160                          59.9    59.5    -0.4    6.1  ok
-deux_sets Bo3 161+                            70.7    76.5    +5.8    6.4  ok
+deux_sets Bo3 0-5                             56.9    53.3    -3.6    9.5  ok
+deux_sets Bo3 6-10                            67.8    57.1   -10.7    8.7  limite
+deux_sets Bo3 11-20                           59.0    58.3    -0.7    6.1  ok
+deux_sets Bo3 21-40                           60.6    56.9    -3.7    4.6  ok
+deux_sets Bo3 41-80                           61.9    58.1    -3.8    4.7  ok
+deux_sets Bo3 81-160                          59.9    60.2    +0.3    6.1  ok
+deux_sets Bo3 161+                            70.7    75.9    +5.2    6.4  ok
 
-meme12 Bo3 0-5                                56.9    52.3    -4.6    9.5  ok
-meme12 Bo3 6-10                               67.8    52.7   -15.1    8.7  ÉCART
-meme12 Bo3 11-20                              59.0    54.6    -4.4    6.1  ok
-meme12 Bo3 21-40                              60.6    56.3    -4.3    4.6  ok
-meme12 Bo3 41-80                              61.9    57.2    -4.7    4.7  ok
-meme12 Bo3 81-160                             59.9    59.5    -0.4    6.1  ok
-meme12 Bo3 161+                               70.7    76.5    +5.8    6.4  ok
+meme12 Bo3 0-5                                56.9    53.3    -3.6    9.5  ok
+meme12 Bo3 6-10                               67.8    57.1   -10.7    8.7  limite
+meme12 Bo3 11-20                              59.0    58.3    -0.7    6.1  ok
+meme12 Bo3 21-40                              60.6    56.9    -3.7    4.6  ok
+meme12 Bo3 41-80                              61.9    58.1    -3.8    4.7  ok
+meme12 Bo3 81-160                             59.9    60.2    +0.3    6.1  ok
+meme12 Bo3 161+                               70.7    75.9    +5.2    6.4  ok
 
-disp_moy Bo3 0-5                              -1.6     0.3    +1.9    1.0  ÉCART
-disp_moy Bo3 6-20                              1.3     2.1    +0.8    1.0  ok
-disp_moy Bo3 21-80                             3.6     4.4    +0.8    1.0  ok
-disp_moy Bo3 81+                               4.7    11.5    +6.8    1.0  ÉCART
-disp_moy Bo5 0-5                               1.0     0.7    -0.3    1.0  ok
+disp_moy Bo3 0-5                              -1.6     0.5    +2.1    1.0  ÉCART
+disp_moy Bo3 6-20                              1.3     1.7    +0.4    1.0  ok
+disp_moy Bo3 21-80                             3.6     4.3    +0.7    1.0  ok
+disp_moy Bo3 81+                               4.7    10.8    +6.1    1.0  ÉCART
+disp_moy Bo5 0-5                               1.0     0.9    -0.1    1.0  ok
 disp_moy Bo5 6-20                              3.9     2.2    -1.7    1.0  ÉCART
-disp_moy Bo5 21-80                             6.1     5.2    -0.9    1.0  ok
-disp_moy Bo5 81+                               9.5    11.6    +2.1    1.0  ÉCART
+disp_moy Bo5 21-80                             6.1     4.9    -1.2    1.0  limite
+disp_moy Bo5 81+                               9.5    10.6    +1.1    1.0  limite
 
-disp_et Bo3 0-5                               11.2     9.7    -1.5    1.0  ÉCART
-disp_et Bo3 6-20                              12.8    10.0    -2.8    1.0  ÉCART
-disp_et Bo3 21-80                             12.5    10.2    -2.3    1.0  ÉCART
-disp_et Bo3 81+                               12.8    11.6    -1.2    1.0  limite
-disp_et Bo5 0-5                                9.2     7.8    -1.4    1.0  limite
-disp_et Bo5 6-20                              11.5     8.2    -3.3    1.0  ÉCART
-disp_et Bo5 21-80                             11.1     8.7    -2.4    1.0  ÉCART
-disp_et Bo5 81+                               11.7    10.0    -1.7    1.0  ÉCART
+disp_et Bo3 0-5                               11.2    10.9    -0.3    1.0  ok
+disp_et Bo3 6-20                              12.8    11.0    -1.8    1.0  ÉCART
+disp_et Bo3 21-80                             12.5    11.2    -1.3    1.0  limite
+disp_et Bo3 81+                               12.8    12.7    -0.1    1.0  ok
+disp_et Bo5 0-5                                9.2     9.0    -0.2    1.0  ok
+disp_et Bo5 6-20                              11.5     9.2    -2.3    1.0  ÉCART
+disp_et Bo5 21-80                             11.1     9.8    -1.3    1.0  limite
+disp_et Bo5 81+                               11.7    11.0    -0.7    1.0  ok
 
-chi2 ajusté (hold, pts, vict) = 387 ; chi2 contrôles (sets, tie-breaks, dépendance) = 158
-Statuts : 110 ok, 31 limite, 53 écart
+chi2 ajusté (hold, pts, vict) = 296 ; chi2 contrôles (sets, tie-breaks, dépendance) = 169
+Statuts : 123 ok, 31 limite, 40 écart
 

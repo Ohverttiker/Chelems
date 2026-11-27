@@ -45,6 +45,17 @@ if (args.FirstOrDefault() == "echanges")
                                      : Path.Combine(racine, "objectifs_equilibrage", Objectifs.Nom(surf), "echanges_mcp.csv"));
     return;
 }
+if (args.FirstOrDefault() == "efficacite-joueurs")
+{
+    string surf = args.Length > 1 ? args[1] : "Hard";
+    int anMin = args.Length > 2 ? int.Parse(args[2], CultureInfo.InvariantCulture) : 2015;
+    int anMax = args.Length > 3 ? int.Parse(args[3], CultureInfo.InvariantCulture) : 2025;
+    int ptsMin = args.Length > 4 ? int.Parse(args[4], CultureInfo.InvariantCulture) : 1500;
+    EfficaciteJoueurs.Executer(Path.Combine(racine, "tennis_MatchChartingProject-master"), Path.Combine(racine, "tennis_atp-master"), surf, anMin, anMax, ptsMin,
+                               surf == "Hard" ? Path.Combine(racine, "objectifs_equilibrage", "efficacite_joueurs.csv")
+                                              : Path.Combine(racine, "objectifs_equilibrage", Objectifs.Nom(surf), "efficacite_joueurs.csv"));
+    return;
+}
 if (args.FirstOrDefault() == "surfaces")
 {
     int depuis = args.Length > 1 && int.TryParse(args[1], out int d) ? d : 2015;
